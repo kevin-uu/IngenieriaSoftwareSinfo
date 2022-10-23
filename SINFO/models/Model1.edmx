@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="sinfoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="comunidad">
+          <Key>
+            <PropertyRef Name="idcomunidad" />
+          </Key>
+          <Property Name="idcomunidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombrecomunidad" Type="varchar" MaxLength="1000" />
+          <Property Name="idmunicipio2" Type="int" />
+        </EntityType>
+        <EntityType Name="estrategia">
+          <Key>
+            <PropertyRef Name="idestrategia" />
+          </Key>
+          <Property Name="idestrategia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreestrategia" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="institucion">
+          <Key>
+            <PropertyRef Name="idinstitucion" />
+          </Key>
+          <Property Name="idinstitucion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreinstitucion" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="municipios">
+          <Key>
+            <PropertyRef Name="idmunicipio" />
+          </Key>
+          <Property Name="idmunicipio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombremunicipio" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="seguimiento">
+          <Key>
+            <PropertyRef Name="idsegimiento" />
+          </Key>
+          <Property Name="idsegimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="idmunicipio1" Type="int" />
+          <Property Name="idcomunidad1" Type="int" />
+          <Property Name="idinstitucion1" Type="int" />
+          <Property Name="idestrategia1" Type="int" />
+          <Property Name="idtiposactividad1" Type="int" />
+          <Property Name="descripcion" Type="varchar" MaxLength="1000" />
+          <Property Name="varones" Type="int" />
+          <Property Name="mujeres" Type="int" />
+          <Property Name="total" Type="int" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="tipos_de_actividades">
+          <Key>
+            <PropertyRef Name="idtiposactividad" />
+          </Key>
+          <Property Name="idtiposactividad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreactividad" Type="varchar" MaxLength="1000" />
+          <Property Name="idestrategia2" Type="int" />
+        </EntityType>
+        <Association Name="fk_comunidad">
+          <End Role="comunidad" Type="Self.comunidad" Multiplicity="0..1" />
+          <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comunidad">
+              <PropertyRef Name="idcomunidad" />
+            </Principal>
+            <Dependent Role="seguimiento">
+              <PropertyRef Name="idcomunidad1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_comunidad1">
+          <End Role="municipios" Type="Self.municipios" Multiplicity="0..1" />
+          <End Role="comunidad" Type="Self.comunidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="municipios">
+              <PropertyRef Name="idmunicipio" />
+            </Principal>
+            <Dependent Role="comunidad">
+              <PropertyRef Name="idmunicipio2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_estrategia">
+          <End Role="estrategia" Type="Self.estrategia" Multiplicity="0..1" />
+          <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estrategia">
+              <PropertyRef Name="idestrategia" />
+            </Principal>
+            <Dependent Role="seguimiento">
+              <PropertyRef Name="idestrategia1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_institucion">
+          <End Role="institucion" Type="Self.institucion" Multiplicity="0..1" />
+          <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="institucion">
+              <PropertyRef Name="idinstitucion" />
+            </Principal>
+            <Dependent Role="seguimiento">
+              <PropertyRef Name="idinstitucion1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_municipios">
+          <End Role="municipios" Type="Self.municipios" Multiplicity="0..1" />
+          <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="municipios">
+              <PropertyRef Name="idmunicipio" />
+            </Principal>
+            <Dependent Role="seguimiento">
+              <PropertyRef Name="idmunicipio1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tipos_de_actividades">
+          <End Role="tipos_de_actividades" Type="Self.tipos_de_actividades" Multiplicity="0..1" />
+          <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipos_de_actividades">
+              <PropertyRef Name="idtiposactividad" />
+            </Principal>
+            <Dependent Role="seguimiento">
+              <PropertyRef Name="idtiposactividad1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tipos_de_actividades1">
+          <End Role="estrategia" Type="Self.estrategia" Multiplicity="0..1" />
+          <End Role="tipos_de_actividades" Type="Self.tipos_de_actividades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estrategia">
+              <PropertyRef Name="idestrategia" />
+            </Principal>
+            <Dependent Role="tipos_de_actividades">
+              <PropertyRef Name="idestrategia2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ListarDatosSeguimientos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ListarDatosSeguimientoss" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="sinfoModelStoreContainer">
+          <EntitySet Name="comunidad" EntityType="Self.comunidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estrategia" EntityType="Self.estrategia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="institucion" EntityType="Self.institucion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="municipios" EntityType="Self.municipios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="seguimiento" EntityType="Self.seguimiento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipos_de_actividades" EntityType="Self.tipos_de_actividades" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_comunidad" Association="Self.fk_comunidad">
+            <End Role="comunidad" EntitySet="comunidad" />
+            <End Role="seguimiento" EntitySet="seguimiento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_comunidad1" Association="Self.fk_comunidad1">
+            <End Role="municipios" EntitySet="municipios" />
+            <End Role="comunidad" EntitySet="comunidad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_estrategia" Association="Self.fk_estrategia">
+            <End Role="estrategia" EntitySet="estrategia" />
+            <End Role="seguimiento" EntitySet="seguimiento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_institucion" Association="Self.fk_institucion">
+            <End Role="institucion" EntitySet="institucion" />
+            <End Role="seguimiento" EntitySet="seguimiento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_municipios" Association="Self.fk_municipios">
+            <End Role="municipios" EntitySet="municipios" />
+            <End Role="seguimiento" EntitySet="seguimiento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipos_de_actividades" Association="Self.fk_tipos_de_actividades">
+            <End Role="tipos_de_actividades" EntitySet="tipos_de_actividades" />
+            <End Role="seguimiento" EntitySet="seguimiento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipos_de_actividades1" Association="Self.fk_tipos_de_actividades1">
+            <End Role="estrategia" EntitySet="estrategia" />
+            <End Role="tipos_de_actividades" EntitySet="tipos_de_actividades" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="sinfoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="comunidad">
+          <Key>
+            <PropertyRef Name="idcomunidad" />
+          </Key>
+          <Property Name="idcomunidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombrecomunidad" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="idmunicipio2" Type="Int32" />
+          <NavigationProperty Name="seguimiento" Relationship="Self.fk_comunidad" FromRole="comunidad" ToRole="seguimiento" />
+          <NavigationProperty Name="municipios" Relationship="Self.fk_comunidad1" FromRole="comunidad" ToRole="municipios" />
+        </EntityType>
+        <EntityType Name="estrategia">
+          <Key>
+            <PropertyRef Name="idestrategia" />
+          </Key>
+          <Property Name="idestrategia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreestrategia" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="seguimiento" Relationship="Self.fk_estrategia" FromRole="estrategia" ToRole="seguimiento" />
+          <NavigationProperty Name="tipos_de_actividades" Relationship="Self.fk_tipos_de_actividades1" FromRole="estrategia" ToRole="tipos_de_actividades" />
+        </EntityType>
+        <EntityType Name="institucion">
+          <Key>
+            <PropertyRef Name="idinstitucion" />
+          </Key>
+          <Property Name="idinstitucion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreinstitucion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="seguimiento" Relationship="Self.fk_institucion" FromRole="institucion" ToRole="seguimiento" />
+        </EntityType>
+        <EntityType Name="municipios">
+          <Key>
+            <PropertyRef Name="idmunicipio" />
+          </Key>
+          <Property Name="idmunicipio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombremunicipio" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="comunidad" Relationship="Self.fk_comunidad1" FromRole="municipios" ToRole="comunidad" />
+          <NavigationProperty Name="seguimiento" Relationship="Self.fk_municipios" FromRole="municipios" ToRole="seguimiento" />
+        </EntityType>
+        <EntityType Name="seguimiento">
+          <Key>
+            <PropertyRef Name="idsegimiento" />
+          </Key>
+          <Property Name="idsegimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="idmunicipio1" Type="Int32" />
+          <Property Name="idcomunidad1" Type="Int32" />
+          <Property Name="idinstitucion1" Type="Int32" />
+          <Property Name="idestrategia1" Type="Int32" />
+          <Property Name="idtiposactividad1" Type="Int32" />
+          <Property Name="descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="varones" Type="Int32" />
+          <Property Name="mujeres" Type="Int32" />
+          <Property Name="total" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="comunidad" Relationship="Self.fk_comunidad" FromRole="seguimiento" ToRole="comunidad" />
+          <NavigationProperty Name="estrategia" Relationship="Self.fk_estrategia" FromRole="seguimiento" ToRole="estrategia" />
+          <NavigationProperty Name="institucion" Relationship="Self.fk_institucion" FromRole="seguimiento" ToRole="institucion" />
+          <NavigationProperty Name="municipios" Relationship="Self.fk_municipios" FromRole="seguimiento" ToRole="municipios" />
+          <NavigationProperty Name="tipos_de_actividades" Relationship="Self.fk_tipos_de_actividades" FromRole="seguimiento" ToRole="tipos_de_actividades" />
+        </EntityType>
+        <EntityType Name="tipos_de_actividades">
+          <Key>
+            <PropertyRef Name="idtiposactividad" />
+          </Key>
+          <Property Name="idtiposactividad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreactividad" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="idestrategia2" Type="Int32" />
+          <NavigationProperty Name="estrategia" Relationship="Self.fk_tipos_de_actividades1" FromRole="tipos_de_actividades" ToRole="estrategia" />
+          <NavigationProperty Name="seguimiento" Relationship="Self.fk_tipos_de_actividades" FromRole="tipos_de_actividades" ToRole="seguimiento" />
+        </EntityType>
+        <Association Name="fk_comunidad">
+          <End Role="comunidad" Type="Self.comunidad" Multiplicity="0..1" />
+          <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comunidad">
+              <PropertyRef Name="idcomunidad" />
+            </Principal>
+            <Dependent Role="seguimiento">
+              <PropertyRef Name="idcomunidad1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_comunidad1">
+          <End Role="municipios" Type="Self.municipios" Multiplicity="0..1" />
+          <End Role="comunidad" Type="Self.comunidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="municipios">
+              <PropertyRef Name="idmunicipio" />
+            </Principal>
+            <Dependent Role="comunidad">
+              <PropertyRef Name="idmunicipio2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_estrategia">
+          <End Role="estrategia" Type="Self.estrategia" Multiplicity="0..1" />
+          <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estrategia">
+              <PropertyRef Name="idestrategia" />
+            </Principal>
+            <Dependent Role="seguimiento">
+              <PropertyRef Name="idestrategia1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tipos_de_actividades1">
+          <End Role="estrategia" Type="Self.estrategia" Multiplicity="0..1" />
+          <End Role="tipos_de_actividades" Type="Self.tipos_de_actividades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estrategia">
+              <PropertyRef Name="idestrategia" />
+            </Principal>
+            <Dependent Role="tipos_de_actividades">
+              <PropertyRef Name="idestrategia2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_institucion">
+          <End Role="institucion" Type="Self.institucion" Multiplicity="0..1" />
+          <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="institucion">
+              <PropertyRef Name="idinstitucion" />
+            </Principal>
+            <Dependent Role="seguimiento">
+              <PropertyRef Name="idinstitucion1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_municipios">
+          <End Role="municipios" Type="Self.municipios" Multiplicity="0..1" />
+          <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="municipios">
+              <PropertyRef Name="idmunicipio" />
+            </Principal>
+            <Dependent Role="seguimiento">
+              <PropertyRef Name="idmunicipio1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tipos_de_actividades">
+          <End Role="tipos_de_actividades" Type="Self.tipos_de_actividades" Multiplicity="0..1" />
+          <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipos_de_actividades">
+              <PropertyRef Name="idtiposactividad" />
+            </Principal>
+            <Dependent Role="seguimiento">
+              <PropertyRef Name="idtiposactividad1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="sinfoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="comunidad" EntityType="Self.comunidad" />
+          <EntitySet Name="estrategia" EntityType="Self.estrategia" />
+          <EntitySet Name="institucion" EntityType="Self.institucion" />
+          <EntitySet Name="municipios" EntityType="Self.municipios" />
+          <EntitySet Name="seguimiento" EntityType="Self.seguimiento" />
+          <EntitySet Name="tipos_de_actividades" EntityType="Self.tipos_de_actividades" />
+          <AssociationSet Name="fk_comunidad" Association="Self.fk_comunidad">
+            <End Role="comunidad" EntitySet="comunidad" />
+            <End Role="seguimiento" EntitySet="seguimiento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_comunidad1" Association="Self.fk_comunidad1">
+            <End Role="municipios" EntitySet="municipios" />
+            <End Role="comunidad" EntitySet="comunidad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_estrategia" Association="Self.fk_estrategia">
+            <End Role="estrategia" EntitySet="estrategia" />
+            <End Role="seguimiento" EntitySet="seguimiento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipos_de_actividades1" Association="Self.fk_tipos_de_actividades1">
+            <End Role="estrategia" EntitySet="estrategia" />
+            <End Role="tipos_de_actividades" EntitySet="tipos_de_actividades" />
+          </AssociationSet>
+          <AssociationSet Name="fk_institucion" Association="Self.fk_institucion">
+            <End Role="institucion" EntitySet="institucion" />
+            <End Role="seguimiento" EntitySet="seguimiento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_municipios" Association="Self.fk_municipios">
+            <End Role="municipios" EntitySet="municipios" />
+            <End Role="seguimiento" EntitySet="seguimiento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipos_de_actividades" Association="Self.fk_tipos_de_actividades">
+            <End Role="tipos_de_actividades" EntitySet="tipos_de_actividades" />
+            <End Role="seguimiento" EntitySet="seguimiento" />
+          </AssociationSet>
+          <FunctionImport Name="ListarDatosSeguimientos" ReturnType="Collection(sinfoModel.ListarDatosSeguimientos_Result)" />
+          <FunctionImport Name="ListarDatosSeguimientoss" ReturnType="Collection(sinfoModel.ListarDatosSeguimientoss_Result)" />
+        </EntityContainer>
+        <ComplexType Name="ListarDatosSeguimientos_Result">
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
+          <Property Type="String" Name="Mes" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Municipio" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Comunidad" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Institucion" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Estrategias" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Actividad" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="1000" />
+          <Property Type="Int32" Name="Varones" Nullable="true" />
+          <Property Type="Int32" Name="Mujeres" Nullable="true" />
+          <Property Type="Int32" Name="Total_Participantes" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ListarDatosSeguimientoss_Result">
+          <Property Type="Int32" Name="IDS" Nullable="false" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
+          <Property Type="String" Name="Mes" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Municipio" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Comunidad" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Institucion" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Estrategias" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Actividad" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="1000" />
+          <Property Type="Int32" Name="Varones" Nullable="true" />
+          <Property Type="Int32" Name="Mujeres" Nullable="true" />
+          <Property Type="Int32" Name="Total_Participantes" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="sinfoModelStoreContainer" CdmEntityContainer="sinfoEntities">
+          <EntitySetMapping Name="comunidad">
+            <EntityTypeMapping TypeName="sinfoModel.comunidad">
+              <MappingFragment StoreEntitySet="comunidad">
+                <ScalarProperty Name="idcomunidad" ColumnName="idcomunidad" />
+                <ScalarProperty Name="nombrecomunidad" ColumnName="nombrecomunidad" />
+                <ScalarProperty Name="idmunicipio2" ColumnName="idmunicipio2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estrategia">
+            <EntityTypeMapping TypeName="sinfoModel.estrategia">
+              <MappingFragment StoreEntitySet="estrategia">
+                <ScalarProperty Name="idestrategia" ColumnName="idestrategia" />
+                <ScalarProperty Name="nombreestrategia" ColumnName="nombreestrategia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="institucion">
+            <EntityTypeMapping TypeName="sinfoModel.institucion">
+              <MappingFragment StoreEntitySet="institucion">
+                <ScalarProperty Name="idinstitucion" ColumnName="idinstitucion" />
+                <ScalarProperty Name="nombreinstitucion" ColumnName="nombreinstitucion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="municipios">
+            <EntityTypeMapping TypeName="sinfoModel.municipios">
+              <MappingFragment StoreEntitySet="municipios">
+                <ScalarProperty Name="idmunicipio" ColumnName="idmunicipio" />
+                <ScalarProperty Name="nombremunicipio" ColumnName="nombremunicipio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="seguimiento">
+            <EntityTypeMapping TypeName="sinfoModel.seguimiento">
+              <MappingFragment StoreEntitySet="seguimiento">
+                <ScalarProperty Name="idsegimiento" ColumnName="idsegimiento" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="idmunicipio1" ColumnName="idmunicipio1" />
+                <ScalarProperty Name="idcomunidad1" ColumnName="idcomunidad1" />
+                <ScalarProperty Name="idinstitucion1" ColumnName="idinstitucion1" />
+                <ScalarProperty Name="idestrategia1" ColumnName="idestrategia1" />
+                <ScalarProperty Name="idtiposactividad1" ColumnName="idtiposactividad1" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="varones" ColumnName="varones" />
+                <ScalarProperty Name="mujeres" ColumnName="mujeres" />
+                <ScalarProperty Name="total" ColumnName="total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipos_de_actividades">
+            <EntityTypeMapping TypeName="sinfoModel.tipos_de_actividades">
+              <MappingFragment StoreEntitySet="tipos_de_actividades">
+                <ScalarProperty Name="idtiposactividad" ColumnName="idtiposactividad" />
+                <ScalarProperty Name="nombreactividad" ColumnName="nombreactividad" />
+                <ScalarProperty Name="idestrategia2" ColumnName="idestrategia2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ListarDatosSeguimientos" FunctionName="sinfoModel.Store.ListarDatosSeguimientos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sinfoModel.ListarDatosSeguimientos_Result">
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="Mes" ColumnName="Mes" />
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Comunidad" ColumnName="Comunidad" />
+                <ScalarProperty Name="Institucion" ColumnName="Institucion" />
+                <ScalarProperty Name="Estrategias" ColumnName="Estrategias" />
+                <ScalarProperty Name="Actividad" ColumnName="Actividad" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Varones" ColumnName="Varones" />
+                <ScalarProperty Name="Mujeres" ColumnName="Mujeres" />
+                <ScalarProperty Name="Total_Participantes" ColumnName="Total Participantes" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ListarDatosSeguimientoss" FunctionName="sinfoModel.Store.ListarDatosSeguimientoss">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sinfoModel.ListarDatosSeguimientoss_Result">
+                <ScalarProperty Name="IDS" ColumnName="IDS" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="Mes" ColumnName="Mes" />
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Comunidad" ColumnName="Comunidad" />
+                <ScalarProperty Name="Institucion" ColumnName="Institucion" />
+                <ScalarProperty Name="Estrategias" ColumnName="Estrategias" />
+                <ScalarProperty Name="Actividad" ColumnName="Actividad" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Varones" ColumnName="Varones" />
+                <ScalarProperty Name="Mujeres" ColumnName="Mujeres" />
+                <ScalarProperty Name="Total_Participantes" ColumnName="Total Participantes" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

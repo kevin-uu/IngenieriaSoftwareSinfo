@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="41e1f14ae13c4231be26988658250534" Name="Diagram1">
+        <EntityTypeShape EntityType="sinfoModel.comunidad" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sinfoModel.estrategia" Width="1.5" PointX="8.625" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="sinfoModel.institucion" Width="1.5" PointX="3.125" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="sinfoModel.municipios" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sinfoModel.seguimiento" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="sinfoModel.tipos_de_actividades" Width="1.5" PointX="8" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="sinfoModel.fk_comunidad" ManuallyRouted="false" />
+        <AssociationConnector Association="sinfoModel.fk_comunidad1" ManuallyRouted="false" />
+        <AssociationConnector Association="sinfoModel.fk_estrategia" ManuallyRouted="false" />
+        <AssociationConnector Association="sinfoModel.fk_tipos_de_actividades1" ManuallyRouted="false" />
+        <AssociationConnector Association="sinfoModel.fk_institucion" ManuallyRouted="false" />
+        <AssociationConnector Association="sinfoModel.fk_municipios" ManuallyRouted="false" />
+        <AssociationConnector Association="sinfoModel.fk_tipos_de_actividades" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
