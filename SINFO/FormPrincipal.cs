@@ -103,12 +103,15 @@ namespace SINFO
 
         private void btnnuevoregistroinseminacionP_Click(object sender, EventArgs e)
         {
+            FormNRegistroIP IP = new FormNRegistroIP();
+            IP.Show();
             //debajo de todo el codigo de accion de cada uno de los botones del sub menu siempre invocar al metodo ocultarsubmenu
             ocultarsubmenu();
         }
 
         private void btnactualizarregistroIP_Click(object sender, EventArgs e)
         {
+            abrirformulariohijo(new FormActualizarIP());
             //debajo de todo el codigo de accion de cada uno de los botones del sub menu siempre invocar al metodo ocultarsubmenu
             ocultarsubmenu();
         }

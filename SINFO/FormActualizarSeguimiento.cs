@@ -105,11 +105,40 @@ namespace SINFO
                 fN.txtVarones.Text = dgvActualizar.CurrentRow.Cells["Varones"].Value.ToString();
                 fN.txtMujeres.Text = dgvActualizar.CurrentRow.Cells["Mujeres"].Value.ToString();
 
-
+                
                 fN.Show();
+                fN.btnguardar.Text = "Actualizar";
+
                 CargadgvActualizar();
             }
+            
+            /*
+            if (dgvActualizar.Columns[e.ColumnIndex].Name == "Editar")
+            {
+                FormNRegistro fN = new FormNRegistro();
+                idSegu = Convert.ToInt32(dgvActualizar.CurrentRow.Cells["IDS"].Value.ToString());
+                fN.dtpFechaRegistro.Text = dgvActualizar.CurrentRow.Cells["fecha"].Value.ToString();
+                fN.cmbMunicipio.Text = dgvActualizar.CurrentRow.Cells["Municipio"].Value.ToString();
+                fN.cmbComunidad.Text = dgvActualizar.CurrentRow.Cells["Comunidad"].Value.ToString();
+                fN.cmbInstitucion.Text = dgvActualizar.CurrentRow.Cells["Institucion"].Value.ToString();
+                fN.cmbEstrategia.Text = dgvActualizar.CurrentRow.Cells["Estrategias"].Value.ToString();
+                fN.cmbTipodeActividad.Text = dgvActualizar.CurrentRow.Cells["Actividad"].Value.ToString();
+                fN.txtDescripcion.Text = dgvActualizar.CurrentRow.Cells["Descripcion"].Value.ToString();
+                fN.txtVarones.Text = dgvActualizar.CurrentRow.Cells["Varones"].Value.ToString();
+                fN.txtMujeres.Text = dgvActualizar.CurrentRow.Cells["Mujeres"].Value.ToString();
+
+
+                fN.Show();
+
+
+                CargadgvActualizar();
+            }*/
         }
         #endregion
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            (dgvActualizar.DataSource as DataTable).DefaultView.RowFilter = $"Institucion LIKE '{textBox1.Text}%'";
+        }
     }
 }

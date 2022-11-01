@@ -61,11 +61,23 @@
     <Compile Include="CapaNegocio\N_Estrategia.cs" />
     <Compile Include="CapaNegocio\N_Seguimiento.cs" />
     <Compile Include="CapaNegocio\N_TipoActividad.cs" />
+    <Compile Include="FormActualizarIP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormActualizarIP.Designer.cs">
+      <DependentUpon>FormActualizarIP.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormActualizarSeguimiento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormActualizarSeguimiento.Designer.cs">
       <DependentUpon>FormActualizarSeguimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNRegistroIP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNRegistroIP.Designer.cs">
+      <DependentUpon>FormNRegistroIP.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
@@ -127,8 +139,14 @@
     <Compile Include="reporteSeguimiento.Designer.cs">
       <DependentUpon>reporteSeguimiento.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormActualizarIP.resx">
+      <DependentUpon>FormActualizarIP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormActualizarSeguimiento.resx">
       <DependentUpon>FormActualizarSeguimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNRegistroIP.resx">
+      <DependentUpon>FormNRegistroIP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>

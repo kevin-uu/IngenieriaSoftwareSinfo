@@ -392,7 +392,6 @@ namespace SINFO
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btnguardar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
@@ -407,5 +406,6 @@ namespace SINFO
         public System.Windows.Forms.TextBox txtMujeres;
         private System.Windows.Forms.Button BtnCancelar;
         public System.Windows.Forms.DateTimePicker dtpFechaRegistro;
+        public System.Windows.Forms.Button btnguardar;
     }
 }
