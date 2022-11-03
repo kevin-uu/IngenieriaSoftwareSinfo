@@ -33,6 +33,8 @@ namespace SINFO.models
         public virtual DbSet<municipios> municipios { get; set; }
         public virtual DbSet<seguimiento> seguimiento { get; set; }
         public virtual DbSet<tipos_de_actividades> tipos_de_actividades { get; set; }
+        public virtual DbSet<inseminacionporcina> inseminacionporcina { get; set; }
+        public virtual DbSet<razascerdos> razascerdos { get; set; }
     
         public virtual ObjectResult<ListarDatosSeguimientos_Result> ListarDatosSeguimientos()
         {
@@ -42,6 +44,11 @@ namespace SINFO.models
         public virtual ObjectResult<ListarDatosSeguimientoss_Result> ListarDatosSeguimientoss()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarDatosSeguimientoss_Result>("ListarDatosSeguimientoss");
+        }
+    
+        public virtual ObjectResult<ListarDatosInseminacionPorcina_Result> ListarDatosInseminacionPorcina()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarDatosInseminacionPorcina_Result>("ListarDatosInseminacionPorcina");
         }
     }
 }

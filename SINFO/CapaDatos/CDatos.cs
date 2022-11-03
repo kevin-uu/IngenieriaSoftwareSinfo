@@ -12,7 +12,7 @@ namespace SINFO.Models
     public class CDatos
     {
         #region Metodos para acceder a la conexion
-        static private string CadenConexion = "Data Source=.;Initial Catalog=prueba1;Integrated Security=True";
+        static private string CadenConexion = "Data Source=.;Initial Catalog=sinfo;Integrated Security=True";
         private SqlConnection Conexx = new SqlConnection(CadenConexion);
         public SqlConnection AbrirConexion()
         {
@@ -27,22 +27,22 @@ namespace SINFO.Models
                 Conexx.Close();
             return Conexx;
         }
-        
-        public abstract class connectiontosql
-        {
-            private readonly string connectionString;
-            public connectiontosql()
-            {
-                connectionString = "Data Source=CHINAN-PC2;Initial Catalog=Pedidos;Integrated Security=True";
-            }
-            protected SqlConnection getconnection()
-            {
-                return new SqlConnection(connectionString);
-            }
-        }
         #endregion
 
         
+    }
+
+    public abstract class connectiontosql
+    {
+        private readonly string connectionString;
+        public connectiontosql()
+        {
+            connectionString = "Data Source=.;Initial Catalog=sinfo;Integrated Security=True";
+        }
+        protected SqlConnection getconnection()
+        {
+            return new SqlConnection(connectionString);
+        }
     }
 
 

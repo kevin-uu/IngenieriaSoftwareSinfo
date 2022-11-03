@@ -12,23 +12,17 @@ namespace SINFO.models
     using System;
     using System.Collections.Generic;
     
-    public partial class municipios
+    public partial class razascerdos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public municipios()
+        public razascerdos()
         {
-            this.comunidad = new HashSet<comunidad>();
-            this.seguimiento = new HashSet<seguimiento>();
             this.inseminacionporcina = new HashSet<inseminacionporcina>();
         }
     
-        public int idmunicipio { get; set; }
-        public string nombremunicipio { get; set; }
+        public int idrazascerdos { get; set; }
+        public string nombrerazacerdo { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<comunidad> comunidad { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<seguimiento> seguimiento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<inseminacionporcina> inseminacionporcina { get; set; }
     }

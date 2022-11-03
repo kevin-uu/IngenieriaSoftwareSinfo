@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CapaNegocio\N_Estrategia.cs" />
+    <Compile Include="CapaNegocio\N_InseminacionP.cs" />
     <Compile Include="CapaNegocio\N_Seguimiento.cs" />
     <Compile Include="CapaNegocio\N_TipoActividad.cs" />
     <Compile Include="FormActualizarIP.cs">
@@ -98,7 +99,13 @@
     <Compile Include="models\estrategia.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="models\inseminacionporcina.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="models\institucion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\ListarDatosInseminacionPorcina_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="models\ListarDatosSeguimientoss_Result.cs">
@@ -123,6 +130,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="models\municipios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\razascerdos.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="models\seguimiento.cs">

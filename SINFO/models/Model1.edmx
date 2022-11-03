@@ -20,6 +20,24 @@
           <Property Name="idestrategia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombreestrategia" Type="varchar" MaxLength="1000" />
         </EntityType>
+        <EntityType Name="inseminacionporcina">
+          <Key>
+            <PropertyRef Name="idinseminacion" />
+          </Key>
+          <Property Name="idinseminacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cedulaproductor" Type="varchar" MaxLength="14" />
+          <Property Name="nombreproductor" Type="varchar" MaxLength="300" />
+          <Property Name="idmunicipio3" Type="int" />
+          <Property Name="idcomunidad2" Type="int" />
+          <Property Name="coordenadaX" Type="varchar" MaxLength="6" />
+          <Property Name="coordenadaY" Type="varchar" MaxLength="7" />
+          <Property Name="sexo" Type="varchar" MaxLength="1" />
+          <Property Name="numerotelfono" Type="varchar" MaxLength="8" />
+          <Property Name="fechainseminacion" Type="date" />
+          <Property Name="nombrecerdo" Type="varchar" MaxLength="100" />
+          <Property Name="idrazascerdos1" Type="int" />
+          <Property Name="presentocelo" Type="varchar" MaxLength="10" />
+        </EntityType>
         <EntityType Name="institucion">
           <Key>
             <PropertyRef Name="idinstitucion" />
@@ -33,6 +51,13 @@
           </Key>
           <Property Name="idmunicipio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombremunicipio" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="razascerdos">
+          <Key>
+            <PropertyRef Name="idrazascerdos" />
+          </Key>
+          <Property Name="idrazascerdos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombrerazacerdo" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="seguimiento">
           <Key>
@@ -106,6 +131,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_IPcomunidad">
+          <End Role="comunidad" Type="Self.comunidad" Multiplicity="0..1" />
+          <End Role="inseminacionporcina" Type="Self.inseminacionporcina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comunidad">
+              <PropertyRef Name="idcomunidad" />
+            </Principal>
+            <Dependent Role="inseminacionporcina">
+              <PropertyRef Name="idcomunidad2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IPmunicipios">
+          <End Role="municipios" Type="Self.municipios" Multiplicity="0..1" />
+          <End Role="inseminacionporcina" Type="Self.inseminacionporcina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="municipios">
+              <PropertyRef Name="idmunicipio" />
+            </Principal>
+            <Dependent Role="inseminacionporcina">
+              <PropertyRef Name="idmunicipio3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IPRazas">
+          <End Role="razascerdos" Type="Self.razascerdos" Multiplicity="0..1" />
+          <End Role="inseminacionporcina" Type="Self.inseminacionporcina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="razascerdos">
+              <PropertyRef Name="idrazascerdos" />
+            </Principal>
+            <Dependent Role="inseminacionporcina">
+              <PropertyRef Name="idrazascerdos1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_municipios">
           <End Role="municipios" Type="Self.municipios" Multiplicity="0..1" />
           <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
@@ -142,13 +203,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ListarDatosInseminacionPorcina" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="ListarDatosSeguimientos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="ListarDatosSeguimientoss" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="sinfoModelStoreContainer">
           <EntitySet Name="comunidad" EntityType="Self.comunidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="estrategia" EntityType="Self.estrategia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inseminacionporcina" EntityType="Self.inseminacionporcina" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="institucion" EntityType="Self.institucion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="municipios" EntityType="Self.municipios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="razascerdos" EntityType="Self.razascerdos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="seguimiento" EntityType="Self.seguimiento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tipos_de_actividades" EntityType="Self.tipos_de_actividades" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="fk_comunidad" Association="Self.fk_comunidad">
@@ -166,6 +230,18 @@
           <AssociationSet Name="fk_institucion" Association="Self.fk_institucion">
             <End Role="institucion" EntitySet="institucion" />
             <End Role="seguimiento" EntitySet="seguimiento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IPcomunidad" Association="Self.fk_IPcomunidad">
+            <End Role="comunidad" EntitySet="comunidad" />
+            <End Role="inseminacionporcina" EntitySet="inseminacionporcina" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IPmunicipios" Association="Self.fk_IPmunicipios">
+            <End Role="municipios" EntitySet="municipios" />
+            <End Role="inseminacionporcina" EntitySet="inseminacionporcina" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IPRazas" Association="Self.fk_IPRazas">
+            <End Role="razascerdos" EntitySet="razascerdos" />
+            <End Role="inseminacionporcina" EntitySet="inseminacionporcina" />
           </AssociationSet>
           <AssociationSet Name="fk_municipios" Association="Self.fk_municipios">
             <End Role="municipios" EntitySet="municipios" />
@@ -193,6 +269,7 @@
           <Property Name="idmunicipio2" Type="Int32" />
           <NavigationProperty Name="seguimiento" Relationship="Self.fk_comunidad" FromRole="comunidad" ToRole="seguimiento" />
           <NavigationProperty Name="municipios" Relationship="Self.fk_comunidad1" FromRole="comunidad" ToRole="municipios" />
+          <NavigationProperty Name="inseminacionporcina" Relationship="sinfoModel.fk_IPcomunidad" FromRole="comunidad" ToRole="inseminacionporcina" />
         </EntityType>
         <EntityType Name="estrategia">
           <Key>
@@ -219,6 +296,7 @@
           <Property Name="nombremunicipio" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="comunidad" Relationship="Self.fk_comunidad1" FromRole="municipios" ToRole="comunidad" />
           <NavigationProperty Name="seguimiento" Relationship="Self.fk_municipios" FromRole="municipios" ToRole="seguimiento" />
+          <NavigationProperty Name="inseminacionporcina" Relationship="sinfoModel.fk_IPmunicipios" FromRole="municipios" ToRole="inseminacionporcina" />
         </EntityType>
         <EntityType Name="seguimiento">
           <Key>
@@ -372,6 +450,21 @@
           </AssociationSet>
           <FunctionImport Name="ListarDatosSeguimientos" ReturnType="Collection(sinfoModel.ListarDatosSeguimientos_Result)" />
           <FunctionImport Name="ListarDatosSeguimientoss" ReturnType="Collection(sinfoModel.ListarDatosSeguimientoss_Result)" />
+          <EntitySet Name="inseminacionporcina" EntityType="sinfoModel.inseminacionporcina" />
+          <EntitySet Name="razascerdos" EntityType="sinfoModel.razascerdos" />
+          <AssociationSet Name="fk_IPcomunidad" Association="sinfoModel.fk_IPcomunidad">
+            <End Role="comunidad" EntitySet="comunidad" />
+            <End Role="inseminacionporcina" EntitySet="inseminacionporcina" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IPmunicipios" Association="sinfoModel.fk_IPmunicipios">
+            <End Role="municipios" EntitySet="municipios" />
+            <End Role="inseminacionporcina" EntitySet="inseminacionporcina" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IPRazas" Association="sinfoModel.fk_IPRazas">
+            <End Role="razascerdos" EntitySet="razascerdos" />
+            <End Role="inseminacionporcina" EntitySet="inseminacionporcina" />
+          </AssociationSet>
+          <FunctionImport Name="ListarDatosInseminacionPorcina" ReturnType="Collection(sinfoModel.ListarDatosInseminacionPorcina_Result)" />
         </EntityContainer>
         <ComplexType Name="ListarDatosSeguimientos_Result">
           <Property Type="DateTime" Name="fecha" Nullable="true" />
@@ -399,6 +492,88 @@
           <Property Type="Int32" Name="Varones" Nullable="true" />
           <Property Type="Int32" Name="Mujeres" Nullable="true" />
           <Property Type="Int32" Name="Total_Participantes" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="inseminacionporcina">
+          <Key>
+            <PropertyRef Name="idinseminacion" />
+          </Key>
+          <Property Name="idinseminacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cedulaproductor" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="nombreproductor" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="idmunicipio3" Type="Int32" />
+          <Property Name="idcomunidad2" Type="Int32" />
+          <Property Name="coordenadaX" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="coordenadaY" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="sexo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="numerotelfono" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="fechainseminacion" Type="DateTime" Precision="0" />
+          <Property Name="nombrecerdo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idrazascerdos1" Type="Int32" />
+          <Property Name="presentocelo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="comunidad" Relationship="sinfoModel.fk_IPcomunidad" FromRole="inseminacionporcina" ToRole="comunidad" />
+          <NavigationProperty Name="municipios" Relationship="sinfoModel.fk_IPmunicipios" FromRole="inseminacionporcina" ToRole="municipios" />
+          <NavigationProperty Name="razascerdos" Relationship="sinfoModel.fk_IPRazas" FromRole="inseminacionporcina" ToRole="razascerdos" />
+        </EntityType>
+        <EntityType Name="razascerdos">
+          <Key>
+            <PropertyRef Name="idrazascerdos" />
+          </Key>
+          <Property Name="idrazascerdos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombrerazacerdo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="inseminacionporcina" Relationship="sinfoModel.fk_IPRazas" FromRole="razascerdos" ToRole="inseminacionporcina" />
+        </EntityType>
+        <Association Name="fk_IPcomunidad">
+          <End Type="sinfoModel.comunidad" Role="comunidad" Multiplicity="0..1" />
+          <End Type="sinfoModel.inseminacionporcina" Role="inseminacionporcina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comunidad">
+              <PropertyRef Name="idcomunidad" />
+            </Principal>
+            <Dependent Role="inseminacionporcina">
+              <PropertyRef Name="idcomunidad2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IPmunicipios">
+          <End Type="sinfoModel.municipios" Role="municipios" Multiplicity="0..1" />
+          <End Type="sinfoModel.inseminacionporcina" Role="inseminacionporcina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="municipios">
+              <PropertyRef Name="idmunicipio" />
+            </Principal>
+            <Dependent Role="inseminacionporcina">
+              <PropertyRef Name="idmunicipio3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IPRazas">
+          <End Type="sinfoModel.razascerdos" Role="razascerdos" Multiplicity="0..1" />
+          <End Type="sinfoModel.inseminacionporcina" Role="inseminacionporcina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="razascerdos">
+              <PropertyRef Name="idrazascerdos" />
+            </Principal>
+            <Dependent Role="inseminacionporcina">
+              <PropertyRef Name="idrazascerdos1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="ListarDatosInseminacionPorcina_Result">
+          <Property Type="Int32" Name="idinseminacion" Nullable="false" />
+          <Property Type="String" Name="cedulaproductor" Nullable="true" MaxLength="14" />
+          <Property Type="String" Name="nombreproductor" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="nombremunicipio" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="nombrecomunidad" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="coordenadaX" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="coordenadaY" Nullable="true" MaxLength="7" />
+          <Property Type="String" Name="sexo" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="numerotelfono" Nullable="true" MaxLength="8" />
+          <Property Type="DateTime" Name="fechainseminacion" Nullable="true" />
+          <Property Type="String" Name="nombrecerdo" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="nombrerazacerdo" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="fechaprogramadarepeticioncelo" Nullable="true" />
+          <Property Type="String" Name="presentocelo" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="fechaprogramadaparaparto" Nullable="true" MaxLength="30" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -497,6 +672,54 @@
                 <ScalarProperty Name="Varones" ColumnName="Varones" />
                 <ScalarProperty Name="Mujeres" ColumnName="Mujeres" />
                 <ScalarProperty Name="Total_Participantes" ColumnName="Total Participantes" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="inseminacionporcina">
+            <EntityTypeMapping TypeName="sinfoModel.inseminacionporcina">
+              <MappingFragment StoreEntitySet="inseminacionporcina">
+                <ScalarProperty Name="presentocelo" ColumnName="presentocelo" />
+                <ScalarProperty Name="idrazascerdos1" ColumnName="idrazascerdos1" />
+                <ScalarProperty Name="nombrecerdo" ColumnName="nombrecerdo" />
+                <ScalarProperty Name="fechainseminacion" ColumnName="fechainseminacion" />
+                <ScalarProperty Name="numerotelfono" ColumnName="numerotelfono" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="coordenadaY" ColumnName="coordenadaY" />
+                <ScalarProperty Name="coordenadaX" ColumnName="coordenadaX" />
+                <ScalarProperty Name="idcomunidad2" ColumnName="idcomunidad2" />
+                <ScalarProperty Name="idmunicipio3" ColumnName="idmunicipio3" />
+                <ScalarProperty Name="nombreproductor" ColumnName="nombreproductor" />
+                <ScalarProperty Name="cedulaproductor" ColumnName="cedulaproductor" />
+                <ScalarProperty Name="idinseminacion" ColumnName="idinseminacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="razascerdos">
+            <EntityTypeMapping TypeName="sinfoModel.razascerdos">
+              <MappingFragment StoreEntitySet="razascerdos">
+                <ScalarProperty Name="nombrerazacerdo" ColumnName="nombrerazacerdo" />
+                <ScalarProperty Name="idrazascerdos" ColumnName="idrazascerdos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ListarDatosInseminacionPorcina" FunctionName="sinfoModel.Store.ListarDatosInseminacionPorcina">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sinfoModel.ListarDatosInseminacionPorcina_Result">
+                <ScalarProperty Name="idinseminacion" ColumnName="idinseminacion" />
+                <ScalarProperty Name="cedulaproductor" ColumnName="cedulaproductor" />
+                <ScalarProperty Name="nombreproductor" ColumnName="nombreproductor" />
+                <ScalarProperty Name="nombremunicipio" ColumnName="nombremunicipio" />
+                <ScalarProperty Name="nombrecomunidad" ColumnName="nombrecomunidad" />
+                <ScalarProperty Name="coordenadaX" ColumnName="coordenadaX" />
+                <ScalarProperty Name="coordenadaY" ColumnName="coordenadaY" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="numerotelfono" ColumnName="numerotelfono" />
+                <ScalarProperty Name="fechainseminacion" ColumnName="fechainseminacion" />
+                <ScalarProperty Name="nombrecerdo" ColumnName="nombrecerdo" />
+                <ScalarProperty Name="nombrerazacerdo" ColumnName="nombrerazacerdo" />
+                <ScalarProperty Name="fechaprogramadarepeticioncelo" ColumnName="fechaprogramadarepeticioncelo" />
+                <ScalarProperty Name="presentocelo" ColumnName="presentocelo" />
+                <ScalarProperty Name="fechaprogramadaparaparto" ColumnName="fechaprogramadaparaparto" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

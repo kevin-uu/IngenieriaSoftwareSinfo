@@ -29,79 +29,35 @@ namespace SINFO
         /// </summary>
         private void InitializeComponent()
         {
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtCedula = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbComunidadIP = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbMunicipioIP = new System.Windows.Forms.ComboBox();
+            this.txtCoordenadaX = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtCoordenadaY = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbSexo = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dtpFechaRegistroIP = new System.Windows.Forms.DateTimePicker();
+            this.txtNombreCerdo = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cmbRaza = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cmbPreñada = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbComunidad = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbMunicipio = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.dtpFechaRegistro = new System.Windows.Forms.DateTimePicker();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.btnguardarIP = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(187)))), ((int)(((byte)(110)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::SINFO.Properties.Resources.minimizar__1_;
-            this.button2.Location = new System.Drawing.Point(440, 9);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(41, 33);
-            this.button2.TabIndex = 33;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(187)))), ((int)(((byte)(110)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = global::SINFO.Properties.Resources.maximizar;
-            this.button3.Location = new System.Drawing.Point(487, 9);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(41, 33);
-            this.button3.TabIndex = 32;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(101)))), ((int)(((byte)(113)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(3)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::SINFO.Properties.Resources.cerrar__2_;
-            this.button1.Location = new System.Drawing.Point(528, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(47, 30);
-            this.button1.TabIndex = 31;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -113,19 +69,20 @@ namespace SINFO
             this.label1.TabIndex = 34;
             this.label1.Text = "Cedula del Productor:";
             // 
-            // textBox1
+            // txtCedula
             // 
-            this.textBox1.Location = new System.Drawing.Point(185, 99);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(216, 20);
-            this.textBox1.TabIndex = 35;
+            this.txtCedula.Location = new System.Drawing.Point(185, 99);
+            this.txtCedula.MaxLength = 14;
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(216, 20);
+            this.txtCedula.TabIndex = 35;
             // 
-            // textBox2
+            // txtNombre
             // 
-            this.textBox2.Location = new System.Drawing.Point(185, 134);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(216, 20);
-            this.textBox2.TabIndex = 37;
+            this.txtNombre.Location = new System.Drawing.Point(185, 134);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(216, 20);
+            this.txtNombre.TabIndex = 37;
             // 
             // label2
             // 
@@ -137,13 +94,13 @@ namespace SINFO
             this.label2.TabIndex = 36;
             this.label2.Text = "Nombre del Productor:";
             // 
-            // cmbComunidad
+            // cmbComunidadIP
             // 
-            this.cmbComunidad.FormattingEnabled = true;
-            this.cmbComunidad.Location = new System.Drawing.Point(185, 199);
-            this.cmbComunidad.Name = "cmbComunidad";
-            this.cmbComunidad.Size = new System.Drawing.Size(283, 21);
-            this.cmbComunidad.TabIndex = 41;
+            this.cmbComunidadIP.FormattingEnabled = true;
+            this.cmbComunidadIP.Location = new System.Drawing.Point(185, 199);
+            this.cmbComunidadIP.Name = "cmbComunidadIP";
+            this.cmbComunidadIP.Size = new System.Drawing.Size(283, 21);
+            this.cmbComunidadIP.TabIndex = 41;
             // 
             // label4
             // 
@@ -165,20 +122,22 @@ namespace SINFO
             this.label3.TabIndex = 39;
             this.label3.Text = "Municipio/Distrito:";
             // 
-            // cmbMunicipio
+            // cmbMunicipioIP
             // 
-            this.cmbMunicipio.FormattingEnabled = true;
-            this.cmbMunicipio.Location = new System.Drawing.Point(185, 165);
-            this.cmbMunicipio.Name = "cmbMunicipio";
-            this.cmbMunicipio.Size = new System.Drawing.Size(283, 21);
-            this.cmbMunicipio.TabIndex = 38;
+            this.cmbMunicipioIP.FormattingEnabled = true;
+            this.cmbMunicipioIP.Location = new System.Drawing.Point(185, 165);
+            this.cmbMunicipioIP.Name = "cmbMunicipioIP";
+            this.cmbMunicipioIP.Size = new System.Drawing.Size(283, 21);
+            this.cmbMunicipioIP.TabIndex = 38;
+            this.cmbMunicipioIP.SelectedIndexChanged += new System.EventHandler(this.cmbMunicipioIP_SelectedIndexChanged);
             // 
-            // textBox3
+            // txtCoordenadaX
             // 
-            this.textBox3.Location = new System.Drawing.Point(185, 236);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(216, 20);
-            this.textBox3.TabIndex = 43;
+            this.txtCoordenadaX.Location = new System.Drawing.Point(185, 236);
+            this.txtCoordenadaX.MaxLength = 6;
+            this.txtCoordenadaX.Name = "txtCoordenadaX";
+            this.txtCoordenadaX.Size = new System.Drawing.Size(216, 20);
+            this.txtCoordenadaX.TabIndex = 43;
             // 
             // label5
             // 
@@ -190,12 +149,13 @@ namespace SINFO
             this.label5.TabIndex = 42;
             this.label5.Text = "Coordenada X (UTM):";
             // 
-            // textBox4
+            // txtCoordenadaY
             // 
-            this.textBox4.Location = new System.Drawing.Point(185, 272);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(216, 20);
-            this.textBox4.TabIndex = 45;
+            this.txtCoordenadaY.Location = new System.Drawing.Point(185, 272);
+            this.txtCoordenadaY.MaxLength = 7;
+            this.txtCoordenadaY.Name = "txtCoordenadaY";
+            this.txtCoordenadaY.Size = new System.Drawing.Size(216, 20);
+            this.txtCoordenadaY.TabIndex = 45;
             // 
             // label6
             // 
@@ -217,16 +177,17 @@ namespace SINFO
             this.label7.TabIndex = 46;
             this.label7.Text = "Sexo:";
             // 
-            // comboBox1
+            // cmbSexo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbSexo.FormattingEnabled = true;
+            this.cmbSexo.Items.AddRange(new object[] {
             "M",
             "F"});
-            this.comboBox1.Location = new System.Drawing.Point(185, 311);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(89, 21);
-            this.comboBox1.TabIndex = 47;
+            this.cmbSexo.Location = new System.Drawing.Point(185, 311);
+            this.cmbSexo.Name = "cmbSexo";
+            this.cmbSexo.Size = new System.Drawing.Size(89, 21);
+            this.cmbSexo.TabIndex = 47;
+            this.cmbSexo.Text = "Seleccione";
             // 
             // label8
             // 
@@ -238,12 +199,13 @@ namespace SINFO
             this.label8.TabIndex = 48;
             this.label8.Text = "Numero de Telefono:";
             // 
-            // textBox5
+            // txtTelefono
             // 
-            this.textBox5.Location = new System.Drawing.Point(185, 355);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(216, 20);
-            this.textBox5.TabIndex = 49;
+            this.txtTelefono.Location = new System.Drawing.Point(185, 355);
+            this.txtTelefono.MaxLength = 8;
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(216, 20);
+            this.txtTelefono.TabIndex = 49;
             // 
             // label9
             // 
@@ -255,19 +217,19 @@ namespace SINFO
             this.label9.TabIndex = 50;
             this.label9.Text = "Fecha de Inseminacion:";
             // 
-            // dtpFechaRegistro
+            // dtpFechaRegistroIP
             // 
-            this.dtpFechaRegistro.Location = new System.Drawing.Point(185, 62);
-            this.dtpFechaRegistro.Name = "dtpFechaRegistro";
-            this.dtpFechaRegistro.Size = new System.Drawing.Size(194, 20);
-            this.dtpFechaRegistro.TabIndex = 51;
+            this.dtpFechaRegistroIP.Location = new System.Drawing.Point(185, 62);
+            this.dtpFechaRegistroIP.Name = "dtpFechaRegistroIP";
+            this.dtpFechaRegistroIP.Size = new System.Drawing.Size(194, 20);
+            this.dtpFechaRegistroIP.TabIndex = 51;
             // 
-            // textBox6
+            // txtNombreCerdo
             // 
-            this.textBox6.Location = new System.Drawing.Point(185, 392);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(216, 20);
-            this.textBox6.TabIndex = 53;
+            this.txtNombreCerdo.Location = new System.Drawing.Point(185, 392);
+            this.txtNombreCerdo.Name = "txtNombreCerdo";
+            this.txtNombreCerdo.Size = new System.Drawing.Size(216, 20);
+            this.txtNombreCerdo.TabIndex = 53;
             // 
             // label10
             // 
@@ -289,13 +251,13 @@ namespace SINFO
             this.label11.TabIndex = 54;
             this.label11.Text = "Raza del Berraco:";
             // 
-            // comboBox2
+            // cmbRaza
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(185, 432);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(216, 21);
-            this.comboBox2.TabIndex = 55;
+            this.cmbRaza.FormattingEnabled = true;
+            this.cmbRaza.Location = new System.Drawing.Point(185, 432);
+            this.cmbRaza.Name = "cmbRaza";
+            this.cmbRaza.Size = new System.Drawing.Size(216, 21);
+            this.cmbRaza.TabIndex = 55;
             // 
             // label12
             // 
@@ -307,45 +269,110 @@ namespace SINFO
             this.label12.TabIndex = 56;
             this.label12.Text = "Esta Preñada?:";
             // 
-            // comboBox3
+            // cmbPreñada
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.cmbPreñada.FormattingEnabled = true;
+            this.cmbPreñada.Items.AddRange(new object[] {
             "SI",
             "NO"});
-            this.comboBox3.Location = new System.Drawing.Point(185, 471);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(89, 21);
-            this.comboBox3.TabIndex = 57;
+            this.cmbPreñada.Location = new System.Drawing.Point(185, 471);
+            this.cmbPreñada.Name = "cmbPreñada";
+            this.cmbPreñada.Size = new System.Drawing.Size(89, 21);
+            this.cmbPreñada.TabIndex = 57;
+            this.cmbPreñada.Text = "Confirme";
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(187)))), ((int)(((byte)(110)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::SINFO.Properties.Resources.minimizar__1_;
+            this.button2.Location = new System.Drawing.Point(440, 9);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(41, 33);
+            this.button2.TabIndex = 33;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(187)))), ((int)(((byte)(110)))));
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = global::SINFO.Properties.Resources.maximizar;
+            this.button3.Location = new System.Drawing.Point(487, 9);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(41, 33);
+            this.button3.TabIndex = 32;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(101)))), ((int)(((byte)(113)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(3)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::SINFO.Properties.Resources.cerrar__2_;
+            this.button1.Location = new System.Drawing.Point(528, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(47, 30);
+            this.button1.TabIndex = 31;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btnguardarIP
+            // 
+            this.btnguardarIP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnguardarIP.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnguardarIP.FlatAppearance.BorderSize = 0;
+            this.btnguardarIP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
+            this.btnguardarIP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnguardarIP.Location = new System.Drawing.Point(384, 536);
+            this.btnguardarIP.Name = "btnguardarIP";
+            this.btnguardarIP.Size = new System.Drawing.Size(97, 32);
+            this.btnguardarIP.TabIndex = 58;
+            this.btnguardarIP.Text = "Guardar";
+            this.btnguardarIP.UseVisualStyleBackColor = false;
+            this.btnguardarIP.Click += new System.EventHandler(this.btnguardarIP_Click);
             // 
             // FormNRegistroIP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(577, 622);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.btnguardarIP);
+            this.Controls.Add(this.cmbPreñada);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cmbRaza);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtNombreCerdo);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.dtpFechaRegistro);
+            this.Controls.Add(this.dtpFechaRegistroIP);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbSexo);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtCoordenadaY);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtCoordenadaX);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.cmbComunidad);
+            this.Controls.Add(this.cmbComunidadIP);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.cmbMunicipio);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.cmbMunicipioIP);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
@@ -366,28 +393,29 @@ namespace SINFO
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCedula;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.ComboBox cmbComunidad;
+        public System.Windows.Forms.ComboBox cmbComunidadIP;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.ComboBox cmbMunicipio;
-        private System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.ComboBox cmbMunicipioIP;
+        private System.Windows.Forms.TextBox txtCoordenadaX;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtCoordenadaY;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        public System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.ComboBox cmbSexo;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label9;
-        public System.Windows.Forms.DateTimePicker dtpFechaRegistro;
-        private System.Windows.Forms.TextBox textBox6;
+        public System.Windows.Forms.DateTimePicker dtpFechaRegistroIP;
+        private System.Windows.Forms.TextBox txtNombreCerdo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        public System.Windows.Forms.ComboBox comboBox2;
+        public System.Windows.Forms.ComboBox cmbRaza;
         private System.Windows.Forms.Label label12;
-        public System.Windows.Forms.ComboBox comboBox3;
+        public System.Windows.Forms.ComboBox cmbPreñada;
+        public System.Windows.Forms.Button btnguardarIP;
     }
 }

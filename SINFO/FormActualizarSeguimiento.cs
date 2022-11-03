@@ -43,6 +43,7 @@ namespace SINFO
             CargadgvActualizar();
 
         }
+
         #region Boton Nuevo Registro
         private void button4_Click(object sender, EventArgs e)
         {
