@@ -31,6 +31,11 @@ namespace SINFO
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.panelmenulateral = new System.Windows.Forms.Panel();
+            this.panelsubmenumetas = new System.Windows.Forms.Panel();
+            this.btnreportemetas = new System.Windows.Forms.Button();
+            this.btnactualizarmetas = new System.Windows.Forms.Button();
+            this.btnnuevoregistrometas = new System.Windows.Forms.Button();
+            this.btnmetas = new System.Windows.Forms.Button();
             this.panelsubmenuIB = new System.Windows.Forms.Panel();
             this.btnreporteIB = new System.Windows.Forms.Button();
             this.btnactualizarregistroIB = new System.Windows.Forms.Button();
@@ -50,6 +55,7 @@ namespace SINFO
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelEncabezado = new System.Windows.Forms.Panel();
             this.panelmenulateral.SuspendLayout();
+            this.panelsubmenumetas.SuspendLayout();
             this.panelsubmenuIB.SuspendLayout();
             this.panelsubmenuIP.SuspendLayout();
             this.panelsubmenuseguimiento.SuspendLayout();
@@ -61,6 +67,8 @@ namespace SINFO
             // 
             this.panelmenulateral.AutoScroll = true;
             this.panelmenulateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(231)))), ((int)(((byte)(230)))));
+            this.panelmenulateral.Controls.Add(this.panelsubmenumetas);
+            this.panelmenulateral.Controls.Add(this.btnmetas);
             this.panelmenulateral.Controls.Add(this.panelsubmenuIB);
             this.panelmenulateral.Controls.Add(this.btninseminacionbovina);
             this.panelmenulateral.Controls.Add(this.panelsubmenuIP);
@@ -74,6 +82,83 @@ namespace SINFO
             this.panelmenulateral.Size = new System.Drawing.Size(250, 638);
             this.panelmenulateral.TabIndex = 0;
             // 
+            // panelsubmenumetas
+            // 
+            this.panelsubmenumetas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(231)))), ((int)(((byte)(230)))));
+            this.panelsubmenumetas.Controls.Add(this.btnreportemetas);
+            this.panelsubmenumetas.Controls.Add(this.btnactualizarmetas);
+            this.panelsubmenumetas.Controls.Add(this.btnnuevoregistrometas);
+            this.panelsubmenumetas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelsubmenumetas.Location = new System.Drawing.Point(0, 638);
+            this.panelsubmenumetas.Name = "panelsubmenumetas";
+            this.panelsubmenumetas.Size = new System.Drawing.Size(233, 138);
+            this.panelsubmenumetas.TabIndex = 8;
+            // 
+            // btnreportemetas
+            // 
+            this.btnreportemetas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnreportemetas.FlatAppearance.BorderSize = 0;
+            this.btnreportemetas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
+            this.btnreportemetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnreportemetas.Location = new System.Drawing.Point(0, 80);
+            this.btnreportemetas.Name = "btnreportemetas";
+            this.btnreportemetas.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnreportemetas.Size = new System.Drawing.Size(233, 40);
+            this.btnreportemetas.TabIndex = 2;
+            this.btnreportemetas.Text = "Reporte";
+            this.btnreportemetas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnreportemetas.UseVisualStyleBackColor = true;
+            this.btnreportemetas.Click += new System.EventHandler(this.btnreportemetas_Click);
+            // 
+            // btnactualizarmetas
+            // 
+            this.btnactualizarmetas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnactualizarmetas.FlatAppearance.BorderSize = 0;
+            this.btnactualizarmetas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
+            this.btnactualizarmetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnactualizarmetas.Location = new System.Drawing.Point(0, 40);
+            this.btnactualizarmetas.Name = "btnactualizarmetas";
+            this.btnactualizarmetas.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnactualizarmetas.Size = new System.Drawing.Size(233, 40);
+            this.btnactualizarmetas.TabIndex = 1;
+            this.btnactualizarmetas.Text = "Actualizar";
+            this.btnactualizarmetas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnactualizarmetas.UseVisualStyleBackColor = true;
+            this.btnactualizarmetas.Click += new System.EventHandler(this.btnactualizarmetas_Click);
+            // 
+            // btnnuevoregistrometas
+            // 
+            this.btnnuevoregistrometas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnnuevoregistrometas.FlatAppearance.BorderSize = 0;
+            this.btnnuevoregistrometas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
+            this.btnnuevoregistrometas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnnuevoregistrometas.Location = new System.Drawing.Point(0, 0);
+            this.btnnuevoregistrometas.Name = "btnnuevoregistrometas";
+            this.btnnuevoregistrometas.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnnuevoregistrometas.Size = new System.Drawing.Size(233, 40);
+            this.btnnuevoregistrometas.TabIndex = 0;
+            this.btnnuevoregistrometas.Text = "Nuevo Registro";
+            this.btnnuevoregistrometas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnnuevoregistrometas.UseVisualStyleBackColor = true;
+            this.btnnuevoregistrometas.Click += new System.EventHandler(this.btnnuevoregistrometas_Click);
+            // 
+            // btnmetas
+            // 
+            this.btnmetas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnmetas.FlatAppearance.BorderSize = 0;
+            this.btnmetas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
+            this.btnmetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnmetas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnmetas.Location = new System.Drawing.Point(0, 593);
+            this.btnmetas.Name = "btnmetas";
+            this.btnmetas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnmetas.Size = new System.Drawing.Size(233, 45);
+            this.btnmetas.TabIndex = 7;
+            this.btnmetas.Text = "Metas";
+            this.btnmetas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnmetas.UseVisualStyleBackColor = true;
+            this.btnmetas.Click += new System.EventHandler(this.btnmetas_Click);
+            // 
             // panelsubmenuIB
             // 
             this.panelsubmenuIB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(231)))), ((int)(((byte)(230)))));
@@ -81,9 +166,9 @@ namespace SINFO
             this.panelsubmenuIB.Controls.Add(this.btnactualizarregistroIB);
             this.panelsubmenuIB.Controls.Add(this.btnnuevoregistroinseminacionB);
             this.panelsubmenuIB.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelsubmenuIB.Location = new System.Drawing.Point(0, 461);
+            this.panelsubmenuIB.Location = new System.Drawing.Point(0, 455);
             this.panelsubmenuIB.Name = "panelsubmenuIB";
-            this.panelsubmenuIB.Size = new System.Drawing.Size(250, 133);
+            this.panelsubmenuIB.Size = new System.Drawing.Size(233, 138);
             this.panelsubmenuIB.TabIndex = 6;
             // 
             // btnreporteIB
@@ -95,7 +180,7 @@ namespace SINFO
             this.btnreporteIB.Location = new System.Drawing.Point(0, 80);
             this.btnreporteIB.Name = "btnreporteIB";
             this.btnreporteIB.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnreporteIB.Size = new System.Drawing.Size(250, 40);
+            this.btnreporteIB.Size = new System.Drawing.Size(233, 40);
             this.btnreporteIB.TabIndex = 2;
             this.btnreporteIB.Text = "Reporte";
             this.btnreporteIB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -111,7 +196,7 @@ namespace SINFO
             this.btnactualizarregistroIB.Location = new System.Drawing.Point(0, 40);
             this.btnactualizarregistroIB.Name = "btnactualizarregistroIB";
             this.btnactualizarregistroIB.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnactualizarregistroIB.Size = new System.Drawing.Size(250, 40);
+            this.btnactualizarregistroIB.Size = new System.Drawing.Size(233, 40);
             this.btnactualizarregistroIB.TabIndex = 1;
             this.btnactualizarregistroIB.Text = "Actualizar";
             this.btnactualizarregistroIB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -127,7 +212,7 @@ namespace SINFO
             this.btnnuevoregistroinseminacionB.Location = new System.Drawing.Point(0, 0);
             this.btnnuevoregistroinseminacionB.Name = "btnnuevoregistroinseminacionB";
             this.btnnuevoregistroinseminacionB.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnnuevoregistroinseminacionB.Size = new System.Drawing.Size(250, 40);
+            this.btnnuevoregistroinseminacionB.Size = new System.Drawing.Size(233, 40);
             this.btnnuevoregistroinseminacionB.TabIndex = 0;
             this.btnnuevoregistroinseminacionB.Text = "Nuevo Registro";
             this.btnnuevoregistroinseminacionB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -141,10 +226,10 @@ namespace SINFO
             this.btninseminacionbovina.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
             this.btninseminacionbovina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btninseminacionbovina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btninseminacionbovina.Location = new System.Drawing.Point(0, 416);
+            this.btninseminacionbovina.Location = new System.Drawing.Point(0, 410);
             this.btninseminacionbovina.Name = "btninseminacionbovina";
             this.btninseminacionbovina.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btninseminacionbovina.Size = new System.Drawing.Size(250, 45);
+            this.btninseminacionbovina.Size = new System.Drawing.Size(233, 45);
             this.btninseminacionbovina.TabIndex = 5;
             this.btninseminacionbovina.Text = "Inseminacion Bovina";
             this.btninseminacionbovina.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -160,7 +245,7 @@ namespace SINFO
             this.panelsubmenuIP.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelsubmenuIP.Location = new System.Drawing.Point(0, 278);
             this.panelsubmenuIP.Name = "panelsubmenuIP";
-            this.panelsubmenuIP.Size = new System.Drawing.Size(250, 138);
+            this.panelsubmenuIP.Size = new System.Drawing.Size(233, 132);
             this.panelsubmenuIP.TabIndex = 4;
             // 
             // btnreporteIP
@@ -172,7 +257,7 @@ namespace SINFO
             this.btnreporteIP.Location = new System.Drawing.Point(0, 80);
             this.btnreporteIP.Name = "btnreporteIP";
             this.btnreporteIP.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnreporteIP.Size = new System.Drawing.Size(250, 40);
+            this.btnreporteIP.Size = new System.Drawing.Size(233, 40);
             this.btnreporteIP.TabIndex = 2;
             this.btnreporteIP.Text = "Reporte";
             this.btnreporteIP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -188,7 +273,7 @@ namespace SINFO
             this.btnactualizarregistroIP.Location = new System.Drawing.Point(0, 40);
             this.btnactualizarregistroIP.Name = "btnactualizarregistroIP";
             this.btnactualizarregistroIP.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnactualizarregistroIP.Size = new System.Drawing.Size(250, 40);
+            this.btnactualizarregistroIP.Size = new System.Drawing.Size(233, 40);
             this.btnactualizarregistroIP.TabIndex = 1;
             this.btnactualizarregistroIP.Text = "Actualizar";
             this.btnactualizarregistroIP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -204,7 +289,7 @@ namespace SINFO
             this.btnnuevoregistroinseminacionP.Location = new System.Drawing.Point(0, 0);
             this.btnnuevoregistroinseminacionP.Name = "btnnuevoregistroinseminacionP";
             this.btnnuevoregistroinseminacionP.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnnuevoregistroinseminacionP.Size = new System.Drawing.Size(250, 40);
+            this.btnnuevoregistroinseminacionP.Size = new System.Drawing.Size(233, 40);
             this.btnnuevoregistroinseminacionP.TabIndex = 0;
             this.btnnuevoregistroinseminacionP.Text = "Nuevo Registro";
             this.btnnuevoregistroinseminacionP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -221,7 +306,7 @@ namespace SINFO
             this.btninseminacionporcina.Location = new System.Drawing.Point(0, 233);
             this.btninseminacionporcina.Name = "btninseminacionporcina";
             this.btninseminacionporcina.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btninseminacionporcina.Size = new System.Drawing.Size(250, 45);
+            this.btninseminacionporcina.Size = new System.Drawing.Size(233, 45);
             this.btninseminacionporcina.TabIndex = 3;
             this.btninseminacionporcina.Text = "Inseminacion Porcina";
             this.btninseminacionporcina.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -236,7 +321,7 @@ namespace SINFO
             this.panelsubmenuseguimiento.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelsubmenuseguimiento.Location = new System.Drawing.Point(0, 145);
             this.panelsubmenuseguimiento.Name = "panelsubmenuseguimiento";
-            this.panelsubmenuseguimiento.Size = new System.Drawing.Size(250, 88);
+            this.panelsubmenuseguimiento.Size = new System.Drawing.Size(233, 88);
             this.panelsubmenuseguimiento.TabIndex = 2;
             // 
             // btnreporseguimiento
@@ -248,7 +333,7 @@ namespace SINFO
             this.btnreporseguimiento.Location = new System.Drawing.Point(0, 40);
             this.btnreporseguimiento.Name = "btnreporseguimiento";
             this.btnreporseguimiento.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnreporseguimiento.Size = new System.Drawing.Size(250, 40);
+            this.btnreporseguimiento.Size = new System.Drawing.Size(233, 40);
             this.btnreporseguimiento.TabIndex = 2;
             this.btnreporseguimiento.Text = "Reporte";
             this.btnreporseguimiento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -264,7 +349,7 @@ namespace SINFO
             this.btnnuevoseguimiento.Location = new System.Drawing.Point(0, 0);
             this.btnnuevoseguimiento.Name = "btnnuevoseguimiento";
             this.btnnuevoseguimiento.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnnuevoseguimiento.Size = new System.Drawing.Size(250, 40);
+            this.btnnuevoseguimiento.Size = new System.Drawing.Size(233, 40);
             this.btnnuevoseguimiento.TabIndex = 0;
             this.btnnuevoseguimiento.Text = "Nuevo Registro";
             this.btnnuevoseguimiento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -281,7 +366,7 @@ namespace SINFO
             this.btnseguimiento.Location = new System.Drawing.Point(0, 100);
             this.btnseguimiento.Name = "btnseguimiento";
             this.btnseguimiento.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnseguimiento.Size = new System.Drawing.Size(250, 45);
+            this.btnseguimiento.Size = new System.Drawing.Size(233, 45);
             this.btnseguimiento.TabIndex = 1;
             this.btnseguimiento.Text = "Seguimiento";
             this.btnseguimiento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -293,7 +378,7 @@ namespace SINFO
             this.panellogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panellogo.Location = new System.Drawing.Point(0, 0);
             this.panellogo.Name = "panellogo";
-            this.panellogo.Size = new System.Drawing.Size(250, 100);
+            this.panellogo.Size = new System.Drawing.Size(233, 100);
             this.panellogo.TabIndex = 0;
             // 
             // panelformhijo
@@ -341,6 +426,7 @@ namespace SINFO
             this.Name = "FormPrincipal";
             this.Text = "Form1";
             this.panelmenulateral.ResumeLayout(false);
+            this.panelsubmenumetas.ResumeLayout(false);
             this.panelsubmenuIB.ResumeLayout(false);
             this.panelsubmenuIP.ResumeLayout(false);
             this.panelsubmenuseguimiento.ResumeLayout(false);
@@ -371,6 +457,11 @@ namespace SINFO
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnreporseguimiento;
         private System.Windows.Forms.Panel panelEncabezado;
+        private System.Windows.Forms.Panel panelsubmenumetas;
+        private System.Windows.Forms.Button btnreportemetas;
+        private System.Windows.Forms.Button btnactualizarmetas;
+        private System.Windows.Forms.Button btnnuevoregistrometas;
+        private System.Windows.Forms.Button btnmetas;
     }
 }
 

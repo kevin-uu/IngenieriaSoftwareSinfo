@@ -45,6 +45,16 @@
           <Property Name="idinstitucion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombreinstitucion" Type="varchar" MaxLength="1000" />
         </EntityType>
+        <EntityType Name="metas">
+          <Key>
+            <PropertyRef Name="idmetas" />
+          </Key>
+          <Property Name="idmetas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idestrategia2" Type="int" />
+          <Property Name="idtiposactividad2" Type="int" />
+          <Property Name="idinstitucion2" Type="int" />
+          <Property Name="cantidad" Type="int" />
+        </EntityType>
         <EntityType Name="municipios">
           <Key>
             <PropertyRef Name="idmunicipio" />
@@ -211,6 +221,7 @@
           <EntitySet Name="estrategia" EntityType="Self.estrategia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="inseminacionporcina" EntityType="Self.inseminacionporcina" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="institucion" EntityType="Self.institucion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="metas" EntityType="Self.metas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="municipios" EntityType="Self.municipios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="razascerdos" EntityType="Self.razascerdos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="seguimiento" EntityType="Self.seguimiento" Schema="dbo" store:Type="Tables" />
@@ -465,6 +476,7 @@
             <End Role="inseminacionporcina" EntitySet="inseminacionporcina" />
           </AssociationSet>
           <FunctionImport Name="ListarDatosInseminacionPorcina" ReturnType="Collection(sinfoModel.ListarDatosInseminacionPorcina_Result)" />
+          <EntitySet Name="metas" EntityType="sinfoModel.metas" />
         </EntityContainer>
         <ComplexType Name="ListarDatosSeguimientos_Result">
           <Property Type="DateTime" Name="fecha" Nullable="true" />
@@ -575,6 +587,16 @@
           <Property Type="String" Name="presentocelo" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="fechaprogramadaparaparto" Nullable="true" MaxLength="30" />
         </ComplexType>
+        <EntityType Name="metas">
+          <Key>
+            <PropertyRef Name="idmetas" />
+          </Key>
+          <Property Name="idmetas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idestrategia2" Type="Int32" />
+          <Property Name="idtiposactividad2" Type="Int32" />
+          <Property Name="idinstitucion2" Type="Int32" />
+          <Property Name="cantidad" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -723,6 +745,17 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="metas">
+            <EntityTypeMapping TypeName="sinfoModel.metas">
+              <MappingFragment StoreEntitySet="metas">
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="idinstitucion2" ColumnName="idinstitucion2" />
+                <ScalarProperty Name="idtiposactividad2" ColumnName="idtiposactividad2" />
+                <ScalarProperty Name="idestrategia2" ColumnName="idestrategia2" />
+                <ScalarProperty Name="idmetas" ColumnName="idmetas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

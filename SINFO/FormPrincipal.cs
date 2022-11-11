@@ -47,6 +47,7 @@ namespace SINFO
             panelsubmenuIB.Visible = false;
             panelsubmenuIP.Visible = false;
             panelsubmenuseguimiento.Visible = false;
+            panelsubmenumetas.Visible = false;
         }
 
         //oculta el submenu que se ha mostrado previamente
@@ -58,6 +59,8 @@ namespace SINFO
                 panelsubmenuIP.Visible = false;
             if (panelsubmenuIB.Visible == true)
                 panelsubmenuIB.Visible = false;
+            if (panelsubmenumetas.Visible == true)
+                panelsubmenumetas.Visible = false;
         }
 
         //motrar el menu
@@ -146,8 +149,33 @@ namespace SINFO
             //debajo de todo el codigo de accion de cada uno de los botones del sub menu siempre invocar al metodo ocultarsubmenu
             ocultarsubmenu();
         }
+
         #endregion
 
-        
+        #region sub menu metas
+
+        private void btnmetas_Click(object sender, EventArgs e)
+        {
+            mostrasubmenu(panelsubmenumetas);
+        }
+        private void btnnuevoregistrometas_Click(object sender, EventArgs e)
+        {
+            ocultarsubmenu();
+        }
+
+        private void btnactualizarmetas_Click(object sender, EventArgs e)
+        {
+            ocultarsubmenu();
+        }
+
+        private void btnreportemetas_Click(object sender, EventArgs e)
+        {
+            abrirformulariohijo(new reporteMetas());
+            ocultarsubmenu();
+        }
+
+        #endregion
+
+
     }
 }

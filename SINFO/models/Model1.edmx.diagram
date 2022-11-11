@@ -23,6 +23,7 @@
         <AssociationConnector Association="sinfoModel.fk_IPcomunidad" />
         <AssociationConnector Association="sinfoModel.fk_IPmunicipios" />
         <AssociationConnector Association="sinfoModel.fk_IPRazas" />
+        <EntityTypeShape EntityType="sinfoModel.metas" Width="1.5" PointX="4" PointY="6.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

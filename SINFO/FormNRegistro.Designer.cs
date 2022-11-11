@@ -52,8 +52,6 @@ namespace SINFO
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.BtnActualizar = new System.Windows.Forms.Button();
-            this.BtnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dtpFechaRegistro
@@ -311,44 +309,12 @@ namespace SINFO
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // BtnActualizar
-            // 
-            this.BtnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnActualizar.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.BtnActualizar.FlatAppearance.BorderSize = 0;
-            this.BtnActualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
-            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnActualizar.Location = new System.Drawing.Point(511, 491);
-            this.BtnActualizar.Name = "BtnActualizar";
-            this.BtnActualizar.Size = new System.Drawing.Size(97, 32);
-            this.BtnActualizar.TabIndex = 31;
-            this.BtnActualizar.Text = "Actualizar";
-            this.BtnActualizar.UseVisualStyleBackColor = false;
-            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
-            // 
-            // BtnCancelar
-            // 
-            this.BtnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnCancelar.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.BtnCancelar.FlatAppearance.BorderSize = 0;
-            this.BtnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
-            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCancelar.Location = new System.Drawing.Point(398, 491);
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(97, 32);
-            this.BtnCancelar.TabIndex = 32;
-            this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.UseVisualStyleBackColor = false;
-            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
-            // 
             // FormNRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.ClientSize = new System.Drawing.Size(944, 599);
-            this.Controls.Add(this.BtnCancelar);
-            this.Controls.Add(this.BtnActualizar);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
@@ -395,7 +361,6 @@ namespace SINFO
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button BtnActualizar;
         public System.Windows.Forms.ComboBox cmbMunicipio;
         public System.Windows.Forms.ComboBox cmbComunidad;
         public System.Windows.Forms.ComboBox cmbInstitucion;
@@ -404,7 +369,6 @@ namespace SINFO
         public System.Windows.Forms.TextBox txtDescripcion;
         public System.Windows.Forms.TextBox txtVarones;
         public System.Windows.Forms.TextBox txtMujeres;
-        private System.Windows.Forms.Button BtnCancelar;
         public System.Windows.Forms.DateTimePicker dtpFechaRegistro;
         public System.Windows.Forms.Button btnguardar;
     }

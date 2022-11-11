@@ -35,6 +35,7 @@ namespace SINFO.models
         public virtual DbSet<tipos_de_actividades> tipos_de_actividades { get; set; }
         public virtual DbSet<inseminacionporcina> inseminacionporcina { get; set; }
         public virtual DbSet<razascerdos> razascerdos { get; set; }
+        public virtual DbSet<metas> metas { get; set; }
     
         public virtual ObjectResult<ListarDatosSeguimientos_Result> ListarDatosSeguimientos()
         {

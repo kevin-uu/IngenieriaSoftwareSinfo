@@ -139,6 +139,8 @@ namespace SINFO
             MessageBox.Show("Actualizador Correctamente");
             
         }
+
         #endregion
+
     }
 }

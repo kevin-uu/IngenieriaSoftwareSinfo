@@ -393,29 +393,29 @@ namespace SINFO
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCedula;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.ComboBox cmbComunidadIP;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.ComboBox cmbMunicipioIP;
-        private System.Windows.Forms.TextBox txtCoordenadaX;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtCoordenadaY;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.ComboBox cmbSexo;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.DateTimePicker dtpFechaRegistroIP;
-        private System.Windows.Forms.TextBox txtNombreCerdo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         public System.Windows.Forms.ComboBox cmbRaza;
         private System.Windows.Forms.Label label12;
         public System.Windows.Forms.ComboBox cmbPreñada;
         public System.Windows.Forms.Button btnguardarIP;
+        public System.Windows.Forms.TextBox txtCedula;
+        public System.Windows.Forms.TextBox txtNombre;
+        public System.Windows.Forms.TextBox txtCoordenadaX;
+        public System.Windows.Forms.TextBox txtCoordenadaY;
+        public System.Windows.Forms.TextBox txtTelefono;
+        public System.Windows.Forms.TextBox txtNombreCerdo;
     }
 }

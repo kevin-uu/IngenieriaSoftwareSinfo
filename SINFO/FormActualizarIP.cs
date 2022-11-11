@@ -28,7 +28,7 @@ namespace SINFO
         }
 
         #region Cargar La Cosulta a la tabla Seguimiento
-        private void CargadgvActualizarIP()
+        public void CargadgvActualizarIP()
         {
             N_InseminacionP ObjIP = new N_InseminacionP();
             dgvActualizarIP.DataSource = ObjIP.ObtenerDatosIP();
@@ -42,7 +42,7 @@ namespace SINFO
         #region evento cellclick al darle click a la columna editar sobre el icono carga los texbox de la fila seleccionada
         private void dgvActualizarIP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvActualizarIP.SelectedRows.Count > 0)
+            if (dgvActualizarIP.Columns[e.ColumnIndex].Name == "Editar")
             {
                 
                 txtCedula.Text = dgvActualizarIP.CurrentRow.Cells["cedulaproductor"].Value.ToString();
@@ -56,6 +56,14 @@ namespace SINFO
                 cmbComunidadIP.Text = dgvActualizarIP.CurrentRow.Cells["nombrecomunidad"].Value.ToString();
                 cmbRaza.Text = dgvActualizarIP.CurrentRow.Cells["nombrerazacerdo"].Value.ToString();
                 cmbSexo.Text = dgvActualizarIP.CurrentRow.Cells["sexo"].Value.ToString();
+            }
+
+            if (dgvActualizarIP.Columns[e.ColumnIndex].Name == "Eliminar")
+            {
+                string idineminacion = dgvActualizarIP.CurrentRow.Cells["idinseminacion"].Value.ToString();
+                EliminarInseminacion(Convert.ToInt32(idineminacion));
+                MessageBox.Show("El registro se Elimino correctamente");
+                CargadgvActualizarIP();
             }
         }
         #endregion
@@ -158,6 +166,30 @@ namespace SINFO
                 Comando.Parameters.AddWithValue("@nombrecerdo", txtNombreCerdo.Text);
                 Comando.Parameters.AddWithValue("@idrazascerdos1", Convert.ToInt32(cmbRaza.SelectedValue));
                 Comando.Parameters.AddWithValue("@presentocelo", cmbPreñada.SelectedItem.ToString());
+                Comando.ExecuteNonQuery();
+                Comando.Parameters.Clear();
+                Comando.Connection = conex.CerrarConexion();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+        #endregion
+
+        #region Elimar Registro  Tabla Inseminacion Porcina
+        public void EliminarInseminacion(int id)
+        {
+            try
+            {
+                CDatos conex = new CDatos();
+                SqlCommand Comando = new SqlCommand();
+                Comando.Connection = conex.AbrirConexion();
+                Comando.CommandText = "EliminarIPorcina";
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@idinseminacion", id);
                 Comando.ExecuteNonQuery();
                 Comando.Parameters.Clear();
                 Comando.Connection = conex.CerrarConexion();

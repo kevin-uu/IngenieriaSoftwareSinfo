@@ -23,13 +23,7 @@ namespace SINFO
         {
             InitializeComponent();
             
-        }
-        //sobrecarca de datos en el constructor
-        /*public FormNRegistro(int idSegu1)
-        {
-            InitializeComponent();
-            BuscarIdSeguimiento(idSegu1);
-        }    */    
+        }         
 
         #region carga de combo municipio y combo comunidad
 
@@ -135,42 +129,6 @@ namespace SINFO
         }
         #endregion
 
-        #region otro metodo prueba editar
-        private void BuscarIdSeguimiento(int idSegu1)
-        {/*
-            try
-            {
-                using (sinfoEntities db = new sinfoEntities())
-                {
-                    var list = db.seguimiento.Where(e => e.idsegimiento == idSegu1).ToList();
-                    if (list.Count > 0)  //hay que seleccionar una fila si es 0 no hace nada
-                    {
-                        foreach (seguimiento tablaseguimiento in list)
-                        {
-                            Idse= tablaseguimiento.idsegimiento.ToString();
-                            //textBox1.Text = Ediseguimiento.idsegimiento.ToString();       //la variable almacena el idsegimiento y lo imprime como texto porque es de tipo texto el valor a recibir                   
-                            dtpFechaRegistro.Text = tablaseguimiento.fecha.ToString();  //---observacion de edicion, lo puse al contrario de las demas lineas de este bloque
-                            cmbMunicipio.Text = tablaseguimiento.idmunicipio1.ToString();
-                            cmbComunidad.Text = tablaseguimiento.idcomunidad1.Value.ToString();
-                            cmbEstrategia.Text = tablaseguimiento.idestrategia1.Value.ToString();
-                            cmbTipodeActividad.Text = tablaseguimiento.idtiposactividad1.Value.ToString();
-                            cmbInstitucion.Text = tablaseguimiento.idinstitucion1.Value.ToString();
-                            txtDescripcion.Text = tablaseguimiento.descripcion.ToString();
-                            txtVarones.Text = tablaseguimiento.varones.Value.ToString();
-                            txtMujeres.Text = tablaseguimiento.mujeres.Value.ToString();
-                        }
-                    }
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Debe seleccionar una Fila");
-            }*/
-            
-        }
-
-        #endregion 
-
         #region Metodo para Guardar los Datos y sus Respectivas Conversiones
         public void guardar()
         {
@@ -226,12 +184,6 @@ namespace SINFO
         }
         #endregion
 
-        #region boton Cancelar datos
-        private void BtnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        #endregion
     }
 
 

@@ -16,5 +16,10 @@ namespace SINFO
         {
             InitializeComponent();
         }
+
+        private void reporteSeguimiento_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

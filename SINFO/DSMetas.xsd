@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSMetas" targetNamespace="http://tempuri.org/DSMetas.xsd" xmlns:mstns="http://tempuri.org/DSMetas.xsd" xmlns="http://tempuri.org/DSMetas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="sinfoConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="sinfoConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SINFO.Properties.Settings.GlobalReference.Default.sinfoConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="sinfoConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        estrategia_1.nombreestrategia AS Estrategia, institucion_1.nombreinstitucion AS Institucion, tipos_de_actividades_1.nombreactividad AS Actividad, metas.cantidad AS Metas,
+                             (SELECT        COUNT(tipos_de_actividades.nombreactividad) AS Expr1
+                               FROM            seguimiento INNER JOIN
+                                                         tipos_de_actividades ON seguimiento.idtiposactividad1 = tipos_de_actividades.idtiposactividad INNER JOIN
+                                                         estrategia ON seguimiento.idestrategia1 = estrategia.idestrategia INNER JOIN
+                                                         institucion ON seguimiento.idinstitucion1 = institucion.idinstitucion
+                               WHERE        (metas.idtiposactividad2 = seguimiento.idtiposactividad1)) AS 'Cumplimiento'
+FROM            metas INNER JOIN
+                         tipos_de_actividades AS tipos_de_actividades_1 ON metas.idtiposactividad2 = tipos_de_actividades_1.idtiposactividad INNER JOIN
+                         estrategia AS estrategia_1 ON metas.idestrategia2 = estrategia_1.idestrategia INNER JOIN
+                         institucion AS institucion_1 ON metas.idinstitucion2 = institucion_1.idinstitucion</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Estrategia" DataSetColumn="Estrategia" />
+              <Mapping SourceColumn="Institucion" DataSetColumn="Institucion" />
+              <Mapping SourceColumn="Actividad" DataSetColumn="Actividad" />
+              <Mapping SourceColumn="Metas" DataSetColumn="Metas" />
+              <Mapping SourceColumn="Cumplimiento" DataSetColumn="Cumplimiento" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSMetas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSMetas" msprop:Generator_UserDSName="DSMetas">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable2" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowClassName="DataTable2Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Estrategia" msprop:Generator_ColumnVarNameInTable="columnEstrategia" msprop:Generator_ColumnPropNameInRow="Estrategia" msprop:Generator_ColumnPropNameInTable="EstrategiaColumn" msprop:Generator_UserColumnName="Estrategia" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Institucion" msprop:Generator_ColumnVarNameInTable="columnInstitucion" msprop:Generator_ColumnPropNameInRow="Institucion" msprop:Generator_ColumnPropNameInTable="InstitucionColumn" msprop:Generator_UserColumnName="Institucion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Actividad" msprop:Generator_ColumnVarNameInTable="columnActividad" msprop:Generator_ColumnPropNameInRow="Actividad" msprop:Generator_ColumnPropNameInTable="ActividadColumn" msprop:Generator_UserColumnName="Actividad" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Metas" msprop:Generator_ColumnVarNameInTable="columnMetas" msprop:Generator_ColumnPropNameInRow="Metas" msprop:Generator_ColumnPropNameInTable="MetasColumn" msprop:Generator_UserColumnName="Metas" type="xs:int" minOccurs="0" />
+              <xs:element name="Cumplimiento" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCumplimiento" msprop:Generator_ColumnPropNameInRow="Cumplimiento" msprop:Generator_ColumnPropNameInTable="CumplimientoColumn" msprop:Generator_UserColumnName="Cumplimiento" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
