@@ -65,10 +65,12 @@ namespace SINFO
             // 
             // dgvActualizarIP
             // 
+            this.dgvActualizarIP.AllowUserToAddRows = false;
+            this.dgvActualizarIP.AllowUserToDeleteRows = false;
             this.dgvActualizarIP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvActualizarIP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvActualizarIP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgvActualizarIP.BackgroundColor = System.Drawing.Color.White;
             this.dgvActualizarIP.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvActualizarIP.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -96,6 +98,7 @@ namespace SINFO
             this.dgvActualizarIP.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvActualizarIP.Location = new System.Drawing.Point(21, 225);
             this.dgvActualizarIP.Name = "dgvActualizarIP";
+            this.dgvActualizarIP.ReadOnly = true;
             this.dgvActualizarIP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvActualizarIP.Size = new System.Drawing.Size(803, 285);
             this.dgvActualizarIP.TabIndex = 1;
@@ -107,6 +110,8 @@ namespace SINFO
             this.Editar.Image = global::SINFO.Properties.Resources.editar;
             this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Width = 40;
             // 
             // Eliminar
             // 
@@ -114,6 +119,8 @@ namespace SINFO
             this.Eliminar.Image = global::SINFO.Properties.Resources.borrar;
             this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 49;
             // 
             // cmbPreñada
             // 

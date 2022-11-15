@@ -49,7 +49,7 @@ namespace SINFO
             this.txtVarones = new System.Windows.Forms.TextBox();
             this.txtMujeres = new System.Windows.Forms.TextBox();
             this.btnguardar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCerrarB = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -261,21 +261,21 @@ namespace SINFO
             this.btnguardar.UseVisualStyleBackColor = false;
             this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
-            // button1
+            // btnCerrarB
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(101)))), ((int)(((byte)(113)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(3)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::SINFO.Properties.Resources.cerrar__2_;
-            this.button1.Location = new System.Drawing.Point(891, 1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(47, 30);
-            this.button1.TabIndex = 27;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCerrarB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrarB.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrarB.FlatAppearance.BorderSize = 0;
+            this.btnCerrarB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(101)))), ((int)(((byte)(113)))));
+            this.btnCerrarB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(3)))));
+            this.btnCerrarB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarB.Image = global::SINFO.Properties.Resources.cerrar__2_;
+            this.btnCerrarB.Location = new System.Drawing.Point(891, 1);
+            this.btnCerrarB.Name = "btnCerrarB";
+            this.btnCerrarB.Size = new System.Drawing.Size(47, 30);
+            this.btnCerrarB.TabIndex = 27;
+            this.btnCerrarB.UseVisualStyleBackColor = true;
+            this.btnCerrarB.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
@@ -317,7 +317,7 @@ namespace SINFO
             this.ClientSize = new System.Drawing.Size(944, 599);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCerrarB);
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.txtMujeres);
             this.Controls.Add(this.txtVarones);
@@ -358,7 +358,7 @@ namespace SINFO
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCerrarB;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         public System.Windows.Forms.ComboBox cmbMunicipio;

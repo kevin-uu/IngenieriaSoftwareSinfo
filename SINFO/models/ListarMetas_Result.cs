@@ -10,15 +10,14 @@
 namespace SINFO.models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class metas
+    public partial class ListarMetas_Result
     {
-        public int idmetas { get; set; }
-        public Nullable<int> idestrategia2 { get; set; }
-        public Nullable<int> idtiposactividad2 { get; set; }
-        public Nullable<int> idinstitucion2 { get; set; }
-        public Nullable<int> cantidad { get; set; }
-        public Nullable<System.DateTime> fechaderegistro { get; set; }
+        public Nullable<System.DateTime> Fecha_de_Registro { get; set; }
+        public string Mes { get; set; }
+        public string Estrategia { get; set; }
+        public string Actividad { get; set; }
+        public string Institucion { get; set; }
+        public Nullable<int> Cantidad { get; set; }
     }
 }

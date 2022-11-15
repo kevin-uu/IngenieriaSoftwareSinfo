@@ -106,6 +106,7 @@ namespace SINFO
 
         private void btnnuevoregistroinseminacionP_Click(object sender, EventArgs e)
         {
+            abrirformulariohijo(new FormActualizarIP());
             FormNRegistroIP IP = new FormNRegistroIP();
             IP.Show();
             //debajo de todo el codigo de accion de cada uno de los botones del sub menu siempre invocar al metodo ocultarsubmenu
@@ -134,12 +135,16 @@ namespace SINFO
 
         private void btnnuevoregistroinseminacionB_Click(object sender, EventArgs e)
         {
+            abrirformulariohijo(new FormActualizarIB());
+            FormNRegistroIB IB = new FormNRegistroIB();
+            IB.Show();
             //debajo de todo el codigo de accion de cada uno de los botones del sub menu siempre invocar al metodo ocultarsubmenu
             ocultarsubmenu();
         }
 
         private void btnactualizarregistroIB_Click(object sender, EventArgs e)
         {
+            abrirformulariohijo(new FormActualizarIB());
             //debajo de todo el codigo de accion de cada uno de los botones del sub menu siempre invocar al metodo ocultarsubmenu
             ocultarsubmenu();
         }
@@ -160,11 +165,13 @@ namespace SINFO
         }
         private void btnnuevoregistrometas_Click(object sender, EventArgs e)
         {
+            abrirformulariohijo(new FormRMetas());
             ocultarsubmenu();
         }
 
         private void btnactualizarmetas_Click(object sender, EventArgs e)
         {
+            abrirformulariohijo(new FormActualizarMetas());
             ocultarsubmenu();
         }
 

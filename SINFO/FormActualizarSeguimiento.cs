@@ -22,7 +22,7 @@ namespace SINFO
         seguimiento tablaseguimiento = new seguimiento();
         FormNRegistro formnregistro = new FormNRegistro();
         CDatos datos = new CDatos();
-        int idSegu;  //variable para almacenar el id seguimiento y no mostrarlo en el formulario
+        
         public FormActualizarSeguimiento()
         {
             InitializeComponent();

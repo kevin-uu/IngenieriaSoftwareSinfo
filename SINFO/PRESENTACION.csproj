@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CapaNegocio\N_Estrategia.cs" />
+    <Compile Include="CapaNegocio\N_InseminacionB.cs" />
     <Compile Include="CapaNegocio\N_InseminacionP.cs" />
     <Compile Include="CapaNegocio\N_Metas.cs" />
     <Compile Include="CapaNegocio\N_Seguimiento.cs" />
@@ -87,17 +88,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSMetas.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FormActualizarIB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormActualizarIB.Designer.cs">
+      <DependentUpon>FormActualizarIB.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormActualizarIP.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormActualizarIP.Designer.cs">
       <DependentUpon>FormActualizarIP.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormActualizarMetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormActualizarMetas.Designer.cs">
+      <DependentUpon>FormActualizarMetas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormActualizarSeguimiento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormActualizarSeguimiento.Designer.cs">
       <DependentUpon>FormActualizarSeguimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNRegistroIB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNRegistroIB.Designer.cs">
+      <DependentUpon>FormNRegistroIB.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNRegistroIP.cs">
       <SubType>Form</SubType>
@@ -118,11 +137,26 @@
       <DependentUpon>FormNRegistro.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaDatos\CDatos.cs" />
+    <Compile Include="FormRMetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRMetas.Designer.cs">
+      <DependentUpon>FormRMetas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRpMetasTodas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormRpMetasTodas.Designer.cs">
       <DependentUpon>FormRpMetasTodas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="models\inseminacionBovina.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\ListarDatosInseminacionB_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\ListarMetas_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="models\metas.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -196,11 +230,20 @@
       <DependentUpon>reporteSeguimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="FormActualizarIB.resx">
+      <DependentUpon>FormActualizarIB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormActualizarIP.resx">
       <DependentUpon>FormActualizarIP.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormActualizarMetas.resx">
+      <DependentUpon>FormActualizarMetas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormActualizarSeguimiento.resx">
       <DependentUpon>FormActualizarSeguimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNRegistroIB.resx">
+      <DependentUpon>FormNRegistroIB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNRegistroIP.resx">
       <DependentUpon>FormNRegistroIP.cs</DependentUpon>
@@ -210,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNRegistro.resx">
       <DependentUpon>FormNRegistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRMetas.resx">
+      <DependentUpon>FormRMetas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRpMetas.resx">
       <DependentUpon>FormRpMetas.cs</DependentUpon>

@@ -20,6 +20,36 @@
           <Property Name="idestrategia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombreestrategia" Type="varchar" MaxLength="1000" />
         </EntityType>
+        <EntityType Name="inseminacionBovina">
+          <Key>
+            <PropertyRef Name="idinseminacionB" />
+          </Key>
+          <Property Name="idinseminacionB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cedulaproductorB" Type="varchar" MaxLength="14" />
+          <Property Name="nombreproductorB" Type="varchar" MaxLength="300" />
+          <Property Name="numerotelfonoB" Type="varchar" MaxLength="8" />
+          <Property Name="idmunicipio5" Type="int" />
+          <Property Name="idcomunidad4" Type="int" />
+          <Property Name="coordenadaXB" Type="varchar" MaxLength="6" />
+          <Property Name="coordenadaYB" Type="varchar" MaxLength="7" />
+          <Property Name="varones" Type="int" />
+          <Property Name="mujeres" Type="int" />
+          <Property Name="direccion" Type="varchar" MaxLength="200" />
+          <Property Name="nombrevaca" Type="varchar" MaxLength="100" />
+          <Property Name="arete" Type="varchar" MaxLength="7" />
+          <Property Name="RazaVaca" Type="varchar" MaxLength="50" />
+          <Property Name="edad" Type="int" />
+          <Property Name="numerodeparto" Type="int" />
+          <Property Name="condicioncorporal" Type="float" />
+          <Property Name="razadeinteres" Type="varchar" MaxLength="50" />
+          <Property Name="razausada" Type="varchar" MaxLength="50" />
+          <Property Name="fechaaplicacionds" Type="date" />
+          <Property Name="fecharetirods" Type="date" />
+          <Property Name="fechainseminacionB" Type="date" />
+          <Property Name="idinstitucion4" Type="int" />
+          <Property Name="observacion" Type="varchar" MaxLength="300" />
+          <Property Name="presentocelo1" Type="varchar" MaxLength="10" />
+        </EntityType>
         <EntityType Name="inseminacionporcina">
           <Key>
             <PropertyRef Name="idinseminacion" />
@@ -50,6 +80,7 @@
             <PropertyRef Name="idmetas" />
           </Key>
           <Property Name="idmetas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechaderegistro" Type="date" />
           <Property Name="idestrategia2" Type="int" />
           <Property Name="idtiposactividad2" Type="int" />
           <Property Name="idinstitucion2" Type="int" />
@@ -126,6 +157,42 @@
             </Principal>
             <Dependent Role="seguimiento">
               <PropertyRef Name="idestrategia1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IBcomunidad">
+          <End Role="comunidad" Type="Self.comunidad" Multiplicity="0..1" />
+          <End Role="inseminacionBovina" Type="Self.inseminacionBovina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comunidad">
+              <PropertyRef Name="idcomunidad" />
+            </Principal>
+            <Dependent Role="inseminacionBovina">
+              <PropertyRef Name="idcomunidad4" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IBInstitucion">
+          <End Role="institucion" Type="Self.institucion" Multiplicity="0..1" />
+          <End Role="inseminacionBovina" Type="Self.inseminacionBovina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="institucion">
+              <PropertyRef Name="idinstitucion" />
+            </Principal>
+            <Dependent Role="inseminacionBovina">
+              <PropertyRef Name="idinstitucion4" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IBmunicipios">
+          <End Role="municipios" Type="Self.municipios" Multiplicity="0..1" />
+          <End Role="inseminacionBovina" Type="Self.inseminacionBovina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="municipios">
+              <PropertyRef Name="idmunicipio" />
+            </Principal>
+            <Dependent Role="inseminacionBovina">
+              <PropertyRef Name="idmunicipio5" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -213,12 +280,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ListarDatosInseminacionB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="ListarDatosInseminacionPorcina" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="ListarDatosSeguimientos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="ListarDatosSeguimientoss" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ListarMetas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="sinfoModelStoreContainer">
           <EntitySet Name="comunidad" EntityType="Self.comunidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="estrategia" EntityType="Self.estrategia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inseminacionBovina" EntityType="Self.inseminacionBovina" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="inseminacionporcina" EntityType="Self.inseminacionporcina" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="institucion" EntityType="Self.institucion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="metas" EntityType="Self.metas" Schema="dbo" store:Type="Tables" />
@@ -237,6 +307,18 @@
           <AssociationSet Name="fk_estrategia" Association="Self.fk_estrategia">
             <End Role="estrategia" EntitySet="estrategia" />
             <End Role="seguimiento" EntitySet="seguimiento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IBcomunidad" Association="Self.fk_IBcomunidad">
+            <End Role="comunidad" EntitySet="comunidad" />
+            <End Role="inseminacionBovina" EntitySet="inseminacionBovina" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IBInstitucion" Association="Self.fk_IBInstitucion">
+            <End Role="institucion" EntitySet="institucion" />
+            <End Role="inseminacionBovina" EntitySet="inseminacionBovina" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IBmunicipios" Association="Self.fk_IBmunicipios">
+            <End Role="municipios" EntitySet="municipios" />
+            <End Role="inseminacionBovina" EntitySet="inseminacionBovina" />
           </AssociationSet>
           <AssociationSet Name="fk_institucion" Association="Self.fk_institucion">
             <End Role="institucion" EntitySet="institucion" />
@@ -281,7 +363,8 @@
           <NavigationProperty Name="seguimiento" Relationship="Self.fk_comunidad" FromRole="comunidad" ToRole="seguimiento" />
           <NavigationProperty Name="municipios" Relationship="Self.fk_comunidad1" FromRole="comunidad" ToRole="municipios" />
           <NavigationProperty Name="inseminacionporcina" Relationship="sinfoModel.fk_IPcomunidad" FromRole="comunidad" ToRole="inseminacionporcina" />
-        </EntityType>
+          <NavigationProperty Name="inseminacionBovina" Relationship="sinfoModel.fk_IBcomunidad" FromRole="comunidad" ToRole="inseminacionBovina" />
+          </EntityType>
         <EntityType Name="estrategia">
           <Key>
             <PropertyRef Name="idestrategia" />
@@ -298,7 +381,8 @@
           <Property Name="idinstitucion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombreinstitucion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="seguimiento" Relationship="Self.fk_institucion" FromRole="institucion" ToRole="seguimiento" />
-        </EntityType>
+          <NavigationProperty Name="inseminacionBovina" Relationship="sinfoModel.fk_IBInstitucion" FromRole="institucion" ToRole="inseminacionBovina" />
+          </EntityType>
         <EntityType Name="municipios">
           <Key>
             <PropertyRef Name="idmunicipio" />
@@ -308,7 +392,8 @@
           <NavigationProperty Name="comunidad" Relationship="Self.fk_comunidad1" FromRole="municipios" ToRole="comunidad" />
           <NavigationProperty Name="seguimiento" Relationship="Self.fk_municipios" FromRole="municipios" ToRole="seguimiento" />
           <NavigationProperty Name="inseminacionporcina" Relationship="sinfoModel.fk_IPmunicipios" FromRole="municipios" ToRole="inseminacionporcina" />
-        </EntityType>
+          <NavigationProperty Name="inseminacionBovina" Relationship="sinfoModel.fk_IBmunicipios" FromRole="municipios" ToRole="inseminacionBovina" />
+          </EntityType>
         <EntityType Name="seguimiento">
           <Key>
             <PropertyRef Name="idsegimiento" />
@@ -477,7 +562,22 @@
           </AssociationSet>
           <FunctionImport Name="ListarDatosInseminacionPorcina" ReturnType="Collection(sinfoModel.ListarDatosInseminacionPorcina_Result)" />
           <EntitySet Name="metas" EntityType="sinfoModel.metas" />
-        </EntityContainer>
+          <FunctionImport Name="ListarMetas" ReturnType="Collection(sinfoModel.ListarMetas_Result)" />
+          <EntitySet Name="inseminacionBovina" EntityType="sinfoModel.inseminacionBovina" />
+          <AssociationSet Name="fk_IBcomunidad" Association="sinfoModel.fk_IBcomunidad">
+            <End Role="comunidad" EntitySet="comunidad" />
+            <End Role="inseminacionBovina" EntitySet="inseminacionBovina" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IBInstitucion" Association="sinfoModel.fk_IBInstitucion">
+            <End Role="institucion" EntitySet="institucion" />
+            <End Role="inseminacionBovina" EntitySet="inseminacionBovina" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IBmunicipios" Association="sinfoModel.fk_IBmunicipios">
+            <End Role="municipios" EntitySet="municipios" />
+            <End Role="inseminacionBovina" EntitySet="inseminacionBovina" />
+          </AssociationSet>
+          <FunctionImport Name="ListarDatosInseminacionB" ReturnType="Collection(sinfoModel.ListarDatosInseminacionB_Result)" />
+          </EntityContainer>
         <ComplexType Name="ListarDatosSeguimientos_Result">
           <Property Type="DateTime" Name="fecha" Nullable="true" />
           <Property Type="String" Name="Mes" Nullable="true" MaxLength="30" />
@@ -596,8 +696,102 @@
           <Property Name="idtiposactividad2" Type="Int32" />
           <Property Name="idinstitucion2" Type="Int32" />
           <Property Name="cantidad" Type="Int32" />
+          <Property Name="fechaderegistro" Type="DateTime" Precision="0" />
         </EntityType>
-      </Schema>
+        <ComplexType Name="ListarMetas_Result">
+          <Property Type="DateTime" Name="Fecha_de_Registro" Nullable="true" />
+          <Property Type="String" Name="Mes" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Estrategia" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Actividad" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Institucion" Nullable="true" MaxLength="1000" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="inseminacionBovina">
+          <Key>
+            <PropertyRef Name="idinseminacionB" />
+          </Key>
+          <Property Name="idinseminacionB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cedulaproductorB" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="nombreproductorB" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="numerotelfonoB" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="idmunicipio5" Type="Int32" />
+          <Property Name="idcomunidad4" Type="Int32" />
+          <Property Name="coordenadaXB" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="coordenadaYB" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="varones" Type="Int32" />
+          <Property Name="mujeres" Type="Int32" />
+          <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="nombrevaca" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="arete" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="RazaVaca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="edad" Type="Int32" />
+          <Property Name="numerodeparto" Type="Int32" />
+          <Property Name="condicioncorporal" Type="Double" />
+          <Property Name="razadeinteres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="razausada" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fechaaplicacionds" Type="DateTime" Precision="0" />
+          <Property Name="fecharetirods" Type="DateTime" Precision="0" />
+          <Property Name="fechainseminacionB" Type="DateTime" Precision="0" />
+          <Property Name="idinstitucion4" Type="Int32" />
+          <Property Name="observacion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="presentocelo1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="comunidad" Relationship="sinfoModel.fk_IBcomunidad" FromRole="inseminacionBovina" ToRole="comunidad" />
+          <NavigationProperty Name="institucion" Relationship="sinfoModel.fk_IBInstitucion" FromRole="inseminacionBovina" ToRole="institucion" />
+          <NavigationProperty Name="municipios" Relationship="sinfoModel.fk_IBmunicipios" FromRole="inseminacionBovina" ToRole="municipios" />
+        </EntityType>
+        <Association Name="fk_IBcomunidad">
+          <End Type="sinfoModel.comunidad" Role="comunidad" Multiplicity="0..1" />
+          <End Type="sinfoModel.inseminacionBovina" Role="inseminacionBovina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comunidad">
+              <PropertyRef Name="idcomunidad" />
+            </Principal>
+            <Dependent Role="inseminacionBovina">
+              <PropertyRef Name="idcomunidad4" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IBInstitucion">
+          <End Type="sinfoModel.institucion" Role="institucion" Multiplicity="0..1" />
+          <End Type="sinfoModel.inseminacionBovina" Role="inseminacionBovina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="institucion">
+              <PropertyRef Name="idinstitucion" />
+            </Principal>
+            <Dependent Role="inseminacionBovina">
+              <PropertyRef Name="idinstitucion4" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IBmunicipios">
+          <End Type="sinfoModel.municipios" Role="municipios" Multiplicity="0..1" />
+          <End Type="sinfoModel.inseminacionBovina" Role="inseminacionBovina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="municipios">
+              <PropertyRef Name="idmunicipio" />
+            </Principal>
+            <Dependent Role="inseminacionBovina">
+              <PropertyRef Name="idmunicipio5" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="ListarDatosInseminacionB_Result">
+          <Property Type="Int32" Name="IDIB" Nullable="false" />
+          <Property Type="String" Name="Cedula" Nullable="true" MaxLength="14" />
+          <Property Type="String" Name="Nombre_Completo" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="No_Telefono" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="Municipio" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Comunidad" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Nombre_de_la_Vaca" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="No_Arete" Nullable="true" MaxLength="7" />
+          <Property Type="DateTime" Name="Fecha_de_Inseminacion" Nullable="true" />
+          <Property Type="String" Name="Institucion" Nullable="true" MaxLength="1000" />
+          <Property Type="DateTime" Name="Fecha_programada_repeticion_celo" Nullable="true" />
+          <Property Type="String" Name="Presento_Celo_" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Diagnostico_Gestacion" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Fecha_probable_de_parto" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -748,6 +942,7 @@
           <EntitySetMapping Name="metas">
             <EntityTypeMapping TypeName="sinfoModel.metas">
               <MappingFragment StoreEntitySet="metas">
+                <ScalarProperty Name="fechaderegistro" ColumnName="fechaderegistro" />
                 <ScalarProperty Name="cantidad" ColumnName="cantidad" />
                 <ScalarProperty Name="idinstitucion2" ColumnName="idinstitucion2" />
                 <ScalarProperty Name="idtiposactividad2" ColumnName="idtiposactividad2" />
@@ -756,6 +951,69 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ListarMetas" FunctionName="sinfoModel.Store.ListarMetas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sinfoModel.ListarMetas_Result">
+                <ScalarProperty Name="Fecha_de_Registro" ColumnName="Fecha de Registro" />
+                <ScalarProperty Name="Mes" ColumnName="Mes" />
+                <ScalarProperty Name="Estrategia" ColumnName="Estrategia" />
+                <ScalarProperty Name="Actividad" ColumnName="Actividad" />
+                <ScalarProperty Name="Institucion" ColumnName="Institucion" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="inseminacionBovina">
+            <EntityTypeMapping TypeName="sinfoModel.inseminacionBovina">
+              <MappingFragment StoreEntitySet="inseminacionBovina">
+                <ScalarProperty Name="presentocelo1" ColumnName="presentocelo1" />
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+                <ScalarProperty Name="idinstitucion4" ColumnName="idinstitucion4" />
+                <ScalarProperty Name="fechainseminacionB" ColumnName="fechainseminacionB" />
+                <ScalarProperty Name="fecharetirods" ColumnName="fecharetirods" />
+                <ScalarProperty Name="fechaaplicacionds" ColumnName="fechaaplicacionds" />
+                <ScalarProperty Name="razausada" ColumnName="razausada" />
+                <ScalarProperty Name="razadeinteres" ColumnName="razadeinteres" />
+                <ScalarProperty Name="condicioncorporal" ColumnName="condicioncorporal" />
+                <ScalarProperty Name="numerodeparto" ColumnName="numerodeparto" />
+                <ScalarProperty Name="edad" ColumnName="edad" />
+                <ScalarProperty Name="RazaVaca" ColumnName="RazaVaca" />
+                <ScalarProperty Name="arete" ColumnName="arete" />
+                <ScalarProperty Name="nombrevaca" ColumnName="nombrevaca" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="mujeres" ColumnName="mujeres" />
+                <ScalarProperty Name="varones" ColumnName="varones" />
+                <ScalarProperty Name="coordenadaYB" ColumnName="coordenadaYB" />
+                <ScalarProperty Name="coordenadaXB" ColumnName="coordenadaXB" />
+                <ScalarProperty Name="idcomunidad4" ColumnName="idcomunidad4" />
+                <ScalarProperty Name="idmunicipio5" ColumnName="idmunicipio5" />
+                <ScalarProperty Name="numerotelfonoB" ColumnName="numerotelfonoB" />
+                <ScalarProperty Name="nombreproductorB" ColumnName="nombreproductorB" />
+                <ScalarProperty Name="cedulaproductorB" ColumnName="cedulaproductorB" />
+                <ScalarProperty Name="idinseminacionB" ColumnName="idinseminacionB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ListarDatosInseminacionB" FunctionName="sinfoModel.Store.ListarDatosInseminacionB">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sinfoModel.ListarDatosInseminacionB_Result">
+                <ScalarProperty Name="IDIB" ColumnName="IDIB" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Nombre_Completo" ColumnName="Nombre Completo" />
+                <ScalarProperty Name="No_Telefono" ColumnName="No Telefono" />
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Comunidad" ColumnName="Comunidad" />
+                <ScalarProperty Name="Nombre_de_la_Vaca" ColumnName="Nombre de la Vaca" />
+                <ScalarProperty Name="No_Arete" ColumnName="No Arete" />
+                <ScalarProperty Name="Fecha_de_Inseminacion" ColumnName="Fecha de Inseminacion" />
+                <ScalarProperty Name="Institucion" ColumnName="Institucion" />
+                <ScalarProperty Name="Fecha_programada_repeticion_celo" ColumnName="Fecha programada repeticion celo" />
+                <ScalarProperty Name="Presento_Celo_" ColumnName="Presento Celo?" />
+                <ScalarProperty Name="Diagnostico_Gestacion" ColumnName="Diagnostico Gestacion" />
+                <ScalarProperty Name="Fecha_probable_de_parto" ColumnName="Fecha probable de parto" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

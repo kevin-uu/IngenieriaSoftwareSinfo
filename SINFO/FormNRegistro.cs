@@ -173,16 +173,7 @@ namespace SINFO
                 WindowState = FormWindowState.Minimized;
         }
         #endregion
-
-        #region boton actualizar datos
-        private void BtnActualizar_Click(object sender, EventArgs e)
-        {
-            guardar();
-            objSeguimeinto.ActualizarActividad(tablaseguimiento);
-            MessageBox.Show("Actualizador Correctamente");
-            this.Close();
-        }
-        #endregion
+       
 
     }
 

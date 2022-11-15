@@ -28,5 +28,37 @@ namespace SINFO.CapaNegocio
             }
         }
         #endregion
+
+        #region Guardar Registro en tabla Metas
+        public void GuardarNuevaActividadMestas(metas nMetas) //recibe 1 Nseguimiento de tipo seguimiento osea un nuevo registro para la tabla seguimiento
+        {
+            using (sinfoEntities db = new sinfoEntities())
+            {
+                db.metas.Add(nMetas);
+                db.SaveChanges();
+            }
+        }
+        #endregion
+
+        #region Cargar Combobox Institucion
+        public List<institucion> ObtenerCmbInstitucion()
+        {
+            using (sinfoEntities db = new sinfoEntities())
+            {
+                return db.institucion.ToList();
+            }
+        }
+        #endregion
+
+        #region Cargar Data Grid View Actualizar Metas
+        public List<ListarMetas_Result> ObtenerDatosMetas() //la lista tipo ListarDatosSeguimientos_Result corresponde al procedimiento almacenado creado
+        {
+            using (sinfoEntities db = new sinfoEntities())
+            {
+                return db.ListarMetas().ToList();
+            }
+        }
+
+        #endregion
     }
 }
