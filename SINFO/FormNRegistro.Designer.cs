@@ -56,6 +56,7 @@ namespace SINFO
             // 
             // dtpFechaRegistro
             // 
+            this.dtpFechaRegistro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaRegistro.Location = new System.Drawing.Point(73, 30);
             this.dtpFechaRegistro.Name = "dtpFechaRegistro";
             this.dtpFechaRegistro.Size = new System.Drawing.Size(194, 20);
@@ -199,8 +200,10 @@ namespace SINFO
             this.txtDescripcion.Location = new System.Drawing.Point(159, 206);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.ShortcutsEnabled = false;
             this.txtDescripcion.Size = new System.Drawing.Size(562, 264);
             this.txtDescripcion.TabIndex = 17;
+            this.txtDescripcion.TextChanged += new System.EventHandler(this.txtDescripcion_TextChanged);
             // 
             // label9
             // 
@@ -236,15 +239,21 @@ namespace SINFO
             // 
             this.txtVarones.Location = new System.Drawing.Point(93, 323);
             this.txtVarones.Name = "txtVarones";
+            this.txtVarones.ShortcutsEnabled = false;
             this.txtVarones.Size = new System.Drawing.Size(39, 20);
             this.txtVarones.TabIndex = 22;
+            this.txtVarones.TextChanged += new System.EventHandler(this.txtDescripcion_TextChanged);
+            this.txtVarones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVarones_KeyPress);
             // 
             // txtMujeres
             // 
             this.txtMujeres.Location = new System.Drawing.Point(93, 370);
             this.txtMujeres.Name = "txtMujeres";
+            this.txtMujeres.ShortcutsEnabled = false;
             this.txtMujeres.Size = new System.Drawing.Size(39, 20);
             this.txtMujeres.TabIndex = 23;
+            this.txtMujeres.TextChanged += new System.EventHandler(this.txtDescripcion_TextChanged);
+            this.txtMujeres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVarones_KeyPress);
             // 
             // btnguardar
             // 

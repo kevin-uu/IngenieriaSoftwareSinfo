@@ -31,6 +31,7 @@ namespace SINFO
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvActualizarIB = new System.Windows.Forms.DataGridView();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
@@ -50,7 +51,13 @@ namespace SINFO
             this.label1 = new System.Windows.Forms.Label();
             this.cmbPreñada = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.btnNRInseminacionB = new System.Windows.Forms.Button();
+            this.btnguardarIB = new System.Windows.Forms.Button();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.pbRecargar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActualizarIB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRecargar)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvActualizarIB
@@ -63,14 +70,14 @@ namespace SINFO
             this.dgvActualizarIB.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgvActualizarIB.BackgroundColor = System.Drawing.Color.White;
             this.dgvActualizarIB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvActualizarIB.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvActualizarIB.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvActualizarIB.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(85)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(85)))));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvActualizarIB.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvActualizarIB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -82,17 +89,25 @@ namespace SINFO
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(85)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvActualizarIB.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvActualizarIB.Location = new System.Drawing.Point(28, 193);
             this.dgvActualizarIB.Name = "dgvActualizarIB";
             this.dgvActualizarIB.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvActualizarIB.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvActualizarIB.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvActualizarIB.Size = new System.Drawing.Size(875, 300);
             this.dgvActualizarIB.TabIndex = 2;
-            this.dgvActualizarIB.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvActualizarIB_CellContentClick);
+            this.dgvActualizarIB.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvActualizarIB_CellClick);
             // 
             // Editar
             // 
@@ -160,16 +175,21 @@ namespace SINFO
             // txtNArete
             // 
             this.txtNArete.Location = new System.Drawing.Point(182, 158);
+            this.txtNArete.MaxLength = 7;
             this.txtNArete.Name = "txtNArete";
+            this.txtNArete.ShortcutsEnabled = false;
             this.txtNArete.Size = new System.Drawing.Size(100, 20);
             this.txtNArete.TabIndex = 141;
+            this.txtNArete.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtNombreVaca
             // 
             this.txtNombreVaca.Location = new System.Drawing.Point(182, 124);
             this.txtNombreVaca.Name = "txtNombreVaca";
+            this.txtNombreVaca.ShortcutsEnabled = false;
             this.txtNombreVaca.Size = new System.Drawing.Size(129, 20);
             this.txtNombreVaca.TabIndex = 140;
+            this.txtNombreVaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // label14
             // 
@@ -196,16 +216,20 @@ namespace SINFO
             this.txtNombre.Location = new System.Drawing.Point(182, 53);
             this.txtNombre.MaxLength = 14;
             this.txtNombre.Name = "txtNombre";
+            this.txtNombre.ShortcutsEnabled = false;
             this.txtNombre.Size = new System.Drawing.Size(129, 20);
             this.txtNombre.TabIndex = 137;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(182, 89);
             this.txtTelefono.MaxLength = 8;
             this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.ShortcutsEnabled = false;
             this.txtTelefono.Size = new System.Drawing.Size(129, 20);
             this.txtTelefono.TabIndex = 136;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label8
             // 
@@ -222,6 +246,7 @@ namespace SINFO
             this.txtCedula.Location = new System.Drawing.Point(182, 16);
             this.txtCedula.MaxLength = 14;
             this.txtCedula.Name = "txtCedula";
+            this.txtCedula.ShortcutsEnabled = false;
             this.txtCedula.Size = new System.Drawing.Size(129, 20);
             this.txtCedula.TabIndex = 130;
             // 
@@ -263,15 +288,77 @@ namespace SINFO
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label12.Location = new System.Drawing.Point(389, 90);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(106, 17);
+            this.label12.Size = new System.Drawing.Size(109, 17);
             this.label12.TabIndex = 150;
-            this.label12.Text = "Esta Preñada?:";
+            this.label12.Text = "Presento Celo?:";
+            // 
+            // btnNRInseminacionB
+            // 
+            this.btnNRInseminacionB.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnNRInseminacionB.FlatAppearance.BorderSize = 0;
+            this.btnNRInseminacionB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
+            this.btnNRInseminacionB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(85)))));
+            this.btnNRInseminacionB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNRInseminacionB.Location = new System.Drawing.Point(500, 150);
+            this.btnNRInseminacionB.Name = "btnNRInseminacionB";
+            this.btnNRInseminacionB.Size = new System.Drawing.Size(154, 32);
+            this.btnNRInseminacionB.TabIndex = 153;
+            this.btnNRInseminacionB.Text = "Nueva Inseminacion";
+            this.btnNRInseminacionB.UseVisualStyleBackColor = false;
+            this.btnNRInseminacionB.Click += new System.EventHandler(this.btnNRInseminacionB_Click);
+            // 
+            // btnguardarIB
+            // 
+            this.btnguardarIB.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnguardarIB.FlatAppearance.BorderSize = 0;
+            this.btnguardarIB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
+            this.btnguardarIB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(85)))));
+            this.btnguardarIB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnguardarIB.Location = new System.Drawing.Point(370, 150);
+            this.btnguardarIB.Name = "btnguardarIB";
+            this.btnguardarIB.Size = new System.Drawing.Size(97, 32);
+            this.btnguardarIB.TabIndex = 152;
+            this.btnguardarIB.Text = "Actualizar";
+            this.btnguardarIB.UseVisualStyleBackColor = false;
+            this.btnguardarIB.Click += new System.EventHandler(this.btnguardarIB_Click);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Editar";
+            this.dataGridViewImageColumn1.Image = global::SINFO.Properties.Resources.editar;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 40;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "Eliminar";
+            this.dataGridViewImageColumn2.Image = global::SINFO.Properties.Resources.borrar;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Width = 49;
+            // 
+            // pbRecargar
+            // 
+            this.pbRecargar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbRecargar.Image = global::SINFO.Properties.Resources.recargar;
+            this.pbRecargar.Location = new System.Drawing.Point(670, 150);
+            this.pbRecargar.Name = "pbRecargar";
+            this.pbRecargar.Size = new System.Drawing.Size(43, 32);
+            this.pbRecargar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbRecargar.TabIndex = 154;
+            this.pbRecargar.TabStop = false;
+            this.pbRecargar.Click += new System.EventHandler(this.pbRecargar_Click);
             // 
             // FormActualizarIB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(210)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(924, 539);
+            this.Controls.Add(this.pbRecargar);
+            this.Controls.Add(this.btnNRInseminacionB);
+            this.Controls.Add(this.btnguardarIB);
             this.Controls.Add(this.cmbPreñada);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.dtpFechaInseminacionB);
@@ -294,6 +381,7 @@ namespace SINFO
             this.Text = "FormActualizarIB";
             this.Load += new System.EventHandler(this.FormActualizarIB_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvActualizarIB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRecargar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,5 +408,10 @@ namespace SINFO
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.ComboBox cmbPreñada;
         private System.Windows.Forms.Label label12;
+        public System.Windows.Forms.Button btnNRInseminacionB;
+        public System.Windows.Forms.Button btnguardarIB;
+        private System.Windows.Forms.PictureBox pbRecargar;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
     }
 }

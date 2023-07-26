@@ -12,6 +12,7 @@ using CapaNegocio;
 using SINFO.models;
 using System.Data.SqlClient;
 using SINFO.CapaNegocio;
+using SINFO.CapaSoporte.Cache;
 
 namespace SINFO
 {
@@ -26,6 +27,12 @@ namespace SINFO
         public FormActualizarSeguimiento()
         {
             InitializeComponent();
+            cmbMunicipio.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbComunidad.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbEstrategia.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTipodeActividad.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbInstitucion.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
 
         #region Cargar La Cosulta a la tabla Seguimiento
@@ -35,13 +42,13 @@ namespace SINFO
             dgvActualizar.DataSource = objSeguimeinto.ObtenerDatosSeguimient();
 
             //esto de abajo es para racomodar el orden de las columnas
-            dgvActualizar.Columns["Editar"].DisplayIndex = 13;
-            dgvActualizar.Columns["Eliminar"].DisplayIndex = 13;
+            dgvActualizar.Columns["Editar"].DisplayIndex = 12;
+            dgvActualizar.Columns["Eliminar"].DisplayIndex = 12;
         }
         #endregion
 
-        #region carga de combo municipio y combo comunidad
-
+        #region carga de combo municipio y combo comunidad 
+        
         //metodo para cargar el como municipio
         private void Cargarcmbmunicipio()
         {
@@ -133,6 +140,11 @@ namespace SINFO
             Cargarcmbmunicipio();
             Cargarcmbestrategia();
 
+            if (CacheInicioSesionUsuario.Position == cargos.Tecnico)
+            {
+                txtActualizarSeguimiento.Enabled = false; // entonces desactivamos el boton actualizar
+                
+            }
         }
 
 
@@ -210,11 +222,21 @@ namespace SINFO
         #region boton Actualizar los datos seguimiento cargados en los componentes 
         private void txtActualizarSeguimiento_Click(object sender, EventArgs e)
         {
-            string idseguimiento = dgvActualizar.CurrentRow.Cells["IDS"].Value.ToString();
-            EditarSeguimiento(Convert.ToInt32(idseguimiento));
-            MessageBox.Show("El registro se edito correctamente");
-            CargadgvActualizar();
-            limpiar();
+            DateTime mañana = DateTime.Today;
+            if (dtpFechaRegistro.Value.Date > mañana)
+            {
+                MessageBox.Show("no se puede seleccionar una fecha mayo a la actual", "Error de Ingreso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else
+            {
+                string idseguimiento = dgvActualizar.CurrentRow.Cells["IDS"].Value.ToString();
+                EditarSeguimiento(Convert.ToInt32(idseguimiento));
+                MessageBox.Show("El registro se edito correctamente");
+                CargadgvActualizar();
+                limpiar();
+            }
+                
         }
         #endregion
 
@@ -251,8 +273,15 @@ namespace SINFO
         }
 
 
+
         #endregion
 
-        
+        #region validacion de numero en textbox
+        private void txtVarones_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            vali.Numero(e);
+        }
+        #endregion
     }
+
 }

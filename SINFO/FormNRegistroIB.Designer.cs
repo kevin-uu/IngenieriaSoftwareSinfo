@@ -125,8 +125,11 @@ namespace SINFO
             this.txtTelefono.Location = new System.Drawing.Point(179, 134);
             this.txtTelefono.MaxLength = 8;
             this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.ShortcutsEnabled = false;
             this.txtTelefono.Size = new System.Drawing.Size(129, 20);
             this.txtTelefono.TabIndex = 87;
+            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label8
             // 
@@ -143,8 +146,11 @@ namespace SINFO
             this.txtCoordenadaYB.Location = new System.Drawing.Point(502, 102);
             this.txtCoordenadaYB.MaxLength = 7;
             this.txtCoordenadaYB.Name = "txtCoordenadaYB";
+            this.txtCoordenadaYB.ShortcutsEnabled = false;
             this.txtCoordenadaYB.Size = new System.Drawing.Size(102, 20);
             this.txtCoordenadaYB.TabIndex = 85;
+            this.txtCoordenadaYB.TextChanged += new System.EventHandler(this.txtCoordenadaYB_TextChanged);
+            this.txtCoordenadaYB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label6
             // 
@@ -161,8 +167,11 @@ namespace SINFO
             this.txtCoordenadaXB.Location = new System.Drawing.Point(502, 61);
             this.txtCoordenadaXB.MaxLength = 6;
             this.txtCoordenadaXB.Name = "txtCoordenadaXB";
+            this.txtCoordenadaXB.ShortcutsEnabled = false;
             this.txtCoordenadaXB.Size = new System.Drawing.Size(102, 20);
             this.txtCoordenadaXB.TabIndex = 83;
+            this.txtCoordenadaXB.TextChanged += new System.EventHandler(this.txtCoordenadaXB_TextChanged);
+            this.txtCoordenadaXB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label5
             // 
@@ -216,8 +225,10 @@ namespace SINFO
             this.txtCedula.Location = new System.Drawing.Point(179, 61);
             this.txtCedula.MaxLength = 14;
             this.txtCedula.Name = "txtCedula";
+            this.txtCedula.ShortcutsEnabled = false;
             this.txtCedula.Size = new System.Drawing.Size(129, 20);
             this.txtCedula.TabIndex = 75;
+            this.txtCedula.TextChanged += new System.EventHandler(this.txtCedula_TextChanged);
             // 
             // label9
             // 
@@ -232,24 +243,33 @@ namespace SINFO
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(179, 98);
-            this.txtNombre.MaxLength = 14;
+            this.txtNombre.MaxLength = 300;
             this.txtNombre.Name = "txtNombre";
+            this.txtNombre.ShortcutsEnabled = false;
             this.txtNombre.Size = new System.Drawing.Size(129, 20);
             this.txtNombre.TabIndex = 88;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // txtMujeres
             // 
             this.txtMujeres.Location = new System.Drawing.Point(502, 172);
             this.txtMujeres.Name = "txtMujeres";
+            this.txtMujeres.ShortcutsEnabled = false;
             this.txtMujeres.Size = new System.Drawing.Size(39, 20);
             this.txtMujeres.TabIndex = 92;
+            this.txtMujeres.TextChanged += new System.EventHandler(this.txtMujeres_TextChanged);
+            this.txtMujeres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtVarones
             // 
             this.txtVarones.Location = new System.Drawing.Point(502, 137);
             this.txtVarones.Name = "txtVarones";
+            this.txtVarones.ShortcutsEnabled = false;
             this.txtVarones.Size = new System.Drawing.Size(39, 20);
             this.txtVarones.TabIndex = 91;
+            this.txtVarones.TextChanged += new System.EventHandler(this.txtVarones_TextChanged);
+            this.txtVarones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label11
             // 
@@ -278,8 +298,10 @@ namespace SINFO
             this.txtDireccion.Location = new System.Drawing.Point(726, 60);
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.ShortcutsEnabled = false;
             this.txtDireccion.Size = new System.Drawing.Size(230, 113);
             this.txtDireccion.TabIndex = 94;
+            this.txtDireccion.TextChanged += new System.EventHandler(this.txtDireccion_TextChanged);
             // 
             // label7
             // 
@@ -359,15 +381,22 @@ namespace SINFO
             // 
             this.txtNombreVaca.Location = new System.Drawing.Point(179, 280);
             this.txtNombreVaca.Name = "txtNombreVaca";
+            this.txtNombreVaca.ShortcutsEnabled = false;
             this.txtNombreVaca.Size = new System.Drawing.Size(129, 20);
             this.txtNombreVaca.TabIndex = 101;
+            this.txtNombreVaca.TextChanged += new System.EventHandler(this.txtNombreVaca_TextChanged);
+            this.txtNombreVaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // txtNArete
             // 
             this.txtNArete.Location = new System.Drawing.Point(179, 314);
+            this.txtNArete.MaxLength = 7;
             this.txtNArete.Name = "txtNArete";
+            this.txtNArete.ShortcutsEnabled = false;
             this.txtNArete.Size = new System.Drawing.Size(100, 20);
             this.txtNArete.TabIndex = 102;
+            this.txtNArete.TextChanged += new System.EventHandler(this.txtNArete_TextChanged);
+            this.txtNArete.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // cmbRazaVacas
             // 
@@ -486,22 +515,31 @@ namespace SINFO
             // 
             this.txtEdadVaca.Location = new System.Drawing.Point(179, 419);
             this.txtEdadVaca.Name = "txtEdadVaca";
+            this.txtEdadVaca.ShortcutsEnabled = false;
             this.txtEdadVaca.Size = new System.Drawing.Size(100, 20);
             this.txtEdadVaca.TabIndex = 113;
+            this.txtEdadVaca.TextChanged += new System.EventHandler(this.txtEdadVaca_TextChanged);
+            this.txtEdadVaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtNPartos
             // 
             this.txtNPartos.Location = new System.Drawing.Point(179, 454);
             this.txtNPartos.Name = "txtNPartos";
+            this.txtNPartos.ShortcutsEnabled = false;
             this.txtNPartos.Size = new System.Drawing.Size(100, 20);
             this.txtNPartos.TabIndex = 114;
+            this.txtNPartos.TextChanged += new System.EventHandler(this.txtNPartos_TextChanged);
+            this.txtNPartos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtCondicionCorporal
             // 
             this.txtCondicionCorporal.Location = new System.Drawing.Point(179, 493);
             this.txtCondicionCorporal.Name = "txtCondicionCorporal";
+            this.txtCondicionCorporal.ShortcutsEnabled = false;
             this.txtCondicionCorporal.Size = new System.Drawing.Size(50, 20);
             this.txtCondicionCorporal.TabIndex = 116;
+            this.txtCondicionCorporal.TextChanged += new System.EventHandler(this.txtCondicionCorporal_TextChanged);
+            this.txtCondicionCorporal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCondicionCorporal_KeyPress);
             // 
             // label19
             // 
@@ -704,6 +742,7 @@ namespace SINFO
             this.txtObsevacion.Location = new System.Drawing.Point(475, 532);
             this.txtObsevacion.Multiline = true;
             this.txtObsevacion.Name = "txtObsevacion";
+            this.txtObsevacion.ShortcutsEnabled = false;
             this.txtObsevacion.Size = new System.Drawing.Size(481, 88);
             this.txtObsevacion.TabIndex = 135;
             // 
@@ -867,6 +906,7 @@ namespace SINFO
             this.Controls.Add(this.textBox7);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormNRegistroIB";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormNRegistroIB";
             this.Load += new System.EventHandler(this.FormNRegistroIB_Load);
             this.ResumeLayout(false);

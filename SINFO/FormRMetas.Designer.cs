@@ -38,6 +38,8 @@ namespace SINFO
             this.label2 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.btnGuardarMetas = new System.Windows.Forms.Button();
+            this.dtpFechaRegistro = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmbTipodeActividad
@@ -46,7 +48,7 @@ namespace SINFO
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbTipodeActividad.FormattingEnabled = true;
-            this.cmbTipodeActividad.Location = new System.Drawing.Point(207, 84);
+            this.cmbTipodeActividad.Location = new System.Drawing.Point(205, 107);
             this.cmbTipodeActividad.Name = "cmbTipodeActividad";
             this.cmbTipodeActividad.Size = new System.Drawing.Size(231, 21);
             this.cmbTipodeActividad.TabIndex = 21;
@@ -58,7 +60,7 @@ namespace SINFO
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label7.Location = new System.Drawing.Point(63, 47);
+            this.label7.Location = new System.Drawing.Point(113, 67);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(76, 17);
             this.label7.TabIndex = 20;
@@ -70,7 +72,7 @@ namespace SINFO
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbEstrategia.FormattingEnabled = true;
-            this.cmbEstrategia.Location = new System.Drawing.Point(207, 43);
+            this.cmbEstrategia.Location = new System.Drawing.Point(205, 66);
             this.cmbEstrategia.Name = "cmbEstrategia";
             this.cmbEstrategia.Size = new System.Drawing.Size(231, 21);
             this.cmbEstrategia.TabIndex = 19;
@@ -83,7 +85,7 @@ namespace SINFO
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label6.Location = new System.Drawing.Point(38, 88);
+            this.label6.Location = new System.Drawing.Point(68, 107);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(121, 17);
             this.label6.TabIndex = 18;
@@ -95,7 +97,7 @@ namespace SINFO
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbInstitucion.FormattingEnabled = true;
-            this.cmbInstitucion.Location = new System.Drawing.Point(207, 125);
+            this.cmbInstitucion.Location = new System.Drawing.Point(205, 148);
             this.cmbInstitucion.Name = "cmbInstitucion";
             this.cmbInstitucion.Size = new System.Drawing.Size(231, 21);
             this.cmbInstitucion.TabIndex = 17;
@@ -107,7 +109,7 @@ namespace SINFO
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label5.Location = new System.Drawing.Point(34, 129);
+            this.label5.Location = new System.Drawing.Point(32, 152);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(162, 17);
             this.label5.TabIndex = 16;
@@ -120,7 +122,7 @@ namespace SINFO
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Location = new System.Drawing.Point(128, 171);
+            this.label2.Location = new System.Drawing.Point(126, 194);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 17);
             this.label2.TabIndex = 23;
@@ -128,7 +130,7 @@ namespace SINFO
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(207, 171);
+            this.txtCantidad.Location = new System.Drawing.Point(205, 194);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(100, 20);
             this.txtCantidad.TabIndex = 24;
@@ -137,9 +139,10 @@ namespace SINFO
             // 
             this.btnGuardarMetas.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnGuardarMetas.FlatAppearance.BorderSize = 0;
-            this.btnGuardarMetas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
+            this.btnGuardarMetas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
+            this.btnGuardarMetas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(69)))), ((int)(((byte)(27)))));
             this.btnGuardarMetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarMetas.Location = new System.Drawing.Point(207, 220);
+            this.btnGuardarMetas.Location = new System.Drawing.Point(205, 239);
             this.btnGuardarMetas.Name = "btnGuardarMetas";
             this.btnGuardarMetas.Size = new System.Drawing.Size(97, 37);
             this.btnGuardarMetas.TabIndex = 33;
@@ -147,11 +150,34 @@ namespace SINFO
             this.btnGuardarMetas.UseVisualStyleBackColor = false;
             this.btnGuardarMetas.Click += new System.EventHandler(this.btnGuardarMetas_Click);
             // 
+            // dtpFechaRegistro
+            // 
+            this.dtpFechaRegistro.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaRegistro.Location = new System.Drawing.Point(205, 33);
+            this.dtpFechaRegistro.Name = "dtpFechaRegistro";
+            this.dtpFechaRegistro.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaRegistro.TabIndex = 34;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label1.Location = new System.Drawing.Point(61, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 17);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Fecha de Registro:";
+            // 
             // FormRMetas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(587, 330);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dtpFechaRegistro);
             this.Controls.Add(this.btnGuardarMetas);
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.label2);
@@ -181,5 +207,7 @@ namespace SINFO
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Button btnGuardarMetas;
+        private System.Windows.Forms.DateTimePicker dtpFechaRegistro;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -39,11 +39,11 @@ namespace SINFO.CapaNegocio
         #endregion
 
         #region Cargar Data Grid View Actualizar Inseminacion Bovina
-        public List<ListarDatosInseminacionB_Result> ObtenerDatosIB() //la lista tipo ListarDatosSeguimientos_Result corresponde al procedimiento almacenado creado
+        public List<ListarDatosInseminacionB2_Result> ObtenerDatosIB() //la lista tipo ListarDatosSeguimientos_Result corresponde al procedimiento almacenado creado
         {
             using (sinfoEntities db = new sinfoEntities())
             {
-                return db.ListarDatosInseminacionB().ToList();
+                return db.ListarDatosInseminacionB2().ToList();
             }
         }
 
@@ -58,6 +58,17 @@ namespace SINFO.CapaNegocio
                 db.SaveChanges();
             }
         }
+        #endregion
+
+        #region Cargar Data Grid View Actualizar Inseminacion Bovina Partos
+        public List<ListarDatosInseminacionB3_Result> ObtenerDatosIPparto() //la lista tipo ListarDatosSeguimientos_Result corresponde al procedimiento almacenado creado
+        {
+            using (sinfoEntities db = new sinfoEntities())
+            {
+                return db.ListarDatosInseminacionB3().ToList();
+            }
+        }
+
         #endregion
     }
 }

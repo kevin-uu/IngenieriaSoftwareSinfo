@@ -16,6 +16,22 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\USER\Desktop\setupsif\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,7 +52,31 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>9A2B3CF454EECDEC474E090DF1D25BEC157310F5</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>PRESENTACION_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logosinfo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Cells, Version=22.11.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Cells.22.11.0\lib\net40\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="CircularProgressBar, Version=2.8.0.16, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CircularProgressBar.2.8.0.16\lib\net40\CircularProgressBar.dll</HintPath>
+    </Reference>
+    <Reference Include="ControlesPersonalizados">
+      <HintPath>..\..\..\..\Pictures\Camera Roll\ControlesPersonalizados.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -75,18 +115,91 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WinFormAnimation, Version=1.6.0.4, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CapaDatos\ServiciodeCorreoE\administracionyenviodecorreo.cs" />
+    <Compile Include="CapaDatos\ServiciodeCorreoE\ServidordeCorreoMaestro.cs" />
+    <Compile Include="CapaDatos\usuarios.cs" />
     <Compile Include="CapaNegocio\N_Estrategia.cs" />
     <Compile Include="CapaNegocio\N_InseminacionB.cs" />
     <Compile Include="CapaNegocio\N_InseminacionP.cs" />
     <Compile Include="CapaNegocio\N_Metas.cs" />
     <Compile Include="CapaNegocio\N_Seguimiento.cs" />
     <Compile Include="CapaNegocio\N_TipoActividad.cs" />
+    <Compile Include="CapaNegocio\user.cs" />
+    <Compile Include="CapaSoporte\Cache\CacheInicioSesionUsuario.cs" />
+    <Compile Include="CapaSoporte\Cache\cargos.cs" />
+    <Compile Include="Controles\ButtonPesonalizado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controles\ComboPersonalizado.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\TextBoxPersonalizado.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\TextBoxPersonalizado.Designer.cs" />
+    <Compile Include="DSInseminacionBovina.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSInseminacionBovina.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSInseminacionPorcina.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSInseminacionPorcina.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DSMetas.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSMetas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSSeguimiento.cs">
+      <DependentUpon>DSSeguimiento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSSeguimiento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSSeguimiento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormRpInseminacionBFechas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRpInseminacionBFechas.Designer.cs">
+      <DependentUpon>FormRpInseminacionBFechas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRpInseminacionBTodas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRpInseminacionBTodas.Designer.cs">
+      <DependentUpon>FormRpInseminacionBTodas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRpInseminacionPTodas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRpInseminacionPTodas.Designer.cs">
+      <DependentUpon>FormRpInseminacionPTodas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRpSeguimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRpSeguimiento.Designer.cs">
+      <DependentUpon>FormRpSeguimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRpSeguimientoFechas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRpSeguimientoFechas.Designer.cs">
+      <DependentUpon>FormRpSeguimientoFechas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRpSeguimientoTodas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRpSeguimientoTodas.Designer.cs">
+      <DependentUpon>FormRpSeguimientoTodas.cs</DependentUpon>
     </Compile>
     <Compile Include="FormActualizarIB.cs">
       <SubType>Form</SubType>
@@ -112,6 +225,12 @@
     <Compile Include="FormActualizarSeguimiento.Designer.cs">
       <DependentUpon>FormActualizarSeguimiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormBienvenida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBienvenida.Designer.cs">
+      <DependentUpon>FormBienvenida.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNRegistroIB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +242,18 @@
     </Compile>
     <Compile Include="FormNRegistroIP.Designer.cs">
       <DependentUpon>FormNRegistroIP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPartoIB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPartoIB.Designer.cs">
+      <DependentUpon>FormPartoIB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPartoIP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPartoIP.Designer.cs">
+      <DependentUpon>FormPartoIP.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
@@ -137,6 +268,12 @@
       <DependentUpon>FormNRegistro.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaDatos\CDatos.cs" />
+    <Compile Include="FormRecuperarContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecuperarContraseña.Designer.cs">
+      <DependentUpon>FormRecuperarContraseña.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRMetas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,34 +286,19 @@
     <Compile Include="FormRpMetasTodas.Designer.cs">
       <DependentUpon>FormRpMetasTodas.cs</DependentUpon>
     </Compile>
-    <Compile Include="models\inseminacionBovina.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="models\ListarDatosInseminacionB_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="models\ListarMetas_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="models\metas.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="reporteMetas.cs">
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="reporteMetas.Designer.cs">
-      <DependentUpon>reporteMetas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormRpMetas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormRpMetas.Designer.cs">
-      <DependentUpon>FormRpMetas.cs</DependentUpon>
+    <Compile Include="Login.designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="models\comunidad.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="models\estrategia.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\inseminacionBovina.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="models\inseminacionporcina.cs">
@@ -185,13 +307,31 @@
     <Compile Include="models\institucion.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="models\listarActividad_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\ListarDatosInseminacionB2_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\ListarDatosInseminacionB3_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\ListarDatosInseminacionB_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\ListarDatosInseminacionPorcina2_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="models\ListarDatosInseminacionPorcina_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="models\ListarDatosSeguimientoss_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="models\ListarDatosSeguimientos_Result.cs">
+    <Compile Include="models\ListarMetas_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\metas.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="models\Model1.Context.cs">
@@ -215,11 +355,44 @@
     <Compile Include="models\razascerdos.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="models\ReporteporfechasInseminacionB_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\Reporteporfechasseguimiento_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="models\seguimiento.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="models\tipos_de_actividades.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\usuarios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reporteInseminacionB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reporteInseminacionB.Designer.cs">
+      <DependentUpon>reporteInseminacionB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reporteInseminacionP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reporteInseminacionP.Designer.cs">
+      <DependentUpon>reporteInseminacionP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reporteMetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reporteMetas.Designer.cs">
+      <DependentUpon>reporteMetas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRpMetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRpMetas.Designer.cs">
+      <DependentUpon>FormRpMetas.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -230,6 +403,8 @@
       <DependentUpon>reporteSeguimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="vali.cs" />
+    <EmbeddedResource Include="Controles\TextBoxPersonalizado.resx" />
     <EmbeddedResource Include="FormActualizarIB.resx">
       <DependentUpon>FormActualizarIB.cs</DependentUpon>
     </EmbeddedResource>
@@ -242,11 +417,20 @@
     <EmbeddedResource Include="FormActualizarSeguimiento.resx">
       <DependentUpon>FormActualizarSeguimiento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormBienvenida.resx">
+      <DependentUpon>FormBienvenida.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNRegistroIB.resx">
       <DependentUpon>FormNRegistroIB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNRegistroIP.resx">
       <DependentUpon>FormNRegistroIP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPartoIB.resx">
+      <DependentUpon>FormPartoIB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPartoIP.resx">
+      <DependentUpon>FormPartoIP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
@@ -254,8 +438,20 @@
     <EmbeddedResource Include="FormNRegistro.resx">
       <DependentUpon>FormNRegistro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormRecuperarContraseña.resx">
+      <DependentUpon>FormRecuperarContraseña.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRMetas.resx">
       <DependentUpon>FormRMetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRpInseminacionBFechas.resx">
+      <DependentUpon>FormRpInseminacionBFechas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRpInseminacionBTodas.resx">
+      <DependentUpon>FormRpInseminacionBTodas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRpInseminacionPTodas.resx">
+      <DependentUpon>FormRpInseminacionPTodas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRpMetas.resx">
       <DependentUpon>FormRpMetas.cs</DependentUpon>
@@ -263,8 +459,26 @@
     <EmbeddedResource Include="FormRpMetasTodas.resx">
       <DependentUpon>FormRpMetasTodas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormRpSeguimiento.resx">
+      <DependentUpon>FormRpSeguimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRpSeguimientoFechas.resx">
+      <DependentUpon>FormRpSeguimientoFechas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRpSeguimientoTodas.resx">
+      <DependentUpon>FormRpSeguimientoTodas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="infInsemiancionBTo.rdlc" />
+    <EmbeddedResource Include="InfInseminacionBovinaFechas.rdlc" />
+    <EmbeddedResource Include="InfInseminacionPTodas.rdlc" />
     <EmbeddedResource Include="InfMetas.rdlc" />
     <EmbeddedResource Include="InfMetasTodas.rdlc" />
+    <EmbeddedResource Include="InfoSeguimientoTodas.rdlc" />
+    <EmbeddedResource Include="InfSeguimiento.rdlc" />
+    <EmbeddedResource Include="InfSeguimientoFechas.rdlc" />
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -275,16 +489,40 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="reporteInseminacionB.resx">
+      <DependentUpon>reporteInseminacionB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reporteInseminacionP.resx">
+      <DependentUpon>reporteInseminacionP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reporteMetas.resx">
       <DependentUpon>reporteMetas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reporteSeguimiento.resx">
       <DependentUpon>reporteSeguimiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <None Include="DSInseminacionBovina.xsc">
+      <DependentUpon>DSInseminacionBovina.xsd</DependentUpon>
+    </None>
+    <None Include="DSInseminacionBovina.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSInseminacionBovina.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSInseminacionBovina.xss">
+      <DependentUpon>DSInseminacionBovina.xsd</DependentUpon>
+    </None>
+    <None Include="DSInseminacionPorcina.xsc">
+      <DependentUpon>DSInseminacionPorcina.xsd</DependentUpon>
+    </None>
+    <None Include="DSInseminacionPorcina.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSInseminacionPorcina.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSInseminacionPorcina.xss">
+      <DependentUpon>DSInseminacionPorcina.xsd</DependentUpon>
+    </None>
     <None Include="DSMetas.xsc">
       <DependentUpon>DSMetas.xsd</DependentUpon>
     </None>
@@ -296,10 +534,26 @@
     <None Include="DSMetas.xss">
       <DependentUpon>DSMetas.xsd</DependentUpon>
     </None>
+    <EntityDeploy Include="models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DSSeguimiento.xsc">
+      <DependentUpon>DSSeguimiento.xsd</DependentUpon>
+    </None>
+    <None Include="DSSeguimiento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSSeguimiento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSSeguimiento.xss">
+      <DependentUpon>DSSeguimiento.xsd</DependentUpon>
+    </None>
     <None Include="models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="PRESENTACION_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -321,6 +575,27 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\recargar.png" />
+    <None Include="Resources\cerdo.png" />
+    <None Include="Resources\cerdo16px.png" />
+    <None Include="Resources\vaca16px.png" />
+    <None Include="Resources\cerdo24.png" />
+    <None Include="Resources\vaca24.png" />
+    <None Include="Resources\seguimiento24px.png" />
+    <None Include="Resources\objetivo24px.png" />
+    <None Include="Resources\anadir24px.png" />
+    <None Include="Resources\actualizar24px.png" />
+    <None Include="Resources\reporte24px.png" />
+    <None Include="Resources\logosinfo.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\apagado.png" />
+    <None Include="Resources\perfil-del-usuario.png" />
+    <None Include="Resources\perfil-del-usuario64px.png" />
+    <None Include="Resources\usuario.png" />
+    <None Include="Resources\perfil-del-usuario %281%29.png" />
+    <None Include="Resources\logo2s.png" />
+    <None Include="Resources\logo2sinfo.jpg" />
+    <Content Include="logosinfo.ico" />
     <Content Include="models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -351,6 +626,18 @@
     <None Include="Resources\cerrar %281%29.png" />
     <None Include="Resources\minimizar.png" />
     <None Include="Resources\cerrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

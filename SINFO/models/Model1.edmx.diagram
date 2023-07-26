@@ -4,30 +4,31 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="41e1f14ae13c4231be26988658250534" Name="Diagram1">
-        <EntityTypeShape EntityType="sinfoModel.comunidad" Width="1.5" PointX="5" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="sinfoModel.estrategia" Width="1.5" PointX="9.625" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="sinfoModel.institucion" Width="1.5" PointX="6.875" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="sinfoModel.municipios" Width="1.5" PointX="0.5" PointY="0.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="sinfoModel.seguimiento" Width="1.5" PointX="7" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="sinfoModel.tipos_de_actividades" Width="1.5" PointX="9.75" PointY="3.375" IsExpanded="true" />
+      <Diagram DiagramId="23dec49de8694b9498d939b85b19552d" Name="Diagram1">
+        <EntityTypeShape EntityType="sinfoModel.comunidad" Width="1.5" PointX="8.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sinfoModel.estrategia" Width="1.5" PointX="3.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sinfoModel.inseminacionBovina" Width="1.5" PointX="12.875" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sinfoModel.inseminacionporcina" Width="1.5" PointX="10.375" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="sinfoModel.institucion" Width="1.5" PointX="3.375" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sinfoModel.metas" Width="1.5" PointX="0.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="sinfoModel.municipios" Width="1.5" PointX="8.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sinfoModel.razascerdos" Width="1.5" PointX="6.125" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="sinfoModel.seguimiento" Width="1.5" PointX="6.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="sinfoModel.tipos_de_actividades" Width="1.5" PointX="3.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="sinfoModel.usuarios" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="sinfoModel.fk_comunidad" ManuallyRouted="false" />
         <AssociationConnector Association="sinfoModel.fk_comunidad1" ManuallyRouted="false" />
+        <AssociationConnector Association="sinfoModel.fk_IBcomunidad" ManuallyRouted="false" />
+        <AssociationConnector Association="sinfoModel.fk_IPcomunidad" ManuallyRouted="false" />
         <AssociationConnector Association="sinfoModel.fk_estrategia" ManuallyRouted="false" />
         <AssociationConnector Association="sinfoModel.fk_tipos_de_actividades1" ManuallyRouted="false" />
+        <AssociationConnector Association="sinfoModel.fk_IBInstitucion" ManuallyRouted="false" />
+        <AssociationConnector Association="sinfoModel.fk_IBmunicipios" ManuallyRouted="false" />
+        <AssociationConnector Association="sinfoModel.fk_IPmunicipios" ManuallyRouted="false" />
+        <AssociationConnector Association="sinfoModel.fk_IPRazas" ManuallyRouted="false" />
         <AssociationConnector Association="sinfoModel.fk_institucion" ManuallyRouted="false" />
         <AssociationConnector Association="sinfoModel.fk_municipios" ManuallyRouted="false" />
         <AssociationConnector Association="sinfoModel.fk_tipos_de_actividades" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="sinfoModel.inseminacionporcina" Width="1.5" PointX="1" PointY="3.25" />
-        <EntityTypeShape EntityType="sinfoModel.razascerdos" Width="1.5" PointX="4.25" PointY="4.375" />
-        <AssociationConnector Association="sinfoModel.fk_IPcomunidad" />
-        <AssociationConnector Association="sinfoModel.fk_IPmunicipios" />
-        <AssociationConnector Association="sinfoModel.fk_IPRazas" />
-        <EntityTypeShape EntityType="sinfoModel.metas" Width="1.5" PointX="4" PointY="6.875" />
-        <EntityTypeShape EntityType="sinfoModel.inseminacionBovina" Width="2.5" PointX="12.125" PointY="0.75" />
-        <AssociationConnector Association="sinfoModel.fk_IBcomunidad" />
-        <AssociationConnector Association="sinfoModel.fk_IBInstitucion" />
-        <AssociationConnector Association="sinfoModel.fk_IBmunicipios" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -27,6 +27,10 @@ namespace SINFO.models
         public string nombrecerdo { get; set; }
         public Nullable<int> idrazascerdos1 { get; set; }
         public string presentocelo { get; set; }
+        public Nullable<System.DateTime> fecharealdepartop { get; set; }
+        public Nullable<int> machos { get; set; }
+        public Nullable<int> hembras { get; set; }
+        public Nullable<int> totalnacidos { get; set; }
     
         public virtual comunidad comunidad { get; set; }
         public virtual municipios municipios { get; set; }

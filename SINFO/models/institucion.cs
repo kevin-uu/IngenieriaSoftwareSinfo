@@ -17,16 +17,16 @@ namespace SINFO.models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public institucion()
         {
-            this.seguimiento = new HashSet<seguimiento>();
             this.inseminacionBovina = new HashSet<inseminacionBovina>();
+            this.seguimiento = new HashSet<seguimiento>();
         }
     
         public int idinstitucion { get; set; }
         public string nombreinstitucion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<seguimiento> seguimiento { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<inseminacionBovina> inseminacionBovina { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<seguimiento> seguimiento { get; set; }
     }
 }

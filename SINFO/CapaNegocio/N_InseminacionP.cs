@@ -51,11 +51,22 @@ namespace SINFO.CapaNegocio
         #endregion
 
         #region Cargar Data Grid View Actualizar Inseminacion Porcina
-        public List<ListarDatosInseminacionPorcina_Result> ObtenerDatosIP() //la lista tipo ListarDatosSeguimientos_Result corresponde al procedimiento almacenado creado
+        public List<ListarDatosInseminacionPorcina_Result> ObtenerDatosIP() //la lista tipo ListarDatosInseminacionPorcina_Result corresponde al procedimiento almacenado creado
         {
             using (sinfoEntities db = new sinfoEntities())
             {
                 return db.ListarDatosInseminacionPorcina().ToList();
+            }
+        }
+
+        #endregion
+
+        #region Cargar Data Grid View Actualizar Inseminacion Porcina Partos
+        public List<ListarDatosInseminacionPorcina2_Result> ObtenerDatosIPparto() //la lista tipo ListarDatosSeguimientos_Result corresponde al procedimiento almacenado creado
+        {
+            using (sinfoEntities db = new sinfoEntities())
+            {
+                return db.ListarDatosInseminacionPorcina2().ToList();
             }
         }
 

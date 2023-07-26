@@ -1,4 +1,5 @@
-﻿using SINFO.CapaNegocio;
+﻿using CapaNegocio;
+using SINFO.CapaNegocio;
 using SINFO.models;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace SINFO
     {
         inseminacionBovina objIBovina = new inseminacionBovina();
         N_InseminacionB oBjIb = new N_InseminacionB();
+        seguimiento obse = new seguimiento();
+        N_Seguimiento oBSeg = new N_Seguimiento();
         public FormNRegistroIB()
         {
             InitializeComponent();
@@ -27,13 +30,23 @@ namespace SINFO
             cmbMunicipioIB.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbEsCruze.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbRazaVacas.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbRazaUsada.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbRazaInteres.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbInstitucion.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            DateTime fechaaplicacion = dtpFechaAplicacionDs.Value;
+            dtpFechaRetiroDS.Value = fechaaplicacion.AddDays(7);
+            DateTime RetiroDS = dtpFechaRetiroDS.Value;
+            dtpFechaInseminacionB.Value = RetiroDS.AddDays(2);
         }
         
         private void FormNRegistroIB_Load(object sender, EventArgs e)
         {
-
+            btnguardar.Enabled = false;
             Cargarcmbinstitucion();
             Cargarcmbmunicipio();
+            FormActualizarIB ib = new FormActualizarIB();
+            ib.CargadgvActualizarIB();
 
         }
 
@@ -187,7 +200,7 @@ namespace SINFO
             objIBovina.numerodeparto = Convert.ToInt32(txtEdadVaca.Text);
             objIBovina.condicioncorporal = Convert.ToDouble(txtCondicionCorporal.Text);
             objIBovina.razadeinteres = cmbRazaInteres.SelectedItem.ToString();
-            objIBovina.razausada = cmbRazaUsada.SelectedItem.ToString();
+            objIBovina.razausada = "PENDIENTE";
             objIBovina.fechaaplicacionds = dtpFechaAplicacionDs.Value;
             objIBovina.fecharetirods = dtpFechaRetiroDS.Value;
             objIBovina.fechainseminacionB = dtpFechaInseminacionB.Value;
@@ -200,13 +213,35 @@ namespace SINFO
 
         #region Boton Guardar un Nuevo Registro Inseminacion Bovina
         private void btnguardar_Click(object sender, EventArgs e)
-        {
+        {    
+
             guardar();
+            //guardarSeBovino();
+            //oBSeg.GuardarNuevaActividad(obse);
             oBjIb.GuardarNuevaInseminacionB(objIBovina);
-            MessageBox.Show("Actualizador Correctamente");
+            MessageBox.Show("Se guardo Correctamente Correctamente y se agrego como una Actividad en Seguimiento");
+            FormActualizarIB ib = new FormActualizarIB();
+            ib.CargadgvActualizarIB();
+            limpiar();
+
+        }
+        #endregion
+       
+        #region Metodo para guardar una registro en tabla seguimiento en base a un registro en tabla inseminacion bovina
+        public void guardarSeBovino()
+        {/*
+            obse.fecha = dtpFechaAplicacionDs.Value; 
+            obse.idmunicipio1 = Convert.ToInt32(cmbMunicipioIB.SelectedValue);
+            obse.idcomunidad1 = Convert.ToInt32(cmbComunidadIB.SelectedValue);
+            obse.idestrategia1 = 2;
+            obse.idtiposactividad1 = 6;
+            obse.descripcion = "se realizo Inseminacion Bovina en las siguientes coordenadas: " + "X: "+txtCoordenadaXB.Text + "Y: "+txtCoordenadaYB.Text + " Beneficiando a " + txtNombre.Text + " Con Cedula de identidad: " + txtCedula.Text + " y numero de telefono " + txtTelefono.Text;
+            obse.varones = Convert.ToInt32(txtVarones.Text);
+            obse.mujeres = Convert.ToInt32(txtMujeres.Text);*/
         }
         #endregion
 
+        #region evento al seleccionar una fecha que me sume lo correspondiente de los demas datetimepicker
         private void dtpFechaAplicacionDs_ValueChanged(object sender, EventArgs e)
         {
             DateTime fechaaplicacion = dtpFechaAplicacionDs.Value;
@@ -214,5 +249,139 @@ namespace SINFO
             DateTime RetiroDS = dtpFechaRetiroDS.Value;
             dtpFechaInseminacionB.Value = RetiroDS.AddDays(2);
         }
+        #endregion
+
+        #region validacion texto box letras
+        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            vali.Letras(e);
+            
+        }
+        #endregion
+
+        #region validacion text box numeros
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            vali.Numero(e);
+        }
+        #endregion
+
+        #region validacion text box decimal
+
+        private void txtCondicionCorporal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            vali.NumeroDecimal(e);
+        }
+        #endregion
+
+        #region Validar espacion Vacios
+        public void Validaciondeespaciovacios()
+        {
+            var vr = !string.IsNullOrEmpty(txtVarones.Text) && !string.IsNullOrEmpty(txtMujeres.Text)
+              && !string.IsNullOrEmpty(txtCedula.Text)
+              && !string.IsNullOrEmpty(txtCoordenadaXB.Text)
+              && !string.IsNullOrEmpty(txtCoordenadaYB.Text)
+              && !string.IsNullOrEmpty(txtNArete.Text)
+              && !string.IsNullOrEmpty(txtNombreVaca.Text)
+              && !string.IsNullOrEmpty(txtTelefono.Text)
+              && !string.IsNullOrEmpty(txtEdadVaca.Text)
+              && !string.IsNullOrEmpty(txtNPartos.Text)
+             && !string.IsNullOrEmpty(txtCondicionCorporal.Text)
+             && !string.IsNullOrEmpty(txtDireccion.Text)
+                ;
+            btnguardar.Enabled = vr;
+        }
+        #endregion
+
+        #region Eventos Textchanged para validar espacios vacios
+
+        private void txtNombreVaca_TextChanged(object sender, EventArgs e)
+        {
+            Validaciondeespaciovacios();
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            Validaciondeespaciovacios();
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+            Validaciondeespaciovacios();
+        }
+
+        private void txtCoordenadaXB_TextChanged(object sender, EventArgs e)
+        {
+            Validaciondeespaciovacios();
+        }
+
+        private void txtCoordenadaYB_TextChanged(object sender, EventArgs e)
+        {
+            Validaciondeespaciovacios();
+        }
+
+        private void txtVarones_TextChanged(object sender, EventArgs e)
+        {
+            Validaciondeespaciovacios();
+        }
+
+        private void txtMujeres_TextChanged(object sender, EventArgs e)
+        {
+            Validaciondeespaciovacios();
+        }
+
+        private void txtDireccion_TextChanged(object sender, EventArgs e)
+        {
+            Validaciondeespaciovacios();
+        }
+
+        private void txtCedula_TextChanged(object sender, EventArgs e)
+        {
+            Validaciondeespaciovacios();
+        }
+
+        private void txtNArete_TextChanged(object sender, EventArgs e)
+        {
+            Validaciondeespaciovacios();
+        }
+
+        private void txtEdadVaca_TextChanged(object sender, EventArgs e)
+        {
+            Validaciondeespaciovacios();
+        }
+
+        private void txtNPartos_TextChanged(object sender, EventArgs e)
+        {
+            Validaciondeespaciovacios();
+        }
+
+        private void txtCondicionCorporal_TextChanged(object sender, EventArgs e)
+        {
+            Validaciondeespaciovacios();
+        }
+        #endregion
+
+        #region limpiar campos form Actualizar Inseminacion Porcina
+        public void limpiar()
+        {
+            txtCedula.Clear();
+            txtNombre.Clear();
+            txtCoordenadaXB.Clear();
+            txtCoordenadaYB.Clear();
+            txtVarones.Clear();
+            txtMujeres.Clear();
+            txtDireccion.Clear();
+            txtNombreVaca.Clear();
+            txtNArete.Clear();
+            txtEdadVaca.Clear();
+            txtCondicionCorporal.Clear();
+            txtObsevacion.Clear();
+            txtTelefono.Clear();
+            txtNPartos.Clear();
+        }
+        #endregion
     }
+
 }

@@ -39,6 +39,10 @@ namespace SINFO.models
         public Nullable<int> idinstitucion4 { get; set; }
         public string observacion { get; set; }
         public string presentocelo1 { get; set; }
+        public Nullable<System.DateTime> fecharealdepartob { get; set; }
+        public Nullable<int> machos { get; set; }
+        public Nullable<int> hembras { get; set; }
+        public Nullable<int> totalnacidosb { get; set; }
     
         public virtual comunidad comunidad { get; set; }
         public virtual institucion institucion { get; set; }

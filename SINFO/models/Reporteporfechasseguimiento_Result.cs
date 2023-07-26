@@ -11,8 +11,9 @@ namespace SINFO.models
 {
     using System;
     
-    public partial class ListarDatosSeguimientos_Result
+    public partial class Reporteporfechasseguimiento_Result
     {
+        public int IDS { get; set; }
         public Nullable<System.DateTime> fecha { get; set; }
         public string Mes { get; set; }
         public string Municipio { get; set; }
@@ -23,6 +24,5 @@ namespace SINFO.models
         public string Descripcion { get; set; }
         public Nullable<int> Varones { get; set; }
         public Nullable<int> Mujeres { get; set; }
-        public Nullable<int> Total_Participantes { get; set; }
     }
 }

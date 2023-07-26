@@ -13,6 +13,7 @@ namespace SINFO.models
     
     public partial class ListarMetas_Result
     {
+        public int idmetas { get; set; }
         public Nullable<System.DateTime> Fecha_de_Registro { get; set; }
         public string Mes { get; set; }
         public string Estrategia { get; set; }

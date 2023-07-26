@@ -18,6 +18,11 @@ namespace SINFO
         public FormActualizarIP()
         {
             InitializeComponent();
+            cmbMunicipioIP.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbComunidadIP.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbPreñada.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbSexo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbRaza.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void FormActualizarIP_Load(object sender, EventArgs e)
@@ -27,7 +32,7 @@ namespace SINFO
             Cargarcmbrazas();
         }
 
-        #region Cargar La Cosulta a la tabla Seguimiento
+        #region Cargar La Cosulta a la tabla Inseminacion Porcina
         public void CargadgvActualizarIP()
         {
             N_InseminacionP ObjIP = new N_InseminacionP();
@@ -206,14 +211,30 @@ namespace SINFO
         #region Boton Actualizar para actualizar los datos ya cargados en los componentes
         private void btnguardarIP_Click(object sender, EventArgs e)
         {
+           
             string idineminacion = dgvActualizarIP.CurrentRow.Cells["idinseminacion"].Value.ToString();
             Editarinseminacion(Convert.ToInt32(idineminacion));
             MessageBox.Show("El registro se edito correctamente");
             CargadgvActualizarIP();
-            limpiar();
+            limpiar();   
+        }
+
+        #endregion
+
+        #region validacion text box letras
+        private void txtNombreCerdo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            vali.Letras(e);
         }
         #endregion
 
-        
+        #region validacion text box numero
+        private void txtCoordenadaX_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            vali.Numero(e);
+        }
+        #endregion
+
+  
     }
 }

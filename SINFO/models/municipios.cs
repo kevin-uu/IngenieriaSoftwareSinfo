@@ -18,9 +18,9 @@ namespace SINFO.models
         public municipios()
         {
             this.comunidad = new HashSet<comunidad>();
-            this.seguimiento = new HashSet<seguimiento>();
-            this.inseminacionporcina = new HashSet<inseminacionporcina>();
             this.inseminacionBovina = new HashSet<inseminacionBovina>();
+            this.inseminacionporcina = new HashSet<inseminacionporcina>();
+            this.seguimiento = new HashSet<seguimiento>();
         }
     
         public int idmunicipio { get; set; }
@@ -29,10 +29,10 @@ namespace SINFO.models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<comunidad> comunidad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<seguimiento> seguimiento { get; set; }
+        public virtual ICollection<inseminacionBovina> inseminacionBovina { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<inseminacionporcina> inseminacionporcina { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<inseminacionBovina> inseminacionBovina { get; set; }
+        public virtual ICollection<seguimiento> seguimiento { get; set; }
     }
 }

@@ -29,8 +29,8 @@ namespace SINFO
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvActualizarIP = new System.Windows.Forms.DataGridView();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
@@ -75,27 +75,27 @@ namespace SINFO
             this.dgvActualizarIP.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvActualizarIP.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvActualizarIP.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvActualizarIP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(67)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(67)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvActualizarIP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvActualizarIP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvActualizarIP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Editar,
             this.Eliminar});
             this.dgvActualizarIP.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvActualizarIP.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(67)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvActualizarIP.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvActualizarIP.Location = new System.Drawing.Point(21, 225);
             this.dgvActualizarIP.Name = "dgvActualizarIP";
             this.dgvActualizarIP.ReadOnly = true;
@@ -138,11 +138,11 @@ namespace SINFO
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label12.Location = new System.Drawing.Point(498, 64);
+            this.label12.Location = new System.Drawing.Point(485, 60);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(106, 17);
+            this.label12.Size = new System.Drawing.Size(109, 17);
             this.label12.TabIndex = 80;
-            this.label12.Text = "Esta Preñada?:";
+            this.label12.Text = "Presento Celo?:";
             // 
             // cmbRaza
             // 
@@ -166,8 +166,10 @@ namespace SINFO
             // 
             this.txtNombreCerdo.Location = new System.Drawing.Point(391, 148);
             this.txtNombreCerdo.Name = "txtNombreCerdo";
+            this.txtNombreCerdo.ShortcutsEnabled = false;
             this.txtNombreCerdo.Size = new System.Drawing.Size(102, 20);
             this.txtNombreCerdo.TabIndex = 77;
+            this.txtNombreCerdo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreCerdo_KeyPress);
             // 
             // label10
             // 
@@ -181,6 +183,7 @@ namespace SINFO
             // 
             // dtpFechaRegistroIP
             // 
+            this.dtpFechaRegistroIP.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFechaRegistroIP.Location = new System.Drawing.Point(99, 30);
             this.dtpFechaRegistroIP.Name = "dtpFechaRegistroIP";
             this.dtpFechaRegistroIP.Size = new System.Drawing.Size(116, 20);
@@ -201,8 +204,10 @@ namespace SINFO
             this.txtTelefono.Location = new System.Drawing.Point(400, 107);
             this.txtTelefono.MaxLength = 8;
             this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.ShortcutsEnabled = false;
             this.txtTelefono.Size = new System.Drawing.Size(102, 20);
             this.txtTelefono.TabIndex = 73;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCoordenadaX_KeyPress);
             // 
             // label8
             // 
@@ -241,8 +246,10 @@ namespace SINFO
             this.txtCoordenadaY.Location = new System.Drawing.Point(360, 68);
             this.txtCoordenadaY.MaxLength = 7;
             this.txtCoordenadaY.Name = "txtCoordenadaY";
+            this.txtCoordenadaY.ShortcutsEnabled = false;
             this.txtCoordenadaY.Size = new System.Drawing.Size(102, 20);
             this.txtCoordenadaY.TabIndex = 69;
+            this.txtCoordenadaY.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCoordenadaX_KeyPress);
             // 
             // label6
             // 
@@ -259,8 +266,10 @@ namespace SINFO
             this.txtCoordenadaX.Location = new System.Drawing.Point(360, 27);
             this.txtCoordenadaX.MaxLength = 6;
             this.txtCoordenadaX.Name = "txtCoordenadaX";
+            this.txtCoordenadaX.ShortcutsEnabled = false;
             this.txtCoordenadaX.Size = new System.Drawing.Size(102, 20);
             this.txtCoordenadaX.TabIndex = 67;
+            this.txtCoordenadaX.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCoordenadaX_KeyPress);
             // 
             // label5
             // 
@@ -313,8 +322,10 @@ namespace SINFO
             // 
             this.txtNombre.Location = new System.Drawing.Point(124, 106);
             this.txtNombre.Name = "txtNombre";
+            this.txtNombre.ShortcutsEnabled = false;
             this.txtNombre.Size = new System.Drawing.Size(179, 20);
             this.txtNombre.TabIndex = 61;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreCerdo_KeyPress);
             // 
             // label2
             // 
@@ -331,6 +342,7 @@ namespace SINFO
             this.txtCedula.Location = new System.Drawing.Point(115, 67);
             this.txtCedula.MaxLength = 14;
             this.txtCedula.Name = "txtCedula";
+            this.txtCedula.ShortcutsEnabled = false;
             this.txtCedula.Size = new System.Drawing.Size(129, 20);
             this.txtCedula.TabIndex = 59;
             // 
@@ -349,7 +361,8 @@ namespace SINFO
             this.btnguardarIP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnguardarIP.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnguardarIP.FlatAppearance.BorderSize = 0;
-            this.btnguardarIP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
+            this.btnguardarIP.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
+            this.btnguardarIP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(67)))), ((int)(((byte)(50)))));
             this.btnguardarIP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnguardarIP.Location = new System.Drawing.Point(12, 516);
             this.btnguardarIP.Name = "btnguardarIP";
@@ -364,7 +377,8 @@ namespace SINFO
             this.btnNRInseminacionP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnNRInseminacionP.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnNRInseminacionP.FlatAppearance.BorderSize = 0;
-            this.btnNRInseminacionP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
+            this.btnNRInseminacionP.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(111)))), ((int)(((byte)(220)))));
+            this.btnNRInseminacionP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(67)))), ((int)(((byte)(50)))));
             this.btnNRInseminacionP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNRInseminacionP.Location = new System.Drawing.Point(128, 516);
             this.btnNRInseminacionP.Name = "btnNRInseminacionP";
@@ -378,6 +392,7 @@ namespace SINFO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(210)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(836, 555);
             this.Controls.Add(this.btnNRInseminacionP);
             this.Controls.Add(this.btnguardarIP);

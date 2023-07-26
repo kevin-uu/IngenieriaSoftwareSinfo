@@ -15,10 +15,10 @@ namespace SINFO.models
     public partial class metas
     {
         public int idmetas { get; set; }
+        public Nullable<System.DateTime> fechaderegistro { get; set; }
         public Nullable<int> idestrategia2 { get; set; }
         public Nullable<int> idtiposactividad2 { get; set; }
         public Nullable<int> idinstitucion2 { get; set; }
         public Nullable<int> cantidad { get; set; }
-        public Nullable<System.DateTime> fechaderegistro { get; set; }
     }
 }

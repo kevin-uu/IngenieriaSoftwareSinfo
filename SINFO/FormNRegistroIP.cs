@@ -20,12 +20,21 @@ namespace SINFO
         public FormNRegistroIP()
         {
             InitializeComponent();
+
+            cmbMunicipioIP.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbComunidadIP.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbPreñada.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbSexo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbRaza.DropDownStyle = ComboBoxStyle.DropDownList;
+            
         }
 
         private void FormNRegistroIP_Load(object sender, EventArgs e)
         {
             Cargarcmbmunicipio();
             Cargarcmbrazas();
+            FormActualizarIP ip = new FormActualizarIP();
+            ip.CargadgvActualizarIP();
         }
 
         #region carga de combo municipio y combo comunidad
@@ -124,23 +133,55 @@ namespace SINFO
             objIPorcina.fechainseminacion = dtpFechaRegistroIP.Value;
             objIPorcina.nombrecerdo = txtNombreCerdo.Text;
             objIPorcina.idrazascerdos1 = Convert.ToInt32(cmbRaza.SelectedValue);
-            if (cmbPreñada.SelectedIndex < -1) objIPorcina.presentocelo = "pendiente";
-            else if (cmbPreñada.SelectedIndex >= 0) objIPorcina.presentocelo = cmbPreñada.SelectedItem.ToString();
-                       
+            objIPorcina.presentocelo = "PENDIENTE";
+
+
          }
 
         #endregion
 
         #region Boton Guardar Registro inseminacion Porcina
         private void btnguardarIP_Click(object sender, EventArgs e)
-        {            
-            guardar();
-            objN_InseminacionP.GuardarNuevaInseminacion(objIPorcina);
-            MessageBox.Show("Actualizador Correctamente");
+        {
             
+            
+                guardar();
+                objN_InseminacionP.GuardarNuevaInseminacion(objIPorcina);
+                MessageBox.Show("Actualizador Correctamente");
+                FormActualizarIP ip = new FormActualizarIP();
+                ip.CargadgvActualizarIP();
+                limpiar();
+
+
         }
 
         #endregion
 
+        #region limpiar controles form Actualizar Inseminacion Bovina
+        public void limpiar()
+        {
+            txtCedula.Clear();
+            txtNombre.Clear();
+            txtTelefono.Clear();
+            txtCoordenadaX.Clear();
+            txtCoordenadaY.Clear();
+            txtNombreCerdo.Clear();
+        }
+        #endregion
+
+        #region validacion text box letras
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            vali.Letras(e);
+        }
+        #endregion
+
+        #region validacion text box numero
+
+        private void txtCoordenadaX_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            vali.Numero(e);
+        }
+        #endregion
     }
 }

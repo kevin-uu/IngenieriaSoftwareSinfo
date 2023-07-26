@@ -29,23 +29,430 @@ namespace SINFO.models
     
         public virtual DbSet<comunidad> comunidad { get; set; }
         public virtual DbSet<estrategia> estrategia { get; set; }
+        public virtual DbSet<inseminacionBovina> inseminacionBovina { get; set; }
+        public virtual DbSet<inseminacionporcina> inseminacionporcina { get; set; }
         public virtual DbSet<institucion> institucion { get; set; }
+        public virtual DbSet<metas> metas { get; set; }
         public virtual DbSet<municipios> municipios { get; set; }
+        public virtual DbSet<razascerdos> razascerdos { get; set; }
         public virtual DbSet<seguimiento> seguimiento { get; set; }
         public virtual DbSet<tipos_de_actividades> tipos_de_actividades { get; set; }
-        public virtual DbSet<inseminacionporcina> inseminacionporcina { get; set; }
-        public virtual DbSet<razascerdos> razascerdos { get; set; }
-        public virtual DbSet<metas> metas { get; set; }
-        public virtual DbSet<inseminacionBovina> inseminacionBovina { get; set; }
+        public virtual DbSet<usuarios> usuarios { get; set; }
     
-        public virtual ObjectResult<ListarDatosSeguimientos_Result> ListarDatosSeguimientos()
+        public virtual int ActualizarIBovina(Nullable<int> idinseminacionB, string cedulaproductorB, string nombreproductorB, string numerotelfonoB, Nullable<int> idmunicipio5, Nullable<int> idcomunidad4, string coordenadaXB, string coordenadaYB, Nullable<int> varones, Nullable<int> mujeres, string direccion, string nombrevaca, string arete, string razaVaca, Nullable<int> edad, Nullable<int> numerodeparto, Nullable<double> condicioncorporal, string razadeinteres, string razausada, Nullable<System.DateTime> fechaaplicacionds, Nullable<System.DateTime> fecharetirods, Nullable<System.DateTime> fechainseminacionB, Nullable<int> idinstitucion4, string observacion, string presentocelo1)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarDatosSeguimientos_Result>("ListarDatosSeguimientos");
+            var idinseminacionBParameter = idinseminacionB.HasValue ?
+                new ObjectParameter("idinseminacionB", idinseminacionB) :
+                new ObjectParameter("idinseminacionB", typeof(int));
+    
+            var cedulaproductorBParameter = cedulaproductorB != null ?
+                new ObjectParameter("cedulaproductorB", cedulaproductorB) :
+                new ObjectParameter("cedulaproductorB", typeof(string));
+    
+            var nombreproductorBParameter = nombreproductorB != null ?
+                new ObjectParameter("nombreproductorB", nombreproductorB) :
+                new ObjectParameter("nombreproductorB", typeof(string));
+    
+            var numerotelfonoBParameter = numerotelfonoB != null ?
+                new ObjectParameter("numerotelfonoB", numerotelfonoB) :
+                new ObjectParameter("numerotelfonoB", typeof(string));
+    
+            var idmunicipio5Parameter = idmunicipio5.HasValue ?
+                new ObjectParameter("idmunicipio5", idmunicipio5) :
+                new ObjectParameter("idmunicipio5", typeof(int));
+    
+            var idcomunidad4Parameter = idcomunidad4.HasValue ?
+                new ObjectParameter("idcomunidad4", idcomunidad4) :
+                new ObjectParameter("idcomunidad4", typeof(int));
+    
+            var coordenadaXBParameter = coordenadaXB != null ?
+                new ObjectParameter("coordenadaXB", coordenadaXB) :
+                new ObjectParameter("coordenadaXB", typeof(string));
+    
+            var coordenadaYBParameter = coordenadaYB != null ?
+                new ObjectParameter("coordenadaYB", coordenadaYB) :
+                new ObjectParameter("coordenadaYB", typeof(string));
+    
+            var varonesParameter = varones.HasValue ?
+                new ObjectParameter("varones", varones) :
+                new ObjectParameter("varones", typeof(int));
+    
+            var mujeresParameter = mujeres.HasValue ?
+                new ObjectParameter("mujeres", mujeres) :
+                new ObjectParameter("mujeres", typeof(int));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("direccion", direccion) :
+                new ObjectParameter("direccion", typeof(string));
+    
+            var nombrevacaParameter = nombrevaca != null ?
+                new ObjectParameter("nombrevaca", nombrevaca) :
+                new ObjectParameter("nombrevaca", typeof(string));
+    
+            var areteParameter = arete != null ?
+                new ObjectParameter("arete", arete) :
+                new ObjectParameter("arete", typeof(string));
+    
+            var razaVacaParameter = razaVaca != null ?
+                new ObjectParameter("RazaVaca", razaVaca) :
+                new ObjectParameter("RazaVaca", typeof(string));
+    
+            var edadParameter = edad.HasValue ?
+                new ObjectParameter("edad", edad) :
+                new ObjectParameter("edad", typeof(int));
+    
+            var numerodepartoParameter = numerodeparto.HasValue ?
+                new ObjectParameter("numerodeparto", numerodeparto) :
+                new ObjectParameter("numerodeparto", typeof(int));
+    
+            var condicioncorporalParameter = condicioncorporal.HasValue ?
+                new ObjectParameter("condicioncorporal", condicioncorporal) :
+                new ObjectParameter("condicioncorporal", typeof(double));
+    
+            var razadeinteresParameter = razadeinteres != null ?
+                new ObjectParameter("razadeinteres", razadeinteres) :
+                new ObjectParameter("razadeinteres", typeof(string));
+    
+            var razausadaParameter = razausada != null ?
+                new ObjectParameter("razausada", razausada) :
+                new ObjectParameter("razausada", typeof(string));
+    
+            var fechaaplicaciondsParameter = fechaaplicacionds.HasValue ?
+                new ObjectParameter("fechaaplicacionds", fechaaplicacionds) :
+                new ObjectParameter("fechaaplicacionds", typeof(System.DateTime));
+    
+            var fecharetirodsParameter = fecharetirods.HasValue ?
+                new ObjectParameter("fecharetirods", fecharetirods) :
+                new ObjectParameter("fecharetirods", typeof(System.DateTime));
+    
+            var fechainseminacionBParameter = fechainseminacionB.HasValue ?
+                new ObjectParameter("fechainseminacionB", fechainseminacionB) :
+                new ObjectParameter("fechainseminacionB", typeof(System.DateTime));
+    
+            var idinstitucion4Parameter = idinstitucion4.HasValue ?
+                new ObjectParameter("idinstitucion4", idinstitucion4) :
+                new ObjectParameter("idinstitucion4", typeof(int));
+    
+            var observacionParameter = observacion != null ?
+                new ObjectParameter("observacion", observacion) :
+                new ObjectParameter("observacion", typeof(string));
+    
+            var presentocelo1Parameter = presentocelo1 != null ?
+                new ObjectParameter("presentocelo1", presentocelo1) :
+                new ObjectParameter("presentocelo1", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarIBovina", idinseminacionBParameter, cedulaproductorBParameter, nombreproductorBParameter, numerotelfonoBParameter, idmunicipio5Parameter, idcomunidad4Parameter, coordenadaXBParameter, coordenadaYBParameter, varonesParameter, mujeresParameter, direccionParameter, nombrevacaParameter, areteParameter, razaVacaParameter, edadParameter, numerodepartoParameter, condicioncorporalParameter, razadeinteresParameter, razausadaParameter, fechaaplicaciondsParameter, fecharetirodsParameter, fechainseminacionBParameter, idinstitucion4Parameter, observacionParameter, presentocelo1Parameter);
         }
     
-        public virtual ObjectResult<ListarDatosSeguimientoss_Result> ListarDatosSeguimientoss()
+        public virtual int ActualizarIBovina2(Nullable<int> idinseminacionB, string cedulaproductorB, string nombreproductorB, string numerotelfonoB, string nombrevaca, string arete, string razausada, string presentocelo1)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarDatosSeguimientoss_Result>("ListarDatosSeguimientoss");
+            var idinseminacionBParameter = idinseminacionB.HasValue ?
+                new ObjectParameter("idinseminacionB", idinseminacionB) :
+                new ObjectParameter("idinseminacionB", typeof(int));
+    
+            var cedulaproductorBParameter = cedulaproductorB != null ?
+                new ObjectParameter("cedulaproductorB", cedulaproductorB) :
+                new ObjectParameter("cedulaproductorB", typeof(string));
+    
+            var nombreproductorBParameter = nombreproductorB != null ?
+                new ObjectParameter("nombreproductorB", nombreproductorB) :
+                new ObjectParameter("nombreproductorB", typeof(string));
+    
+            var numerotelfonoBParameter = numerotelfonoB != null ?
+                new ObjectParameter("numerotelfonoB", numerotelfonoB) :
+                new ObjectParameter("numerotelfonoB", typeof(string));
+    
+            var nombrevacaParameter = nombrevaca != null ?
+                new ObjectParameter("nombrevaca", nombrevaca) :
+                new ObjectParameter("nombrevaca", typeof(string));
+    
+            var areteParameter = arete != null ?
+                new ObjectParameter("arete", arete) :
+                new ObjectParameter("arete", typeof(string));
+    
+            var razausadaParameter = razausada != null ?
+                new ObjectParameter("razausada", razausada) :
+                new ObjectParameter("razausada", typeof(string));
+    
+            var presentocelo1Parameter = presentocelo1 != null ?
+                new ObjectParameter("presentocelo1", presentocelo1) :
+                new ObjectParameter("presentocelo1", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarIBovina2", idinseminacionBParameter, cedulaproductorBParameter, nombreproductorBParameter, numerotelfonoBParameter, nombrevacaParameter, areteParameter, razausadaParameter, presentocelo1Parameter);
+        }
+    
+        public virtual int ActualizarIBovina3(Nullable<int> idinseminacionB, Nullable<System.DateTime> fecharealdepartob, Nullable<int> machos, Nullable<int> hembras)
+        {
+            var idinseminacionBParameter = idinseminacionB.HasValue ?
+                new ObjectParameter("idinseminacionB", idinseminacionB) :
+                new ObjectParameter("idinseminacionB", typeof(int));
+    
+            var fecharealdepartobParameter = fecharealdepartob.HasValue ?
+                new ObjectParameter("fecharealdepartob", fecharealdepartob) :
+                new ObjectParameter("fecharealdepartob", typeof(System.DateTime));
+    
+            var machosParameter = machos.HasValue ?
+                new ObjectParameter("machos", machos) :
+                new ObjectParameter("machos", typeof(int));
+    
+            var hembrasParameter = hembras.HasValue ?
+                new ObjectParameter("hembras", hembras) :
+                new ObjectParameter("hembras", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarIBovina3", idinseminacionBParameter, fecharealdepartobParameter, machosParameter, hembrasParameter);
+        }
+    
+        public virtual int ActualizarIPorcina(Nullable<int> idinseminacion, string cedulaproductor, string nombreproductor, Nullable<int> idmunicipio3, Nullable<int> idcomunidad2, string coordenadaX, string coordenadaY, string sexo, string numerotelfono, Nullable<System.DateTime> fechainseminacion, string nombrecerdo, Nullable<int> idrazascerdos1, string presentocelo)
+        {
+            var idinseminacionParameter = idinseminacion.HasValue ?
+                new ObjectParameter("idinseminacion", idinseminacion) :
+                new ObjectParameter("idinseminacion", typeof(int));
+    
+            var cedulaproductorParameter = cedulaproductor != null ?
+                new ObjectParameter("cedulaproductor", cedulaproductor) :
+                new ObjectParameter("cedulaproductor", typeof(string));
+    
+            var nombreproductorParameter = nombreproductor != null ?
+                new ObjectParameter("nombreproductor", nombreproductor) :
+                new ObjectParameter("nombreproductor", typeof(string));
+    
+            var idmunicipio3Parameter = idmunicipio3.HasValue ?
+                new ObjectParameter("idmunicipio3", idmunicipio3) :
+                new ObjectParameter("idmunicipio3", typeof(int));
+    
+            var idcomunidad2Parameter = idcomunidad2.HasValue ?
+                new ObjectParameter("idcomunidad2", idcomunidad2) :
+                new ObjectParameter("idcomunidad2", typeof(int));
+    
+            var coordenadaXParameter = coordenadaX != null ?
+                new ObjectParameter("coordenadaX", coordenadaX) :
+                new ObjectParameter("coordenadaX", typeof(string));
+    
+            var coordenadaYParameter = coordenadaY != null ?
+                new ObjectParameter("coordenadaY", coordenadaY) :
+                new ObjectParameter("coordenadaY", typeof(string));
+    
+            var sexoParameter = sexo != null ?
+                new ObjectParameter("sexo", sexo) :
+                new ObjectParameter("sexo", typeof(string));
+    
+            var numerotelfonoParameter = numerotelfono != null ?
+                new ObjectParameter("numerotelfono", numerotelfono) :
+                new ObjectParameter("numerotelfono", typeof(string));
+    
+            var fechainseminacionParameter = fechainseminacion.HasValue ?
+                new ObjectParameter("fechainseminacion", fechainseminacion) :
+                new ObjectParameter("fechainseminacion", typeof(System.DateTime));
+    
+            var nombrecerdoParameter = nombrecerdo != null ?
+                new ObjectParameter("nombrecerdo", nombrecerdo) :
+                new ObjectParameter("nombrecerdo", typeof(string));
+    
+            var idrazascerdos1Parameter = idrazascerdos1.HasValue ?
+                new ObjectParameter("idrazascerdos1", idrazascerdos1) :
+                new ObjectParameter("idrazascerdos1", typeof(int));
+    
+            var presentoceloParameter = presentocelo != null ?
+                new ObjectParameter("presentocelo", presentocelo) :
+                new ObjectParameter("presentocelo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarIPorcina", idinseminacionParameter, cedulaproductorParameter, nombreproductorParameter, idmunicipio3Parameter, idcomunidad2Parameter, coordenadaXParameter, coordenadaYParameter, sexoParameter, numerotelfonoParameter, fechainseminacionParameter, nombrecerdoParameter, idrazascerdos1Parameter, presentoceloParameter);
+        }
+    
+        public virtual int ActualizarIPorcina2(Nullable<int> idinseminacion, Nullable<System.DateTime> fecharealdepartop, Nullable<int> machos, Nullable<int> hembras)
+        {
+            var idinseminacionParameter = idinseminacion.HasValue ?
+                new ObjectParameter("idinseminacion", idinseminacion) :
+                new ObjectParameter("idinseminacion", typeof(int));
+    
+            var fecharealdepartopParameter = fecharealdepartop.HasValue ?
+                new ObjectParameter("fecharealdepartop", fecharealdepartop) :
+                new ObjectParameter("fecharealdepartop", typeof(System.DateTime));
+    
+            var machosParameter = machos.HasValue ?
+                new ObjectParameter("machos", machos) :
+                new ObjectParameter("machos", typeof(int));
+    
+            var hembrasParameter = hembras.HasValue ?
+                new ObjectParameter("hembras", hembras) :
+                new ObjectParameter("hembras", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarIPorcina2", idinseminacionParameter, fecharealdepartopParameter, machosParameter, hembrasParameter);
+        }
+    
+        public virtual int ActualizarMetas(Nullable<int> idmetas, Nullable<System.DateTime> fechaderegistro, Nullable<int> idestrategia2, Nullable<int> idtiposactividad2, Nullable<int> idinstitucion2, Nullable<int> cantidad)
+        {
+            var idmetasParameter = idmetas.HasValue ?
+                new ObjectParameter("idmetas", idmetas) :
+                new ObjectParameter("idmetas", typeof(int));
+    
+            var fechaderegistroParameter = fechaderegistro.HasValue ?
+                new ObjectParameter("fechaderegistro", fechaderegistro) :
+                new ObjectParameter("fechaderegistro", typeof(System.DateTime));
+    
+            var idestrategia2Parameter = idestrategia2.HasValue ?
+                new ObjectParameter("idestrategia2", idestrategia2) :
+                new ObjectParameter("idestrategia2", typeof(int));
+    
+            var idtiposactividad2Parameter = idtiposactividad2.HasValue ?
+                new ObjectParameter("idtiposactividad2", idtiposactividad2) :
+                new ObjectParameter("idtiposactividad2", typeof(int));
+    
+            var idinstitucion2Parameter = idinstitucion2.HasValue ?
+                new ObjectParameter("idinstitucion2", idinstitucion2) :
+                new ObjectParameter("idinstitucion2", typeof(int));
+    
+            var cantidadParameter = cantidad.HasValue ?
+                new ObjectParameter("cantidad", cantidad) :
+                new ObjectParameter("cantidad", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarMetas", idmetasParameter, fechaderegistroParameter, idestrategia2Parameter, idtiposactividad2Parameter, idinstitucion2Parameter, cantidadParameter);
+        }
+    
+        public virtual int ActualizarSeguimiento(Nullable<int> idsegimiento, Nullable<System.DateTime> fecha, Nullable<int> idmunicipio1, Nullable<int> idcomunidad1, Nullable<int> idinstitucion1, Nullable<int> idestrategia1, Nullable<int> idtiposactividad1, string descripcion, Nullable<int> varones, Nullable<int> mujeres)
+        {
+            var idsegimientoParameter = idsegimiento.HasValue ?
+                new ObjectParameter("idsegimiento", idsegimiento) :
+                new ObjectParameter("idsegimiento", typeof(int));
+    
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("fecha", fecha) :
+                new ObjectParameter("fecha", typeof(System.DateTime));
+    
+            var idmunicipio1Parameter = idmunicipio1.HasValue ?
+                new ObjectParameter("idmunicipio1", idmunicipio1) :
+                new ObjectParameter("idmunicipio1", typeof(int));
+    
+            var idcomunidad1Parameter = idcomunidad1.HasValue ?
+                new ObjectParameter("idcomunidad1", idcomunidad1) :
+                new ObjectParameter("idcomunidad1", typeof(int));
+    
+            var idinstitucion1Parameter = idinstitucion1.HasValue ?
+                new ObjectParameter("idinstitucion1", idinstitucion1) :
+                new ObjectParameter("idinstitucion1", typeof(int));
+    
+            var idestrategia1Parameter = idestrategia1.HasValue ?
+                new ObjectParameter("idestrategia1", idestrategia1) :
+                new ObjectParameter("idestrategia1", typeof(int));
+    
+            var idtiposactividad1Parameter = idtiposactividad1.HasValue ?
+                new ObjectParameter("idtiposactividad1", idtiposactividad1) :
+                new ObjectParameter("idtiposactividad1", typeof(int));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("descripcion", descripcion) :
+                new ObjectParameter("descripcion", typeof(string));
+    
+            var varonesParameter = varones.HasValue ?
+                new ObjectParameter("varones", varones) :
+                new ObjectParameter("varones", typeof(int));
+    
+            var mujeresParameter = mujeres.HasValue ?
+                new ObjectParameter("mujeres", mujeres) :
+                new ObjectParameter("mujeres", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarSeguimiento", idsegimientoParameter, fechaParameter, idmunicipio1Parameter, idcomunidad1Parameter, idinstitucion1Parameter, idestrategia1Parameter, idtiposactividad1Parameter, descripcionParameter, varonesParameter, mujeresParameter);
+        }
+    
+        public virtual int EliminarIBovina(Nullable<int> idinseminacionB)
+        {
+            var idinseminacionBParameter = idinseminacionB.HasValue ?
+                new ObjectParameter("idinseminacionB", idinseminacionB) :
+                new ObjectParameter("idinseminacionB", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EliminarIBovina", idinseminacionBParameter);
+        }
+    
+        public virtual int EliminarIPorcina(Nullable<int> idinseminacion)
+        {
+            var idinseminacionParameter = idinseminacion.HasValue ?
+                new ObjectParameter("idinseminacion", idinseminacion) :
+                new ObjectParameter("idinseminacion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EliminarIPorcina", idinseminacionParameter);
+        }
+    
+        public virtual int EliminarMetas(Nullable<int> idmetas)
+        {
+            var idmetasParameter = idmetas.HasValue ?
+                new ObjectParameter("idmetas", idmetas) :
+                new ObjectParameter("idmetas", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EliminarMetas", idmetasParameter);
+        }
+    
+        public virtual int EliminarSeguimiento(Nullable<int> idsegimiento)
+        {
+            var idsegimientoParameter = idsegimiento.HasValue ?
+                new ObjectParameter("idsegimiento", idsegimiento) :
+                new ObjectParameter("idsegimiento", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EliminarSeguimiento", idsegimientoParameter);
+        }
+    
+        public virtual int guardaractividad(Nullable<System.DateTime> fecha, Nullable<int> idmunicipio1, Nullable<int> idcomunidad1, Nullable<int> idinstitucion1, Nullable<int> idestrategia1, Nullable<int> idtiposactividad1, string descripcion, Nullable<int> varones, Nullable<int> mujeres)
+        {
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("fecha", fecha) :
+                new ObjectParameter("fecha", typeof(System.DateTime));
+    
+            var idmunicipio1Parameter = idmunicipio1.HasValue ?
+                new ObjectParameter("idmunicipio1", idmunicipio1) :
+                new ObjectParameter("idmunicipio1", typeof(int));
+    
+            var idcomunidad1Parameter = idcomunidad1.HasValue ?
+                new ObjectParameter("idcomunidad1", idcomunidad1) :
+                new ObjectParameter("idcomunidad1", typeof(int));
+    
+            var idinstitucion1Parameter = idinstitucion1.HasValue ?
+                new ObjectParameter("idinstitucion1", idinstitucion1) :
+                new ObjectParameter("idinstitucion1", typeof(int));
+    
+            var idestrategia1Parameter = idestrategia1.HasValue ?
+                new ObjectParameter("idestrategia1", idestrategia1) :
+                new ObjectParameter("idestrategia1", typeof(int));
+    
+            var idtiposactividad1Parameter = idtiposactividad1.HasValue ?
+                new ObjectParameter("idtiposactividad1", idtiposactividad1) :
+                new ObjectParameter("idtiposactividad1", typeof(int));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("descripcion", descripcion) :
+                new ObjectParameter("descripcion", typeof(string));
+    
+            var varonesParameter = varones.HasValue ?
+                new ObjectParameter("varones", varones) :
+                new ObjectParameter("varones", typeof(int));
+    
+            var mujeresParameter = mujeres.HasValue ?
+                new ObjectParameter("mujeres", mujeres) :
+                new ObjectParameter("mujeres", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("guardaractividad", fechaParameter, idmunicipio1Parameter, idcomunidad1Parameter, idinstitucion1Parameter, idestrategia1Parameter, idtiposactividad1Parameter, descripcionParameter, varonesParameter, mujeresParameter);
+        }
+    
+        public virtual ObjectResult<listarActividad_Result> listarActividad(Nullable<int> idestrategia2)
+        {
+            var idestrategia2Parameter = idestrategia2.HasValue ?
+                new ObjectParameter("idestrategia2", idestrategia2) :
+                new ObjectParameter("idestrategia2", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<listarActividad_Result>("listarActividad", idestrategia2Parameter);
+        }
+    
+        public virtual ObjectResult<ListarDatosInseminacionB_Result> ListarDatosInseminacionB()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarDatosInseminacionB_Result>("ListarDatosInseminacionB");
+        }
+    
+        public virtual ObjectResult<ListarDatosInseminacionB2_Result> ListarDatosInseminacionB2()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarDatosInseminacionB2_Result>("ListarDatosInseminacionB2");
+        }
+    
+        public virtual ObjectResult<ListarDatosInseminacionB3_Result> ListarDatosInseminacionB3()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarDatosInseminacionB3_Result>("ListarDatosInseminacionB3");
         }
     
         public virtual ObjectResult<ListarDatosInseminacionPorcina_Result> ListarDatosInseminacionPorcina()
@@ -53,14 +460,45 @@ namespace SINFO.models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarDatosInseminacionPorcina_Result>("ListarDatosInseminacionPorcina");
         }
     
+        public virtual ObjectResult<ListarDatosInseminacionPorcina2_Result> ListarDatosInseminacionPorcina2()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarDatosInseminacionPorcina2_Result>("ListarDatosInseminacionPorcina2");
+        }
+    
         public virtual ObjectResult<ListarMetas_Result> ListarMetas()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarMetas_Result>("ListarMetas");
         }
     
-        public virtual ObjectResult<ListarDatosInseminacionB_Result> ListarDatosInseminacionB()
+        public virtual ObjectResult<ReporteporfechasInseminacionB_Result> ReporteporfechasInseminacionB(Nullable<System.DateTime> fechainicial, Nullable<System.DateTime> fechafinal)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarDatosInseminacionB_Result>("ListarDatosInseminacionB");
+            var fechainicialParameter = fechainicial.HasValue ?
+                new ObjectParameter("fechainicial", fechainicial) :
+                new ObjectParameter("fechainicial", typeof(System.DateTime));
+    
+            var fechafinalParameter = fechafinal.HasValue ?
+                new ObjectParameter("fechafinal", fechafinal) :
+                new ObjectParameter("fechafinal", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ReporteporfechasInseminacionB_Result>("ReporteporfechasInseminacionB", fechainicialParameter, fechafinalParameter);
+        }
+    
+        public virtual ObjectResult<Reporteporfechasseguimiento_Result> Reporteporfechasseguimiento(Nullable<System.DateTime> fechainicial, Nullable<System.DateTime> fechafinal)
+        {
+            var fechainicialParameter = fechainicial.HasValue ?
+                new ObjectParameter("fechainicial", fechainicial) :
+                new ObjectParameter("fechainicial", typeof(System.DateTime));
+    
+            var fechafinalParameter = fechafinal.HasValue ?
+                new ObjectParameter("fechafinal", fechafinal) :
+                new ObjectParameter("fechafinal", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Reporteporfechasseguimiento_Result>("Reporteporfechasseguimiento", fechainicialParameter, fechafinalParameter);
+        }
+    
+        public virtual ObjectResult<ListarDatosSeguimientoss_Result> ListarDatosSeguimientoss()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarDatosSeguimientoss_Result>("ListarDatosSeguimientoss");
         }
     }
 }

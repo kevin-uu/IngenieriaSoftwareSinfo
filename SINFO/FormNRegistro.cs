@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace SINFO
 {
     public partial class FormNRegistro : Form
@@ -22,7 +23,12 @@ namespace SINFO
         public FormNRegistro()
         {
             InitializeComponent();
-            
+            cmbMunicipio.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbComunidad.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbEstrategia.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTipodeActividad.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbInstitucion.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }         
 
         #region carga de combo municipio y combo comunidad
@@ -114,6 +120,7 @@ namespace SINFO
     
         private void FormNRegistro_Load(object sender, EventArgs e)
         {
+            btnguardar.Enabled = false;
             Cargarcmbmunicipio();
             Cargarcmbestrategia();
             Cargarcmbinstitucion();
@@ -121,11 +128,19 @@ namespace SINFO
 
         #region Boton Guardar Registro
         private void btnguardar_Click(object sender, EventArgs e)
-        {
-            guardar();                                           //metodo guardar activa el guardado y se guarda en tablaseguimiento por medio el motodo GuardarNuevaActividad ya que este metodo esta esperando la tabla con los datos cargados
-            objSeguimeinto.GuardarNuevaActividad(tablaseguimiento);       //objeto dato pido el metodo GuardarNuevaActividad y lo que esta en objeto tablaseguimiento
-            MessageBox.Show("guardado");
-            
+        {                                           
+            DateTime mañana = DateTime.Today;
+            if (dtpFechaRegistro.Value.Date > mañana)
+            {
+                MessageBox.Show("no se puede seleccionar una fecha mayor a la actual", "Error de Ingreso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else
+            {
+                guardar();//metodo guardar activa el guardado y se guarda en tablaseguimiento por medio el motodo GuardarNuevaActividad ya que este metodo esta esperando la tabla con los datos cargados
+                objSeguimeinto.GuardarNuevaActividad(tablaseguimiento);       //objeto dato pido el metodo GuardarNuevaActividad y lo que esta en objeto tablaseguimiento
+                MessageBox.Show("guardado");
+            }   
         }
         #endregion
 
@@ -173,9 +188,43 @@ namespace SINFO
                 WindowState = FormWindowState.Minimized;
         }
         #endregion
-       
 
+        #region metodo para validar fecha
+
+        public void validarfecha()
+        {
+            DateTime mañana = DateTime.Today;
+            if (dtpFechaRegistro.Value.Date>mañana)
+            {
+                MessageBox.Show("no se puede seleccionar una fecha mayo a la actual","Error de Ingreso",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+
+        }
+        #endregion
+
+        #region evento keypress txtvarones y mujeres
+        private void txtVarones_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            vali.Numero(e);
+        }
+        #endregion
+
+        #region Metodo de validacion de espacios vacios
+        public void Validaciondeespaciovacios()
+        {
+            var vr = !string.IsNullOrEmpty(txtDescripcion.Text) && !string.IsNullOrEmpty(txtMujeres.Text)&& !string.IsNullOrEmpty(txtVarones.Text)
+            && !string.IsNullOrEmpty(cmbInstitucion.Text);
+            btnguardar.Enabled = vr;
+        }
+        #endregion
+
+        private void txtDescripcion_TextChanged(object sender, EventArgs e)
+        {
+            Validaciondeespaciovacios();
+        }
     }
+
+
 
 
 }

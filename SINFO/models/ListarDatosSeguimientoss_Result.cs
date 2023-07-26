@@ -24,6 +24,5 @@ namespace SINFO.models
         public string Descripcion { get; set; }
         public Nullable<int> Varones { get; set; }
         public Nullable<int> Mujeres { get; set; }
-        public Nullable<int> Total_Participantes { get; set; }
     }
 }

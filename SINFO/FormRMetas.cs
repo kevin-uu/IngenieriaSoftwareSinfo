@@ -78,6 +78,7 @@ namespace SINFO
         #region Metodo para Guardar los Datos y sus Respectivas Conversiones
         public void guardar()
         {
+            tablametas.fechaderegistro = dtpFechaRegistro.Value;
             tablametas.idestrategia2 = Convert.ToInt32(cmbEstrategia.SelectedValue);
             tablametas.idtiposactividad2 = Convert.ToInt32(cmbTipodeActividad.SelectedValue); //el select value se usa porque es el valor real
             tablametas.idinstitucion2 = Convert.ToInt32(cmbInstitucion.SelectedValue);      //se convierte a entero porque la base recibe en estos campos parametros 

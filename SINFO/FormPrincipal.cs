@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Aspose.Cells;
 using CapaNegocio;
+using SINFO.CapaSoporte.Cache;
 
 namespace SINFO
 {
     public partial class FormPrincipal : Form
     {
+
         public FormPrincipal()
         {
             InitializeComponent();
@@ -81,6 +84,7 @@ namespace SINFO
         private void btnseguimiento_Click(object sender, EventArgs e)
         {
             mostrasubmenu(panelsubmenuseguimiento);
+            
         }
 
         private void btnnuevoseguimiento_Click(object sender, EventArgs e)
@@ -102,6 +106,7 @@ namespace SINFO
         private void btninseminacionporcina_Click(object sender, EventArgs e)
         {
             mostrasubmenu(panelsubmenuIP);
+            
         }
 
         private void btnnuevoregistroinseminacionP_Click(object sender, EventArgs e)
@@ -122,7 +127,14 @@ namespace SINFO
 
         private void btnreporteIP_Click(object sender, EventArgs e)
         {
+            abrirformulariohijo(new reporteInseminacionP());
             //debajo de todo el codigo de accion de cada uno de los botones del sub menu siempre invocar al metodo ocultarsubmenu
+            ocultarsubmenu();
+        }
+
+        private void btnRegistroPartoP_Click(object sender, EventArgs e)
+        {
+            abrirformulariohijo(new FormPartoIP());
             ocultarsubmenu();
         }
         #endregion
@@ -131,6 +143,7 @@ namespace SINFO
         private void btninseminacionbovina_Click(object sender, EventArgs e)
         {
             mostrasubmenu(panelsubmenuIB);
+            
         }
 
         private void btnnuevoregistroinseminacionB_Click(object sender, EventArgs e)
@@ -151,10 +164,17 @@ namespace SINFO
 
         private void btnreporteIB_Click(object sender, EventArgs e)
         {
+            abrirformulariohijo(new reporteInseminacionB());
             //debajo de todo el codigo de accion de cada uno de los botones del sub menu siempre invocar al metodo ocultarsubmenu
             ocultarsubmenu();
         }
 
+        private void btnRegistroPartoB_Click(object sender, EventArgs e)
+        {
+            abrirformulariohijo(new FormPartoIB());
+            //debajo de todo el codigo de accion de cada uno de los botones del sub menu siempre invocar al metodo ocultarsubmenu
+            ocultarsubmenu();
+        }
         #endregion
 
         #region sub menu metas
@@ -162,6 +182,7 @@ namespace SINFO
         private void btnmetas_Click(object sender, EventArgs e)
         {
             mostrasubmenu(panelsubmenumetas);
+            
         }
         private void btnnuevoregistrometas_Click(object sender, EventArgs e)
         {
@@ -181,8 +202,54 @@ namespace SINFO
             ocultarsubmenu();
         }
 
+
         #endregion
 
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+            LoadUserData();
+            //condicion donde preguntamos si el cargo del usuario
+            // es tecnico 
+            if (CacheInicioSesionUsuario.Position == cargos.Tecnico)
+            {
+                btnactualizarregistroIP.Enabled = false; // entonces desactivamos el boton actualizar
+                btnactualizarregistroIB.Enabled = false;
+                btnnuevoregistrometas.Enabled = false;
+                btnactualizarmetas.Enabled = false;
+            }
+        }
 
+        #region Boton Cerrar Sesion
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("desea cerrar esta aplicacion", "Warning",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                this.Close();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("desea cerrar esta aplicacion", "Warning",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                this.Close();
+        }
+
+        #endregion
+
+        #region metodo para cargar los datos del cache en los label
+        private void LoadUserData()
+        {
+            lblNombre.Text = CacheInicioSesionUsuario.LoginName;
+            lblposicion.Text = CacheInicioSesionUsuario.Position;
+            lblcorreo.Text = CacheInicioSesionUsuario.Email;
+
+            //mamaño al que debe llegar le menu latera
+            //298
+        }
+
+
+        #endregion
+
+        
     }
 }

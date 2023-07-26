@@ -1,4 +1,3 @@
-﻿
 namespace SINFO
 {
     partial class FormActualizarSeguimiento
@@ -32,6 +31,8 @@ namespace SINFO
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvActualizar = new System.Windows.Forms.DataGridView();
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.button4 = new System.Windows.Forms.Button();
             this.cmbTipodeActividad = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -55,8 +56,6 @@ namespace SINFO
             this.txtActualizarSeguimiento = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActualizar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,6 +99,24 @@ namespace SINFO
             this.dgvActualizar.Size = new System.Drawing.Size(874, 391);
             this.dgvActualizar.TabIndex = 0;
             this.dgvActualizar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvActualizar_CellClick_1);
+            // 
+            // Editar
+            // 
+            this.Editar.HeaderText = "Editar";
+            this.Editar.Image = global::SINFO.Properties.Resources.editar;
+            this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Width = 40;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Image = global::SINFO.Properties.Resources.borrar;
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 49;
             // 
             // button4
             // 
@@ -234,6 +251,7 @@ namespace SINFO
             // 
             // dtpFechaRegistro
             // 
+            this.dtpFechaRegistro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaRegistro.Location = new System.Drawing.Point(73, 15);
             this.dtpFechaRegistro.Name = "dtpFechaRegistro";
             this.dtpFechaRegistro.Size = new System.Drawing.Size(194, 20);
@@ -244,16 +262,20 @@ namespace SINFO
             this.txtMujeres.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMujeres.Location = new System.Drawing.Point(973, 500);
             this.txtMujeres.Name = "txtMujeres";
-            this.txtMujeres.Size = new System.Drawing.Size(10, 20);
+            this.txtMujeres.ShortcutsEnabled = false;
+            this.txtMujeres.Size = new System.Drawing.Size(18, 20);
             this.txtMujeres.TabIndex = 51;
+            this.txtMujeres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVarones_KeyPress);
             // 
             // txtVarones
             // 
             this.txtVarones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtVarones.Location = new System.Drawing.Point(973, 461);
             this.txtVarones.Name = "txtVarones";
-            this.txtVarones.Size = new System.Drawing.Size(10, 20);
+            this.txtVarones.ShortcutsEnabled = false;
+            this.txtVarones.Size = new System.Drawing.Size(18, 20);
             this.txtVarones.TabIndex = 50;
+            this.txtVarones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVarones_KeyPress);
             // 
             // label11
             // 
@@ -295,6 +317,7 @@ namespace SINFO
             this.txtDescripcion.Location = new System.Drawing.Point(908, 205);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.ShortcutsEnabled = false;
             this.txtDescripcion.Size = new System.Drawing.Size(178, 223);
             this.txtDescripcion.TabIndex = 46;
             // 
@@ -339,24 +362,6 @@ namespace SINFO
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Width = 49;
-            // 
-            // Editar
-            // 
-            this.Editar.HeaderText = "Editar";
-            this.Editar.Image = global::SINFO.Properties.Resources.editar;
-            this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Editar.Name = "Editar";
-            this.Editar.ReadOnly = true;
-            this.Editar.Width = 40;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Image = global::SINFO.Properties.Resources.borrar;
-            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 49;
             // 
             // FormActualizarSeguimiento
             // 

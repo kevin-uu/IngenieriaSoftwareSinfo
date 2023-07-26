@@ -21,5 +21,23 @@ namespace SINFO
         {
             
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            FormRpSeguimientoTodas RpM = new FormRpSeguimientoTodas();
+            RpM.ShowDialog();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            FormRpSeguimiento RpM = new FormRpSeguimiento();
+            RpM.ShowDialog();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            FormRpSeguimientoFechas RpM = new FormRpSeguimientoFechas();
+            RpM.ShowDialog();
+        }
     }
 }
